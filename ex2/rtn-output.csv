@@ -1,0 +1,1008 @@
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, bar, 0x63d2ed76f134, 32000, 4000
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, gal, 0x63d2ed76f149, 32000, 4000
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_relocate_object, 0x785988b34240, 24475, 4
+RAX values: 0x0 -> 0x785988b5dab0 -> 0x785974402af0 -> 0x785974227290 -> 0x785974402b00 -> 0x1ffc60 -> 0x7859743ffc60 -> 0x913800001fdf811d -> 0x489c00000fefc08e -> 0x244e000007f7e047 -> 0x1227000003fbf023 -> 0x913800001fdf811 -> 0x489c00000fefc08 -> 0x244e000007f7e04 -> 0x1227000003fbf02 -> 0x913800001fdf81 -> 0x489c00000fefc0 -> 0x244e000007f7e0 -> 0x1227000003fbf0 -> 0x913800001fdf8   Has an Average delta: Yes   Average delta: 0xd78e26a6b77d9b2
+RBX values: 0x7859742264c8 -> 0x7859742264e0 -> 0x7859742264f8 -> 0x785974226510 -> 0x785974226528 -> 0x785974226540 -> 0x785974226558 -> 0x785974226570 -> 0x785974226588 -> 0x7859742265a0 -> 0x7859742265b8 -> 0x7859742265d0 -> 0x7859742265e8 -> 0x785974226600 -> 0x785974226618 -> 0x785974226630 -> 0x785974226648 -> 0x785974226660 -> 0x785974226678 -> 0x785974226690   Has an Average delta: Yes   Average delta: 0x18
+RCX values: 0x7859743ffc68 -> 0x7859743ffc70 -> 0x7859743ffc78 -> 0x7859743ffc80 -> 0x7859743ffc88 -> 0x7859743ffc90 -> 0x7859743ffc98 -> 0x7859743ffca0 -> 0x7859743ffca8 -> 0x7859743ffcb0 -> 0x7859743ffcb8 -> 0x7859743ffcc0 -> 0x7859743ffcc8 -> 0x7859743ffcd0 -> 0x7859743ffcd8 -> 0x7859743ffce0 -> 0x7859743ffce8 -> 0x7859743ffcf0 -> 0x7859743ffcf8 -> 0x7859743ffd00   Has an Average delta: Yes   Average delta: 0x8
+RDX values: 0xf0b2e8427290 -> 0x785974227290 -> 0x785974227298 -> 0x7859742272a0 -> 0x7859742272a8 -> 0x7859742272b0 -> 0x7859742272b8 -> 0x7859742272c0 -> 0x7859742272c8 -> 0x7859742272d0 -> 0x7859742272d8 -> 0x7859742272e0 -> 0x7859742272e8 -> 0x7859742272f0 -> 0x7859742272f8 -> 0x785974227300 -> 0x785974227308 -> 0x785974227310 -> 0x785974227318 -> 0x785974227320   Has an Average delta: Yes   Average delta: 0x6558cd94365
+RSI values: 0x100 -> 0x785974227390 -> 0x810 -> 0xf0b2e84095e0 -> 0x785974224630 -> 0x7ffe7b4ae350 -> 0x785974200000 -> 0x7859743ffc68 -> 0x785974bbb160 -> 0x785974200000 -> 0x785974402d80 -> 0x785974402d80 -> 0x785974200000 -> 0x785974402d88 -> 0x785974402d88 -> 0x785974200000 -> 0x785974402d90 -> 0x785974402d90 -> 0x785974200000 -> 0x785974402d98   Has an Average delta: Yes   Average delta: 0x2079c11bc84a
+RDI values: 0x7859743ffc68 -> 0x7859743ffe60 -> 0x785974400058 -> 0x785974400250 -> 0x785974400448 -> 0x785974400640 -> 0x785974400838 -> 0x785974400a30 -> 0x785974400c28 -> 0x785974400e20 -> 0x785974401018 -> 0x785974401210 -> 0x785974401408 -> 0x785974401600 -> 0x7859744017f8 -> 0x7859744019f0 -> 0x785974401be8 -> 0x785974401de0 -> 0x785974401fd8 -> 0x7859744021d0   Has an Average delta: Yes   Average delta: 0x1f8
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, foo, 0x63d2ed76f129, 24000, 4000
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, do_lookup_x, 0x785988b2f530, 20430, 95
+RAX values: 0x785988b5e8c0 -> 0x7ffe7b50e430 -> 0x7ffe7b50e000 -> 0x7ffe7b50e300 -> 0x2004111b024c1 -> 0x2004111 -> 0x7ffe7b50e188 -> 0x7ffe7b4ae284 -> 0x7ffe7b50e1b4 -> 0x24 -> 0x9 -> 0x7ffe7b4ae360 -> 0x785988b5e8c0 -> 0x7ffe7b50e430 -> 0x7ffe7b50e000 -> 0x7ffe7b50e300 -> 0x2004111b024c1 -> 0x2004111b024c1 -> 0x7ffe7b50e188 -> 0x7ffe7b4ae284   Has an Average delta: Yes   Average delta: 0x6d0ccb813694
+RBX values: 0x785988b5e8c0 -> 0x785988b5b370 -> 0x785988b5e8c0 -> 0x785988b5b370 -> 0x785988b5e8c0 -> 0x785988b5b370 -> 0x785988b5e8c0 -> 0x785988b5b370 -> 0x785988b5e8c0 -> 0x785988b5b370 -> 0x785988b5e2e0 -> 0x785974bbb160 -> 0x785974bbb7c0 -> 0x785988b5e2e0 -> 0x785974bbb160 -> 0x785974bbb7c0 -> 0x785988b5e2e0 -> 0x785974bbb160 -> 0x785974bbb7c0 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x64f1de8
+RCX values: 0x7ffe7b4ae288 -> 0x7ffe7b50e2a0 -> 0x7ffe7b4ae288 -> 0x7ffe7b50e1f8 -> 0x7ffe7b4ae288 -> 0x7ffe7b50e258 -> 0x7ffe7b4ae288 -> 0x7ffe7b50e2d0 -> 0x7ffe7b4ae288 -> 0x7ffe7b50e228 -> 0x7ffe7b4ae158 -> 0x785974219570 -> 0x7ffe7b4ae158 -> 0x78597421b058 -> 0x7ffe7b4ae158 -> 0x785974209ca0 -> 0x7ffe7b4ae158 -> 0x785974213258 -> 0x7ffe7b4ae158 -> 0x785974212a18   Has an Average delta: Yes   Average delta: 0x39f0367b72a
+RDX values: 0x7ffe7b50e420 -> 0x7ffe7b50e178 -> 0x2004111b024c1 -> 0x8010446c093 -> 0x4011 -> 0x7ffe7b50e190 -> 0x1b -> 0x785988b5b370 -> 0x7ffe7b50e420 -> 0x7ffe7b50e178 -> 0x2004111b024c1 -> 0x2004111b -> 0x1 -> 0x7ffe7b50e190 -> 0x6 -> 0x785988b5b370 -> 0x7ffe7b50e420 -> 0x7ffe7b50e178 -> 0x2004111b024c1 -> 0x200411   Has an Average delta: Yes   Average delta: 0xb5f95c6b1b7a
+RSI values: 0x1c8 -> 0x7ffe7b50e1c8 -> 0x7ffe7b4ae470 -> 0x1c8 -> 0x7ffe7b50e1c8 -> 0x7ffe7b4ae470 -> 0x1c8 -> 0x7ffe7b50e1c8 -> 0x7ffe7b4ae470 -> 0x1c8 -> 0x7ffe7b50e1c8 -> 0x7ffe7b4ae470 -> 0x1c8 -> 0x7ffe7b50e1c8 -> 0x7ffe7b4ae470 -> 0x63d2ed76e3d8 -> 0x7859742095e0 -> 0x785974219570 -> 0x63d2ed76e3d8 -> 0x7859742095e0   Has an Average delta: Yes   Average delta: 0x415a2eb87896
+RDI values: 0x785988b53ec5 -> 0x785988b53eda -> 0x785988b53eee -> 0x785988b53efa -> 0x785988b53f08 -> 0x785974222b97 -> 0x78597421dd10 -> 0x78597421be47 -> 0x78597421c2bb -> 0x78597421c874 -> 0x78597421db9e -> 0x78597421ce37 -> 0x7859742210aa -> 0x78597421d80a -> 0x78597421da21 -> 0x78597421dd35 -> 0x78597421de7b -> 0x78597421deed -> 0x78597421e3ce -> 0x78597421e4ec   Has an Average delta: Yes   Average delta: 0x1154617
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, main, 0x63d2ed76f15e, 20040, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_lookup_symbol_x, 0x785988b300d0, 18196, 95
+RAX values: 0x785988b5ec90 -> 0x0 -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b5e8c0 -> 0x785988b5ec90 -> 0x0 -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b5e8c0 -> 0x785988b5ec90 -> 0x0 -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b5e8c0 -> 0x785988b5ec90 -> 0x0 -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b5e8c0   Has an Average delta: Yes   Average delta: 0x35e469cec8e0
+RBX values: 0x785988b5b370 -> 0x785988b53ec5 -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b53eda -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b53eee -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b53efa -> 0x7ffe7b4ae470 -> 0x785988b5b370 -> 0x785988b53f08 -> 0x7ffe7b4ae470 -> 0x785974bbb7c0 -> 0x785974222b97 -> 0x7859742264c8 -> 0x785974bbb7c0 -> 0x78597421dd10   Has an Average delta: Yes   Average delta: 0x405fa15dcf1
+RCX values: 0x785988b53ec5 -> 0x785988b53ec7 -> 0x785988b53ec9 -> 0x785988b53ecb -> 0x785988b53ecd -> 0x785988b53ecf -> 0x785988b53ed1 -> 0x785988b53ed3 -> 0x785988b53ed5 -> 0x785988b53ed7 -> 0x785988b53ed9 -> 0x7ffe7b4ae470 -> 0x7ffe7b4ae470 -> 0x785988b53eda -> 0x785988b53edc -> 0x785988b53ede -> 0x785988b53ee0 -> 0x785988b53ee2 -> 0x785988b53ee4 -> 0x785988b53ee6   Has an Average delta: Yes   Average delta: 0xcdfe967d39
+RDX values: 0x7ffe7b4ae358 -> 0x0 -> 0x7ffe7b4ae358 -> 0x0 -> 0x7ffe7b4ae358 -> 0x0 -> 0x7ffe7b4ae358 -> 0x0 -> 0x7ffe7b4ae358 -> 0x0 -> 0x7ffe7b4ae228 -> 0x0 -> 0x7ffe7b4ae228 -> 0x0 -> 0x7ffe7b4ae228 -> 0x0 -> 0x7ffe7b4ae228 -> 0x0 -> 0x7ffe7b4ae228 -> 0x0   Has an Average delta: Yes   Average delta: 0x7ffe7b4ae2b8
+RSI values: 0x7ffe7b4ae360 -> 0x7ffe7b4ae460 -> 0x7ffe7b4ae360 -> 0x7ffe7b4ae460 -> 0x7ffe7b4ae360 -> 0x7ffe7b4ae460 -> 0x7ffe7b4ae360 -> 0x7ffe7b4ae460 -> 0x7ffe7b4ae360 -> 0x7ffe7b4ae460 -> 0x7ffe7b4ae230 -> 0x7ffe7b4ae358 -> 0x7ffe7b4ae230 -> 0x7ffe7b4ae358 -> 0x7ffe7b4ae230 -> 0x7ffe7b4ae358 -> 0x7ffe7b4ae230 -> 0x7ffe7b4ae358 -> 0x7ffe7b4ae230 -> 0x7ffe7b4ae358   Has an Average delta: Yes   Average delta: 0x122
+RDI values: 0x7ffe7b4ae358 -> 0x785988b53ec5 -> 0x7ffe7b50e2a0 -> 0x7ffe7b4ae358 -> 0x785988b53eda -> 0x7ffe7b50e1f8 -> 0x7ffe7b4ae358 -> 0x785988b53eee -> 0x7ffe7b50e258 -> 0x7ffe7b4ae358 -> 0x785988b53efa -> 0x7ffe7b50e2d0 -> 0x7ffe7b4ae358 -> 0x785988b53f08 -> 0x7ffe7b50e228 -> 0x7ffe7b4ae228 -> 0x785974222b97 -> 0x785974219570 -> 0x7ffe7b4ae228 -> 0x78597421dd10   Has an Average delta: Yes   Average delta: 0x53afa150d99
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __GI___tunables_init, 0x785988b3a8b0, 12739, 1
+RAX values: 0x2 -> 0x3 -> 0x4 -> 0x5 -> 0x6 -> 0x7ffe7b4afb24 -> 0x2 -> 0x3 -> 0x4 -> 0x5 -> 0x6 -> 0x7 -> 0x8 -> 0x9 -> 0xa -> 0xb -> 0xc -> 0xd -> 0xe -> 0xf   Has an Average delta: Yes   Average delta: 0xd791a73aea5
+RBX values: 0x785988b5b440 -> 0x785988b45af0   Has an Average delta: Yes   Average delta: 0x15950
+RCX values: 0x1 -> 0x2 -> 0x3 -> 0x4 -> 0x5 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24 -> 0x7ffe7b4afb24   Has an Average delta: Yes   Average delta: 0x6bc8d39d752
+RDX values: 0x785988b5b4a9 -> 0x785988b5b531 -> 0x785988b5b5b9 -> 0x785988b5b641 -> 0x785988b5b6c9 -> 0x785988b5b751 -> 0x785988b5b7d9 -> 0x785988b5b861 -> 0x785988b5b8e9 -> 0x785988b5b971 -> 0x785988b5b9f9 -> 0x785988b5ba81 -> 0x785988b5bb09 -> 0x785988b5bb91 -> 0x785988b5bc19 -> 0x785988b5bca1 -> 0x785988b5bd29 -> 0x785988b5bdb1 -> 0x785988b5be39 -> 0x785988b5bec1   Has an Average delta: Yes   Average delta: 0x88
+RSI values: 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302 -> 0x785988b53302   Has an Average delta: Yes   Average delta: 0x0
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, strcmp, 0x785988b4c4e0, 5888, 161
+RAX values: 0x18 -> 0x21 -> 0x1 -> 0x15 -> 0xa -> 0x10 -> 0x36 -> 0xe -> 0xa -> 0xa -> 0xa -> 0xa -> 0xa -> 0xa -> 0xa -> 0xa -> 0xa -> 0x39 -> 0x39 -> 0x26   Has an Average delta: Yes   Average delta: 0xb
+RBX values:    Has an Average delta: No
+RCX values: 0x1 -> 0x5 -> 0x1a -> 0x2e -> 0x3a -> 0x10 -> 0x8 -> 0x10 -> 0x38 -> 0x38 -> 0x18 -> 0x18 -> 0x1 -> 0x1 -> 0x31 -> 0x31 -> 0x31 -> 0x5 -> 0xe -> 0x2b   Has an Average delta: Yes   Average delta: 0x11
+RDX values: 0x0 -> 0x4 -> 0x3 -> 0xb -> 0x7 -> 0xb -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x1 -> 0x1 -> 0x2 -> 0x2 -> 0x2 -> 0x0 -> 0x1 -> 0x9 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x2
+RSI values: 0x785988b53ed5 -> 0x785988b53ed0 -> 0x785988b53ed5 -> 0x785988b53eea -> 0x785988b53ee0 -> 0x785988b53eea -> 0x785988b53ef0 -> 0x785988b53f00 -> 0x785988b53f00 -> 0x785988b53f10 -> 0x785988b5e8b0 -> 0x63d2ed76e480 -> 0x63d2ed76e48a -> 0x785988b5e8b8 -> 0x785988b5e8b0 -> 0x63d2ed76e480 -> 0x63d2ed76e48a -> 0x785988b5e8b8 -> 0x7ffe7b50e370 -> 0x63d2ed76e480   Has an Average delta: Yes   Average delta: 0x634c920ee8d
+RDI values: 0x7ffe7b50e331 -> 0x7ffe7b50e330 -> 0x7ffe7b50e331 -> 0x7ffe7b50e311 -> 0x7ffe7b50e310 -> 0x7ffe7b50e311 -> 0x7ffe7b50e340 -> 0x7ffe7b50e350 -> 0x7ffe7b50e330 -> 0x7ffe7b50e33e -> 0x63d2ed76e480 -> 0x785988b5e8b0 -> 0x785988b5e8b8 -> 0x63d2ed76e48a -> 0x63d2ed76e480 -> 0x785988b5e8b0 -> 0x785988b5e8b8 -> 0x63d2ed76e48a -> 0x63d2ed76e480 -> 0x7ffe7b50e370   Has an Average delta: Yes   Average delta: 0x7495809442a
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, check_match, 0x785988b2f390, 5581, 93
+RAX values: 0x0 -> 0x7ffe7b50e2a0 -> 0x0 -> 0x7ffe7b50e1f8 -> 0x0 -> 0x7ffe7b50e258 -> 0x0 -> 0x7ffe7b50e2d0 -> 0x0 -> 0x7ffe7b50e228 -> 0x785974224630 -> 0x8002 -> 0x785974bbb790 -> 0x785974bbb7c0 -> 0x785974219570 -> 0x785974224630 -> 0x8002 -> 0x785974bbb790 -> 0x785974bbb7c0 -> 0x78597421b058   Has an Average delta: Yes   Average delta: 0x565e2af1f7ff
+RBX values: 0x7ffe7b50e2a0 -> 0x785988b5e8c0 -> 0x7ffe7b50e1f8 -> 0x785988b5e8c0 -> 0x7ffe7b50e258 -> 0x785988b5e8c0 -> 0x7ffe7b50e2d0 -> 0x785988b5e8c0 -> 0x7ffe7b50e228 -> 0x785988b5e8c0 -> 0x785974219570 -> 0x785974bbb160 -> 0x78597421b058 -> 0x785974bbb160 -> 0x785974209ca0 -> 0x785974bbb160 -> 0x785974213258 -> 0x785974bbb160 -> 0x785974212a18 -> 0x785974bbb160   Has an Average delta: Yes   Average delta: 0x39efb062e34
+RCX values:    Has an Average delta: No
+RDX values: 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x15 -> 0x63 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x6 -> 0x15 -> 0x6   Has an Average delta: Yes   Average delta: 0xb
+RSI values: 0x785988b53ec5 -> 0x785988b53eda -> 0x785988b53eee -> 0x785988b53efa -> 0x785988b53f08 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x78597421db9e -> 0x785974224622 -> 0x7859742245c3 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470   Has an Average delta: Yes   Average delta: 0x11540d6
+RDI values: 0x7ffe7b50e321 -> 0x0 -> 0x7ffe7b50e301 -> 0x0 -> 0x7ffe7b50e315 -> 0x0 -> 0x7ffe7b50e34a -> 0x0 -> 0x7ffe7b50e336 -> 0x0 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785974224470 -> 0x785988b25aa9 -> 0x785988b25c0c -> 0x7859742245c3 -> 0x785974224470 -> 0x785974224470   Has an Average delta: Yes   Average delta: 0x42f6860edd78
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_check_map_versions, 0x785988b3ac90, 2603, 4
+RAX values: 0x63d2ed76e468 -> 0x0 -> 0x0 -> 0x0 -> 0x63d2ed76e494 -> 0x785974bbb160 -> 0x7ffe7b4ae7a8 -> 0x785988b52cb5 -> 0x7859744029a0 -> 0x785988b5caa0 -> 0x785974402a80 -> 0x63d2ed76e4a0 -> 0x785974bbb160 -> 0x7ffe7b4ae7a8 -> 0x785988b52cb5 -> 0x7859744029a0 -> 0x785988b5caa0 -> 0x785974402a80 -> 0x63d2ed771f50 -> 0x63d2ed76e4f0   Has an Average delta: Yes   Average delta: 0x10703b297df0
+RBX values: 0x0 -> 0x63d2ed76e48a -> 0x63d2ed76e510 -> 0x63d2ed76e520 -> 0x0 -> 0x785988b5e2e0 -> 0x7ffe7b50e460 -> 0x785988b5e8c0 -> 0x785974402a80 -> 0x785974224451 -> 0x785974226498 -> 0x7859742264a8 -> 0x7859742264b8 -> 0x785974402a80 -> 0x785974402940 -> 0x785974402950 -> 0x785974402960 -> 0x785974402970 -> 0x785974402980 -> 0x785974402990   Has an Average delta: Yes   Average delta: 0x11a58ba902dd
+RCX values: 0x63d2ed76e468 -> 0x785988b5d000 -> 0x63d2ed76e468 -> 0x63d2ed76e468 -> 0x63d2ed76e468 -> 0x63d2ed76e468 -> 0x300 -> 0x7ffe7b50e300 -> 0x7ffe7b50e300 -> 0x78597421bdc0 -> 0x785988b5d000 -> 0x78597421bdc0 -> 0x78597421bdc0 -> 0x78597421bdc0 -> 0x78597421bdc0 -> 0x78597421bdc0 -> 0x785988b25950 -> 0x785988b25950   Has an Average delta: Yes   Average delta: 0x1043fe5d0768
+RDX values: 0x63d2ed771e80 -> 0x500 -> 0x63d2ed76e500 -> 0x25ed8 -> 0x785974225ed8 -> 0x25ed8 -> 0x785974225ed8 -> 0x63d2ed76e000 -> 0x7ffe7b50e420 -> 0x3a8 -> 0x7ffe7b50e3a8 -> 0x7ffe7b50e3c4 -> 0x7ffe7b50e000 -> 0x7ffe7b50e3a8 -> 0x7ffe7b50e3c4 -> 0x7859744029a0 -> 0x26488 -> 0x785974226488 -> 0xc70 -> 0x785988b25c70   Has an Average delta: Yes   Average delta: 0x4c8a0ef4e451
+RSI values: 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785974bbb160 -> 0x785974224470 -> 0x7859742245d9 -> 0x500 -> 0x63d2ed76e500 -> 0x7ffe7b50e381 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x785988b5dab0 -> 0x785988b25bd6 -> 0x785988b25be2 -> 0x785988b25c0c -> 0x26488   Has an Average delta: Yes   Average delta: 0x13ceaa7d23d3
+RDI values: 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e494 -> 0x63d2ed76e4a0 -> 0x785974bbb6e0 -> 0x785974bbb740 -> 0x785974224451 -> 0x785974224451 -> 0x785974224451 -> 0x785974224451 -> 0x785974224470 -> 0x785974224488 -> 0x785974224622 -> 0x785974bbb790 -> 0x8691 -> 0x785974224451 -> 0x785974bbbbd0   Has an Average delta: Yes   Average delta: 0xf5dbb685c2f
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, dl_main, 0x785988b45af0, 1760, 1
+RAX values: 0x7ffe7b4ae7b8 -> 0x785988b44540 -> 0x785988b53fa7 -> 0x7ffe7b4ae6b0 -> 0x63d2ed76f040 -> 0x68 -> 0x5b -> 0x63d2ed76e040 -> 0x63d2ed76e078 -> 0x63d2ed76e0b0 -> 0x63d2ed76e0e8 -> 0x63d2ed76e120 -> 0x63d2ed76e158 -> 0x63d2ed76e190 -> 0x63d2ed76e1c8 -> 0x63d2ed76e200 -> 0x63d2ed76e238 -> 0x63d2ed76e270 -> 0x63d2ed76e2a8 -> 0x63d2ed76e2e0   Has an Average delta: Yes   Average delta: 0xccb8ad6afd4
+RBX values: 0x7ffe7b4ae470 -> 0x785988b5e2e0 -> 0x63d2ed76e318 -> 0x63d2ed76e2e0 -> 0x63d2ed76e2a8 -> 0x63d2ed76e270 -> 0x63d2ed76e238 -> 0x63d2ed76e200 -> 0x63d2ed76e1c8 -> 0x63d2ed76e190 -> 0x63d2ed76e158 -> 0x63d2ed76e120 -> 0x63d2ed76e0e8 -> 0x63d2ed76e0b0 -> 0x63d2ed76e078 -> 0x63d2ed76e040 -> 0x0 -> 0x271 -> 0x785988b25bc1 -> 0x70000029   Has an Average delta: Yes   Average delta: 0x1367a331a9e2
+RCX values: 0x0 -> 0x7ffe7b4afb1e -> 0x63d2ed76f5ef -> 0x63d2ed76f000 -> 0x63d2ed7701b0 -> 0x63d2ed770000 -> 0x63d2ed77113b -> 0x63d2ed771000 -> 0x63d2ed773017 -> 0x63d2ed773000 -> 0x785988b5e320 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x0 -> 0x63d2ed771f50 -> 0x785988b5e2e0 -> 0x63d2ed771e70   Has an Average delta: Yes   Average delta: 0x170c551b6591
+RDX values: 0xffffffffffff4224 -> 0x785988b463c8 -> 0x63d2ed76e040 -> 0x63d2ed76e000 -> 0xffffffffffff4240 -> 0x785988b463e4 -> 0x63d2ed76e000 -> 0x63d2ed76e318 -> 0xffffffffffff3f72 -> 0x785988b46116 -> 0x0 -> 0x5f0 -> 0x63d2ed76e5f0 -> 0x63d2ed76f5ef -> 0xffffffffffff3f72 -> 0x785988b46116 -> 0x1000 -> 0x11b1 -> 0x63d2ed76f1b1 -> 0x63d2ed7701b0   Has an Average delta: Yes   Average delta: 0x426f6c876da1
+RSI values: 0x785988b53fa7 -> 0x785988b521a4 -> 0x785988b25bc1 -> 0xfffffffffffffef5 -> 0x6fffffff -> 0x10a -> 0xffffffffffffff0a -> 0xa -> 0x53 -> 0xfffffffffffffffb -> 0x6fffffff -> 0x4 -> 0xfffffffffffffffe -> 0x6fffffff -> 0x1 -> 0xffffffffffffffff -> 0x6fffffff -> 0x0 -> 0xfffffffffffffff0 -> 0x6fffffff   Has an Average delta: Yes   Average delta: 0x655c2fc1113
+RDI values: 0x7ffe7b4ae470 -> 0x7ffe7b4ae6b0 -> 0x785988b53fa7 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x63d2ed76e318 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b53fa7 -> 0xfffffffffffffef5 -> 0x6fffffff -> 0x10a -> 0xffffffffffffff0a -> 0xa -> 0x53 -> 0xfffffffffffffffc   Has an Average delta: Yes   Average delta: 0x8e5b6d4bf59
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_map_object_from_fd, 0x785988b2ca20, 1424, 1
+RAX values: 0x830 -> 0x2a390 -> 0x350 -> 0x327 -> 0x0 -> 0x7ffe7b4ad4af -> 0x7ffe7b4ad4a0 -> 0x31f -> 0x0 -> 0x7ffe7b4ad197 -> 0x7ffe7b4ad190 -> 0x7ffe7b4ad4a0 -> 0xfff -> 0x7ffe7b4ad4a0 -> 0x7ffe7b4ad4d8 -> 0x7ffe7b4ad510 -> 0x7ffe7b4ad548 -> 0x7ffe7b4ad580 -> 0x7ffe7b4ad5b8 -> 0x7ffe7b4ad5f0   Has an Average delta: Yes   Average delta: 0x21aec2216f8e
+RBX values: 0x785988b5e2e0 -> 0x70 -> 0x62 -> 0x310 -> 0x1000 -> 0xfffffffffffff000 -> 0x1 -> 0x2 -> 0x3 -> 0x4 -> 0x70000029 -> 0x2d -> 0x70000029 -> 0x2c -> 0x70000029 -> 0x2e -> 0x70000029 -> 0x2b -> 0x70000029 -> 0x2a   Has an Average delta: Yes   Average delta: 0x655c8e12a38
+RCX values: 0x3201 -> 0x785988b5e2e0 -> 0x40 -> 0x31f -> 0x310 -> 0x1 -> 0x2 -> 0x3 -> 0x4 -> 0x7ffe7b4ad190 -> 0x27390 -> 0x7ffe7b4ad190 -> 0x1afd39 -> 0x7ffe7b4ad190 -> 0x1fe082 -> 0x7ffe7b4ad190 -> 0x211d90 -> 0x785974411d90 -> 0x785974411d90 -> 0xcd90   Has an Average delta: Yes   Average delta: 0x4f3a9f57ee9f
+RDX values: 0x0 -> 0x0 -> 0x0 -> 0x327 -> 0x320 -> 0x310 -> 0x70 -> 0x62 -> 0x310 -> 0x7ffe7b4ad7b0 -> 0x0 -> 0x1 -> 0x2 -> 0x3 -> 0x785974405000 -> 0x938 -> 0x785974402940 -> 0x785974402950 -> 0x785974402960 -> 0x785974402970   Has an Average delta: Yes   Average delta: 0x2079c1048c6a
+RSI values: 0x7ffe7b4ad850 -> 0x785988b5d000 -> 0x63d2ed76e48a -> 0x7ffe7b4ad7c0 -> 0x7ffe7b4ad7c0 -> 0x7ffe7b4ad4a0 -> 0x7ffe7b4ad4a0 -> 0x7ffe7b4ad4a0 -> 0x1000 -> 0x40 -> 0x0 -> 0x27390 -> 0x1000 -> 0x28000 -> 0x1afd39 -> 0x1000 -> 0x1b0000 -> 0x1fe082 -> 0x1000 -> 0x1ffc60   Has an Average delta: Yes   Average delta: 0x9b3a9a91ad3
+RDI values: 0x785974bbb140 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x7ffe7b4ad190 -> 0x7ffe7b4ad190 -> 0x28000 -> 0x0 -> 0x8 -> 0x7 -> 0x7ffe7b4ad1c8 -> 0x7ffe7b4ad190 -> 0x1b0000 -> 0x0 -> 0x10 -> 0xe -> 0x7ffe7b4ad200 -> 0x7ffe7b4ad190 -> 0x1ffc60   Has an Average delta: Yes   Average delta: 0x2ec0dc3ac507
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_map_object_deps, 0x785988b27a40, 895, 1
+RAX values: 0x6 -> 0x47 -> 0x4 -> 0x40 -> 0x7ffe7b4ade90 -> 0x63d2ed771e80 -> 0x1 -> 0x63d2ed76e48a -> 0x785974bbb160 -> 0xc -> 0xc -> 0xd -> 0xd -> 0x19 -> 0x19 -> 0x1b -> 0x19 -> 0x1a -> 0x18 -> 0x1c   Has an Average delta: Yes   Average delta: 0x1a24343695ea
+RBX values: 0x63d2ed771e00 -> 0x63d2ed771e10 -> 0x63d2ed771e20 -> 0x63d2ed771e30 -> 0x63d2ed771e40 -> 0x63d2ed771e50 -> 0x63d2ed771e60 -> 0x63d2ed771e70 -> 0x63d2ed771e80 -> 0x63d2ed771e90 -> 0x63d2ed771ea0 -> 0x63d2ed771eb0 -> 0x63d2ed771ec0 -> 0x63d2ed771ed0 -> 0x63d2ed771ee0 -> 0x63d2ed771ef0 -> 0x63d2ed771f00 -> 0x63d2ed771f10 -> 0x63d2ed771f20 -> 0x63d2ed771f30   Has an Average delta: Yes   Average delta: 0x10
+RCX values: 0x40 -> 0x0 -> 0x7ffe7b4ade90 -> 0x0 -> 0x7ffe7b4ade90 -> 0x7ffe7b4ade70 -> 0x7ffe7b4ade70 -> 0x7ffe7b4adfa0 -> 0x7ffe7b4ade70 -> 0x7ffe7b4ade70 -> 0x7ffe7b4ade70 -> 0x7ffe7b4ade50 -> 0x0 -> 0x0 -> 0x785988b5d000   Has an Average delta: Yes   Average delta: 0x2d2a886b857d
+RDX values: 0x7ffe7b4aded0 -> 0x7ffe7b4aded0 -> 0x7ffe7b4adea8 -> 0x7ffe7b4adf60 -> 0x7ffe7b4ade90 -> 0x7ffe7b4ade7f -> 0x7ffe7b4ade70 -> 0x7ffe7b4adf60 -> 0x7ffe7b4ade70 -> 0x7ffe7b4ade5f -> 0x7ffe7b4ade50 -> 0x10 -> 0x10 -> 0x785988b5e2e0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x18 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x1cc46d05b2a6
+RSI values: 0x0 -> 0x785988b279f0 -> 0x7ffe7b4ade90 -> 0x0 -> 0x0 -> 0x7ffe7b4adfa0 -> 0x785988b279f0 -> 0x7ffe7b4ade70 -> 0x7ffe7b4adfa0 -> 0x7ffe7b4adfa0 -> 0x785974bbb670 -> 0x0 -> 0x785974bbb6c0   Has an Average delta: Yes   Average delta: 0x35f7c5ecaa8a
+RDI values: 0x7ffe7b4ade9f -> 0x7ffe7b4ade90 -> 0x63d2ed76e48a -> 0x7ffe7b4adf40 -> 0x7ffe7b4adf90 -> 0x785974224451 -> 0x7ffe7b4adf40 -> 0x28 -> 0x785974bbb678 -> 0x785974bbb688 -> 0x7ffe7b4adfa0 -> 0x38 -> 0x785974bbb6a0 -> 0x785974bbb6a0 -> 0x0   Has an Average delta: Yes   Average delta: 0x31bc8985cd05
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_cache_libcmp, 0x785988b3b630, 747, 10
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x63d2ed76e493   Has an Average delta: No
+RDI values: 0x63d2ed76e48b -> 0x63d2ed76e48c -> 0x63d2ed76e48d -> 0x63d2ed76e48b -> 0x63d2ed76e48c -> 0x63d2ed76e48d -> 0x63d2ed76e48e -> 0x63d2ed76e48b -> 0x63d2ed76e48c -> 0x63d2ed76e48d -> 0x63d2ed76e48b -> 0x63d2ed76e48c -> 0x63d2ed76e48d -> 0x63d2ed76e48b -> 0x63d2ed76e48c -> 0x63d2ed76e48d -> 0x63d2ed76e48e -> 0x63d2ed76e48b -> 0x63d2ed76e48c -> 0x63d2ed76e48d   Has an Average delta: Yes   Average delta: 0x1
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, update_active.constprop.0, 0x785988b3def0, 646, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x7112d005   Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x7ffe7b4ae4e8 -> 0x7ffe7b4ae4ec -> 0x7ffe7b4ae4f0 -> 0x7ffe7b4ae4f4 -> 0x7ffe7b4ae4f8 -> 0x7ffe7b4ae4fc -> 0x7ffe7b4ae500 -> 0x7ffe7b4ae504 -> 0x7ffe7b4ae508 -> 0x7ffe7b4ae50c -> 0x7ffe7b4ae510 -> 0x7ffe7b4ae514 -> 0x7ffe7b4ae518 -> 0x7ffe7b4ae51c -> 0x7ffe7b4ae520 -> 0x7ffe7b4ae524 -> 0x7ffe7b4ae528 -> 0x7ffe7b4ae52c -> 0x7ffe7b4ae530 -> 0x7ffe7b4ae534   Has an Average delta: Yes   Average delta: 0x4
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_start, 0x785988b451d0, 636, 1
+RAX values: 0x785988b5e2d8 -> 0x5c4f7fa87300 -> 0xe -> 0x4 -> 0x6ffffef5 -> 0x53 -> 0x5 -> 0x6 -> 0xa -> 0xb -> 0x7 -> 0x8 -> 0x9 -> 0x6ffffffc -> 0x2d -> 0x6ffffffd -> 0x2c -> 0x1e -> 0x6ffffffb -> 0x2e   Has an Average delta: Yes   Average delta: 0x655bd170bc8
+RBX values: 0x785988b25d60 -> 0x785988b25d78 -> 0x785988b25d90 -> 0x785988b25da8 -> 0x0 -> 0x785988b5dab0 -> 0x63d2ed76f040 -> 0x0   Has an Average delta: Yes   Average delta: 0x339416044be6
+RCX values: 0x785988b25000 -> 0xf0b31164ada8 -> 0x785988b25da8 -> 0x785988b25db0 -> 0x785988b25db8 -> 0x785988b25dc0 -> 0xf0b31164ad60 -> 0x785988b5ced8 -> 0x0 -> 0x0 -> 0x0 -> 0x785988b5ce98 -> 0xf0b31164a590 -> 0x785988b257e8 -> 0x785988b25860 -> 0x785988b25590 -> 0x0 -> 0x0 -> 0x785988b5ce98 -> 0xf0b31164a590   Has an Average delta: Yes   Average delta: 0x45ad193ed255
+RDX values: 0x5c4f00000000 -> 0x785988b5ce58 -> 0x785988b5ce68 -> 0x785988b5ce78 -> 0x785988b5ce88 -> 0x785988b5ce98 -> 0x785988b5cea8 -> 0x785988b5ceb8 -> 0x785988b5cec8 -> 0x785988b5ced8 -> 0x785988b5cee8 -> 0x785988b5cef8 -> 0x785988b5cf08 -> 0x785988b5cf18 -> 0x785988b5cf28 -> 0x785988b5cf38 -> 0x785988b5cf48 -> 0x785988b5cf58 -> 0x785988b5cf68 -> 0x785988b5cf78   Has an Average delta: Yes   Average delta: 0x179d14ceff8
+RSI values: 0x785988b5daf0 -> 0x785988b5cf48 -> 0x785988b5cf68 -> 0x785988b5cf28 -> 0x785988b5cf18 -> 0x18 -> 0x785988b25dc0 -> 0x48 -> 0x48 -> 0x785988b25da8 -> 0x0 -> 0x0 -> 0x785988b45af0   Has an Average delta: Yes   Average delta: 0x3c2cc459a3ae
+RDI values: 0xfffffffffffffef5 -> 0x6fffffff -> 0x10a -> 0xffffffffffffff0a -> 0xa -> 0x53 -> 0xfffffffffffffffc -> 0x6fffffff -> 0x3 -> 0x70000029 -> 0x2d -> 0xfffffffffffffffd -> 0x6fffffff -> 0x2 -> 0x70000029 -> 0x2c -> 0xfffffffffffffffb -> 0x6fffffff -> 0x4 -> 0x70000029   Has an Average delta: Yes   Average delta: 0x4ca1af63
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __minimal_malloc, 0x785988b31070, 624, 19
+RAX values: 0x785988b5e2d8 -> 0x785988b5e2e7 -> 0x785988b5e2e0 -> 0x785988b5e8b9 -> 0x785988b5e8c8 -> 0x785988b5e8c0 -> 0x785988b5ee99 -> 0x785988b5eea8 -> 0x785988b5eea0 -> 0x785988b5eed0 -> 0x785988b5eedf -> 0x785988b5eed0 -> 0x785988b5ef55 -> 0x785988b5ef64 -> 0x785988b5ef60 -> 0x785988b5ef88 -> 0x785988b5ef97 -> 0x785988b5ef90 -> 0x113f -> 0x1000   Has an Average delta: Yes   Average delta: 0x6558deea0aa
+RBX values: 0x5d9 -> 0x10 -> 0x5d9 -> 0x10 -> 0x30 -> 0x9 -> 0x85 -> 0x785988b5eea0 -> 0x28 -> 0x0 -> 0x140 -> 0xa -> 0x20 -> 0x7ffe7b4ad810 -> 0x4e2 -> 0x0 -> 0x20 -> 0x20 -> 0x28 -> 0x2   Has an Average delta: Yes   Average delta: 0x1a243650ed90
+RCX values: 0x1000 -> 0xfffffffffffff000 -> 0x785988b5e8b9 -> 0x785988b5ee99 -> 0x785988b5eed0 -> 0x785988b5ef55 -> 0x785988b5ef88 -> 0x785988b5f0d0 -> 0x1000 -> 0xfffffffffffff000 -> 0x785974bbb140 -> 0x785974bbb160 -> 0x785974bbb642 -> 0x785974bbb670 -> 0x785974bbb698 -> 0x785974bbb6d8 -> 0x785974bbb740 -> 0x785974bbb788 -> 0x785974bbbbc8 -> 0x785974bbbc90   Has an Average delta: Yes   Average delta: 0x1300a8bebbb1
+RDX values: 0x0 -> 0x785988b5f2d7 -> 0x785988b5f000 -> 0x785988b5e2e0 -> 0xffff87a6774a1d20 -> 0x785988b5f000 -> 0x785988b5e8c0 -> 0xffff87a6774a1740 -> 0x785988b5f000 -> 0x785988b5eea0 -> 0xffff87a6774a1160 -> 0x785988b5f000 -> 0x785988b5eed0 -> 0xffff87a6774a1130 -> 0x785988b5f000 -> 0x785988b5ef60 -> 0xffff87a6774a10a0 -> 0x785988b5f000 -> 0x1000 -> 0x785988b5306d   Has an Average delta: Yes   Average delta: 0x91afc070656b
+RSI values: 0x2000 -> 0x2000 -> 0x3000 -> 0x3000   Has an Average delta: Yes   Average delta: 0x555
+RDI values: 0x785974bbb000 -> 0x785974bb2000   Has an Average delta: Yes   Average delta: 0x9000
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_hwcaps_split_masked, 0x785988b41fe0, 622, 14
+RAX values: 0x785988b5445a -> 0x785988b5445b -> 0x785988b54464 -> 0x785988b54465 -> 0x785988b5445a -> 0x785988b5445b -> 0x785988b54464 -> 0x785988b54465 -> 0x785988b5445a -> 0x785988b5445b -> 0x785988b54464 -> 0x785988b54465   Has an Average delta: Yes   Average delta: 0x5
+RBX values: 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x9 -> 0x0 -> 0x9 -> 0x9 -> 0x0 -> 0x0 -> 0x0 -> 0x1 -> 0x0 -> 0x2 -> 0x3 -> 0x785988b5ef10 -> 0x0 -> 0x785988b5ef10 -> 0x0 -> 0x785988b5ef27   Has an Average delta: Yes   Average delta: 0x1fabc5a923f9
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x785988b54450 -> 0x785988b5445a -> 0x785988b54464 -> 0x785988b54464 -> 0x785988b54450 -> 0x785988b5445a -> 0x785988b54464 -> 0x785988b54464 -> 0x785988b54450 -> 0x785988b5445a -> 0x785988b54464 -> 0x785988b54464   Has an Average delta: Yes   Average delta: 0x9
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __tunable_get_val, 0x785988b3ac10, 561, 24
+RAX values: 0xb -> 0xb0 -> 0xbb -> 0x5d8 -> 0x2 -> 0xb -> 0xb0 -> 0xbb -> 0x8 -> 0x80 -> 0x88 -> 0x440 -> 0x0 -> 0x8 -> 0x80 -> 0x88 -> 0x9 -> 0x90 -> 0x99 -> 0x4c8   Has an Average delta: Yes   Average delta: 0x16f
+RBX values:    Has an Average delta: No
+RCX values: 0x7ffe7b4ae68c -> 0x5d8 -> 0x7ffe7b4ae650 -> 0x440 -> 0x7ffe7b4ae650 -> 0x4c8 -> 0x7ffe7b4ae650 -> 0x3b8 -> 0x7ffe7b4ae650 -> 0x220 -> 0x7ffe7b4ae650 -> 0xd48 -> 0x7ffe7b4ae650 -> 0x1320 -> 0x7ffe7b4ae650 -> 0x6e8 -> 0x7ffe7b4ae650 -> 0xaa0 -> 0x7ffe7b4ae650 -> 0xf68   Has an Average delta: Yes   Average delta: 0x7ffe7b4ade13
+RDX values:    Has an Average delta: No
+RSI values: 0x785988b5ba18 -> 0x785988b5b880 -> 0x785988b5b908 -> 0x785988b5b7f8 -> 0x785988b5b660 -> 0x785988b5c188 -> 0x785988b5c760 -> 0x785988b5bb28 -> 0x785988b5bee0 -> 0x785988b5c3a8 -> 0x785988b5bcc0 -> 0x785988b5bdd0 -> 0x785988b5be58 -> 0x785988b5bff0 -> 0x785988b5bd48 -> 0x785988b5c980 -> 0x785988b5b5d8 -> 0x785988b5bf68 -> 0x785988b5c650 -> 0x785988b5c320   Has an Average delta: Yes   Average delta: 0x59e
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_new_object, 0x785988b316c0, 478, 3
+RAX values: 0x785988b53fa7 -> 0x785988b5e8a0 -> 0x785988b5dab0 -> 0x785988b5e2e0 -> 0x785988b5e300 -> 0x785988b5e320 -> 0x785988b5e340 -> 0x785988b5e360 -> 0x785988b5e380 -> 0x785988b5e3a0 -> 0x785988b5e3c0 -> 0x785988b5e3e0 -> 0x0 -> 0x0 -> 0x0 -> 0x785988b5e5d8 -> 0x785988b5e2e0 -> 0x1 -> 0x785988b5ee80 -> 0x785988b5dab0   Has an Average delta: Yes   Average delta: 0x195637ba8cbc
+RBX values: 0x100 -> 0x0 -> 0x100 -> 0x30 -> 0x20 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x1811e8246120
+RCX values: 0x785988b53fa7 -> 0x785988b53fa7 -> 0x785974bbb140   Has an Average delta: Yes   Average delta: 0x9fcc733
+RDX values: 0x100 -> 0x1 -> 0x785988b5e8b8 -> 0x785988b5e3e0 -> 0x785988b5d000 -> 0x100 -> 0x1 -> 0x785988b5ee98 -> 0x785988b5e9c0 -> 0x785988b5d000 -> 0x785988b5e5d8 -> 0x0 -> 0x0 -> 0xa -> 0x785974bbb140 -> 0x785988b5d000 -> 0x785988b5e5d8 -> 0x785988b5e5d8 -> 0x20 -> 0x785974bbb670   Has an Average delta: Yes   Average delta: 0x2c56e0793acc
+RSI values: 0x785988b53fa7 -> 0x785988b5e680 -> 0x785988b53fa7 -> 0x785988b5ec60 -> 0x785988b5ec68 -> 0x63d2ed76e48a -> 0x785974bbb500 -> 0x785974bbb140   Has an Average delta: Yes   Average delta: 0x5dd4e131ea5
+RDI values: 0x785988b5e8b8 -> 0x785988b5e5d8 -> 0x785988b53fa7 -> 0x785988b53fa7 -> 0x5d9 -> 0x785988b5ee98 -> 0x785988b5ebb8 -> 0x785988b53fa7 -> 0x63d2ed76e48a -> 0x4e2 -> 0x785974bbb638 -> 0x785988b5e5d8 -> 0x785988b5e5d8 -> 0x785974bbb140 -> 0x20 -> 0x785974bbb650   Has an Average delta: Yes   Average delta: 0x3023cef3d025
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, handle_amd, 0x785988b3d090, 422, 12
+RAX values: 0x8000 -> 0x100000 -> 0x6000000 -> 0x8000 -> 0x40 -> 0x8 -> 0x40 -> 0x8 -> 0x40 -> 0x10 -> 0x40 -> 0x0   Has an Average delta: Yes   Average delta: 0x1173a4b
+RBX values: 0x7ffe7b4ae648 -> 0x7ffe7b4ae648 -> 0x100000 -> 0x100000 -> 0x100000 -> 0x100000 -> 0x100000 -> 0x100000 -> 0x100000 -> 0x100000 -> 0x100000   Has an Average delta: Yes   Average delta: 0xccca5ec4a3a
+RCX values:    Has an Average delta: No
+RDX values: 0x8 -> 0x40 -> 0x200 -> 0x1 -> 0x4 -> 0x10 -> 0x20 -> 0x80 -> 0x100 -> 0x400 -> 0x800   Has an Average delta: Yes   Average delta: 0x132
+RSI values:    Has an Average delta: No
+RDI values: 0x40 -> 0x40 -> 0x40 -> 0x40   Has an Average delta: Yes   Average delta: 0x0
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_load_cache_lookup, 0x785988b3b710, 376, 1
+RAX values: 0x646c2d6362696c67 -> 0x0 -> 0x0 -> 0xaaaaaaaaaaaaaaab -> 0x1b45 -> 0x8000000000000 -> 0xffffffffffffffff -> 0x7ffe7b4ad8d0 -> 0x6 -> 0xa7 -> 0x1f5 -> 0xfb -> 0x2f1 -> 0x125 -> 0x36f -> 0x110 -> 0x330 -> 0x105 -> 0x30f -> 0x10a   Has an Average delta: Yes   Average delta: 0xcc33caaf59c83a
+RBX values: 0x7ffe7b4ae9f9 -> 0x2 -> 0x785974bb5000 -> 0x2 -> 0x785974bb693c -> 0x785974bb6924 -> 0x2 -> 0x63d2ed76e48a   Has an Average delta: Yes   Average delta: 0x65510886c022
+RCX values: 0x51ff -> 0x4000000000000 -> 0x785974bb6950 -> 0x7ffe7b4ad840 -> 0x7ffe7b4ad840   Has an Average delta: Yes   Average delta: 0x1e3d2e474ece8
+RDX values: 0x686361632e6f732e -> 0x0 -> 0x51cf -> 0x368a -> 0x368 -> 0xffffffffffffffff -> 0x6 -> 0x2 -> 0xfffffc0000000000 -> 0x0 -> 0xf000000000000 -> 0x37 -> 0x30 -> 0x20   Has an Average delta: Yes   Average delta: 0x809f46a1743b2fa
+RSI values: 0x785988b5e1c0 -> 0x785988b5cd45 -> 0x785988b5cd4e -> 0x7ffe7b4ad8d0 -> 0x785974bb7c6a -> 0x785974bb9ac2 -> 0x785974bb7645 -> 0x785974bb91b0 -> 0x785974bb948a -> 0x785974bb9a27 -> 0x785974bba13f -> 0x785974bb732c -> 0x785974bb7a67 -> 0x785974bb732c -> 0x20 -> 0x785974bb7a51   Has an Average delta: Yes   Average delta: 0x1110dbe84599
+RDI values: 0x785988b5338f -> 0x7ffe7b4ae9f9 -> 0x7ffe7b4ae9f9 -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x785974bb7a51 -> 0x7ffe7b4ad81f -> 0x7ffe7b4ad810 -> 0x7ffe7b4ad810   Has an Average delta: Yes   Average delta: 0x3ffc0e3daf7
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_important_hwcaps, 0x785988b41a20, 360, 1
+RAX values: 0x785988b54450 -> 0x0 -> 0x9 -> 0x9 -> 0x9 -> 0x3 -> 0x30 -> 0x785988b54450 -> 0x0 -> 0x0 -> 0x0 -> 0x785988b5eea0 -> 0x1 -> 0x10 -> 0x785988b5eeb0 -> 0x2 -> 0x20 -> 0x785988b5eec0 -> 0x17 -> 0x4   Has an Average delta: Yes   Average delta: 0x3901fd638c0e
+RBX values: 0x0 -> 0x9 -> 0x9 -> 0x9 -> 0x1 -> 0x2 -> 0x3 -> 0x785988b5eea0 -> 0x785988b5ef10 -> 0x785988b5ef27 -> 0x785988b5ef3e -> 0x785988b5ef55 -> 0x0   Has an Average delta: Yes   Average delta: 0x140eec1e528f
+RCX values: 0x785988b54450 -> 0x9 -> 0x785988b5445a -> 0x9 -> 0x785988b54464 -> 0x9 -> 0x1 -> 0x10 -> 0x2 -> 0x20 -> 0x785988b5eed0 -> 0x9 -> 0x9 -> 0x9 -> 0x785988b5eed0   Has an Average delta: Yes   Average delta: 0x44c572b0dddd
+RDX values: 0x9 -> 0x9 -> 0x1 -> 0x9 -> 0x1 -> 0x2 -> 0x9 -> 0x9 -> 0x2 -> 0x3 -> 0x9 -> 0x4 -> 0x40 -> 0x9 -> 0x17 -> 0x9 -> 0x17 -> 0x9 -> 0x17   Has an Average delta: Yes   Average delta: 0xd
+RSI values: 0x785988b54450 -> 0x785988b54450 -> 0x785988b5445a -> 0x785988b5b3f8 -> 0x30 -> 0x785988b54450 -> 0x785988b5445a -> 0x785988b54464 -> 0x17   Has an Average delta: Yes   Average delta: 0x2d219344157e
+RDI values: 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x30 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x785988b5445a -> 0x785988b54464 -> 0x785988b54464 -> 0x85 -> 0x7ffe7b4ae310 -> 0x7ffe7b4ae310 -> 0x785988b5ef1d -> 0x7ffe7b4ae310 -> 0x785988b5ef34   Has an Average delta: Yes   Average delta: 0x1c2732c8f7ee
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_sysdep_parse_arguments, 0x785988b431d0, 359, 1
+RAX values: 0x1 -> 0x1 -> 0x21 -> 0x33 -> 0x10 -> 0x6 -> 0x11 -> 0x3 -> 0x4 -> 0x5 -> 0x7 -> 0x8 -> 0x9 -> 0xb -> 0xc -> 0xd -> 0xe -> 0x17 -> 0x19 -> 0x1a   Has an Average delta: Yes   Average delta: 0x7
+RBX values: 0x0 -> 0x785988b45af0   Has an Average delta: Yes   Average delta: 0x785988b45af0
+RCX values: 0x33 -> 0x32 -> 0x31 -> 0x30 -> 0x2f -> 0x2e -> 0x2d -> 0x2c -> 0x2b -> 0x2a -> 0x29 -> 0x28 -> 0x27 -> 0x26 -> 0x25 -> 0x24 -> 0x23 -> 0x22 -> 0x21 -> 0x20   Has an Average delta: Yes   Average delta: 0x1
+RDX values: 0x7ffe7b4ae870 -> 0x7ffe7b4ae880 -> 0x7ffe7b4ae890 -> 0x7ffe7b4ae8a0 -> 0x7ffe7b4ae8b0 -> 0x7ffe7b4ae8c0 -> 0x7ffe7b4ae8d0 -> 0x7ffe7b4ae8e0 -> 0x7ffe7b4ae8f0 -> 0x7ffe7b4ae900 -> 0x7ffe7b4ae910 -> 0x7ffe7b4ae920 -> 0x7ffe7b4ae930 -> 0x7ffe7b4ae940 -> 0x7ffe7b4ae950 -> 0x7ffe7b4ae960 -> 0x7ffe7b4ae970 -> 0x7ffe7b4ae980 -> 0x7ffe7b4ae990 -> 0x7ffe7b4ae9a0   Has an Average delta: Yes   Average delta: 0x10
+RSI values: 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae7c0 -> 0x7ffe7b4ae7c8 -> 0x7ffe7b4ae7d0 -> 0x7ffe7b4ae7d8 -> 0x7ffe7b4ae7e0 -> 0x7ffe7b4ae7e8 -> 0x7ffe7b4ae7f0 -> 0x7ffe7b4ae7f8 -> 0x7ffe7b4ae800 -> 0x7ffe7b4ae808 -> 0x7ffe7b4ae810 -> 0x7ffe7b4ae818 -> 0x7ffe7b4ae820 -> 0x7ffe7b4ae828 -> 0x7ffe7b4ae830 -> 0x7ffe7b4ae838 -> 0x7ffe7b4ae840 -> 0x7ffe7b4ae848 -> 0x7ffe7b4ae850   Has an Average delta: Yes   Average delta: 0x8
+RDI values: 0x7ffe7b4ae7a8 -> 0x7ffe7b4ae4d0 -> 0x7ffe7b4ae4d8 -> 0x7ffe7b4ae4e0 -> 0x7ffe7b4ae4e8 -> 0x7ffe7b4ae4f0 -> 0x7ffe7b4ae4f8 -> 0x7ffe7b4ae500 -> 0x7ffe7b4ae508 -> 0x7ffe7b4ae510 -> 0x7ffe7b4ae518 -> 0x7ffe7b4ae520 -> 0x7ffe7b4ae528 -> 0x7ffe7b4ae530 -> 0x7ffe7b4ae538 -> 0x7ffe7b4ae540 -> 0x7ffe7b4ae548 -> 0x7ffe7b4ae550 -> 0x7ffe7b4ae558 -> 0x7ffe7b4ae560   Has an Average delta: Yes   Average delta: 0x2d
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, memset, 0x785988b4bb10, 350, 6
+RAX values: 0x785974bbb028 -> 0x785974bbb078 -> 0x785974bbb0c8 -> 0x785974bbb118 -> 0x7859744046c8 -> 0x785974bb26c8   Has an Average delta: Yes   Average delta: 0x314240
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x785974404708 -> 0x785974404700 -> 0x785974404740 -> 0x785974404780 -> 0x7859744047c0 -> 0x785974404800 -> 0x785974404840 -> 0x785974404880 -> 0x7859744048c0 -> 0x785974404900 -> 0x785974404940 -> 0x785974404980 -> 0x7859744049c0 -> 0x785974404a00 -> 0x785974404a40 -> 0x785974404a80 -> 0x785974404ac0 -> 0x785974404b00 -> 0x785974404b40 -> 0x785974404b80   Has an Average delta: Yes   Average delta: 0x3d
+RSI values:    Has an Average delta: No
+RDI values: 0x785974405000 -> 0x785974404fc0 -> 0x785974bb2740 -> 0x785974bb2700   Has an Average delta: Yes   Average delta: 0x28f2aa
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, init_cpu_features.constprop.0, 0x785988b3e5e0, 347, 1
+RAX values: 0x6000000 -> 0x1800000 -> 0x0 -> 0x0 -> 0x0 -> 0x4800000 -> 0x4800000 -> 0x800 -> 0x4800000 -> 0x100000 -> 0x100000   Has an Average delta: Yes   Average delta: 0x264cb33
+RBX values: 0x7ffe7b4ae648 -> 0x100000 -> 0x40 -> 0x840 -> 0x7ffe7b4ae648 -> 0x4800000 -> 0x785988b45af0   Has an Average delta: Yes   Average delta: 0x540e28438236
+RCX values: 0x7ffe7b4ae628 -> 0x6000000 -> 0x12000003 -> 0x12000000 -> 0x4800000 -> 0x4800000 -> 0xfffffffffffbfbe -> 0x8000 -> 0x7ffe7b4ae648 -> 0x7ffe7b4ae648 -> 0x7ffe7b4ae648 -> 0x7ffe7b4ae648 -> 0x7ffe7b4ae648 -> 0x8000   Has an Average delta: Yes   Average delta: 0x27644ebf63883dd
+RDX values: 0x7ffe7b4ae650 -> 0x12000000 -> 0x0 -> 0xffffffffffffbfbf -> 0x0 -> 0x7ffe7b4ae640 -> 0x7ffe7b4ae640 -> 0x7ffe7b4ae640 -> 0x7ffe7b4ae640 -> 0x7ffe7b4ae640 -> 0x785988b433b0 -> 0x785988b3d3e0 -> 0x785988b43da0 -> 0x785988b43e30 -> 0x785988b3e530   Has an Average delta: Yes   Average delta: 0x12d4b53a270d
+RSI values: 0x7ffe7b4ae624 -> 0x8000 -> 0x8000 -> 0x40 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x6000000 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x6000000 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650 -> 0x7ffe7b4ae650   Has an Average delta: Yes   Average delta: 0x286b4e17a702
+RDI values: 0x7ffe7b4ae620 -> 0x100000 -> 0x40 -> 0x8 -> 0x100000 -> 0xfffffffffffffff   Has an Average delta: Yes   Average delta: 0x3334ccc7f0efacf
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_allocate_tls_storage, 0x785988b391f0, 342, 1
+RAX values: 0x785974bb203f -> 0x1e165d2ec80 -> 0x785974bb30e0 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x4efab49ad5ea
+RBX values: 0x40 -> 0x785974bb2740 -> 0x40   Has an Average delta: Yes   Average delta: 0x785974bb2700
+RCX values: 0x785974bb203f -> 0x785974bb2000 -> 0x785974bb2740 -> 0xfffffffffffffff8 -> 0x126 -> 0x125 -> 0x124 -> 0x123 -> 0x122 -> 0x121 -> 0x120 -> 0x11f -> 0x11e -> 0x11d -> 0x11c -> 0x11b -> 0x11a -> 0x119 -> 0x118 -> 0x117   Has an Average delta: Yes   Average delta: 0x6558ce16e51
+RDX values: 0x3f   Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x10c8 -> 0x785974bb2748 -> 0x785974bb2748 -> 0x785974bb2750 -> 0x785974bb2758 -> 0x785974bb2760 -> 0x785974bb2768 -> 0x785974bb2770 -> 0x785974bb2778 -> 0x785974bb2780 -> 0x785974bb2788 -> 0x785974bb2790 -> 0x785974bb2798 -> 0x785974bb27a0 -> 0x785974bb27a8 -> 0x785974bb27b0 -> 0x785974bb27b8 -> 0x785974bb27c0 -> 0x785974bb27c8 -> 0x785974bb27d0   Has an Average delta: Yes   Average delta: 0x6558ce16d00
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_name_match_p, 0x785988b31380, 339, 12
+RAX values:    Has an Average delta: No
+RBX values: 0x785988b5e2e0 -> 0x785988b5e8a0 -> 0x0 -> 0x63d2ed76e48a -> 0x785988b5dab0 -> 0x785988b5e280 -> 0x785988b5e240 -> 0x0 -> 0x63d2ed76e48a -> 0x785988b5e8c0 -> 0x785988b5ee80 -> 0x0 -> 0x63d2ed76e48a -> 0x785988b5e2e0 -> 0x785988b5e8a0 -> 0x0 -> 0x785974224451 -> 0x785988b5dab0 -> 0x785988b5e280 -> 0x785988b5e240   Has an Average delta: Yes   Average delta: 0x32ac6f750399
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x785988b5e8b8 -> 0x785988b5e8b8 -> 0x63d2ed76e318 -> 0x63d2ed76e318 -> 0x785988b25bc1 -> 0x7ffe7b50e371 -> 0x7ffe7b50e371 -> 0x785988b5e8b8 -> 0x785988b5e8b8 -> 0x63d2ed76e318 -> 0x63d2ed76e318 -> 0x785988b25bc1 -> 0x785988b5e8b8 -> 0x785988b5e8b8 -> 0x7ffe7b50e371 -> 0x7ffe7b50e371 -> 0x785974bbb140 -> 0x785974bbb638 -> 0x785988b5e8b8 -> 0x785988b5e8b8   Has an Average delta: Yes   Average delta: 0x5ee3ae9eaf6
+RDI values: 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x785974224451 -> 0x785974224451 -> 0x785974224451 -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x785974224451 -> 0x785974224451 -> 0x785974224451 -> 0x785974224451 -> 0x785974224451   Has an Average delta: Yes   Average delta: 0x465f8494b61
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_map_object, 0x785988b2e2f0, 316, 2
+RAX values: 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x785988b5ce58 -> 0x785988b5ce88 -> 0x7ffe7b50e3e0 -> 0x7ffe7b50e420 -> 0x7ffe7b50e000 -> 0xa -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0x7ffe7b4ae7a0 -> 0x7ffe7b4ad9a0 -> 0x785974bbb160 -> 0x0 -> 0x0 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x1af234e7fa80
+RBX values: 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x7ffe7b4adf60 -> 0x785974224451 -> 0x7ffe7b4adf60   Has an Average delta: Yes   Average delta: 0xadd67094c3d
+RCX values: 0x7ffe7b4ad9b0   Has an Average delta: No
+RDX values: 0x785988b25950 -> 0x300 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x785988b41b18
+RSI values: 0x785988b5e2e0 -> 0x785988b5dab0 -> 0x271 -> 0x785988b25bc1 -> 0x785988b25bc1 -> 0x785988b5e8c0 -> 0x71 -> 0x371 -> 0x7ffe7b50e371 -> 0x7ffe7b4ad9b0 -> 0x0 -> 0x785988b5e2e0 -> 0x785988b5dab0   Has an Average delta: Yes   Average delta: 0x3d72ecca1d61
+RDI values: 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x63d2ed76e48a -> 0x785988b5e648 -> 0x785988b5e6d0 -> 0x63d2ed76e48a -> 0x785974bbb140 -> 0x785974bbb140 -> 0x785974bbb140 -> 0x63d2ed76e48a -> 0x785974224451 -> 0x785974224451   Has an Average delta: Yes   Average delta: 0x6d7850beec8
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, index, 0x785988b4c2b0, 312, 12
+RAX values: 0x785988b54459 -> 0x785988b54459 -> 0x785988b54463 -> 0x785988b54463 -> 0x785988b5446d -> 0x0 -> 0x785988b54459 -> 0x785988b54459 -> 0x785988b54463 -> 0x785988b54463 -> 0x785988b5446d -> 0x0 -> 0x785988b54459 -> 0x785988b54459 -> 0x785988b54463 -> 0x785988b54463 -> 0x785988b5446d -> 0x0 -> 0x63d2ed76e493 -> 0x0   Has an Average delta: Yes   Average delta: 0x2a2dc3b57ae9
+RBX values:    Has an Average delta: No
+RCX values: 0x40100000 -> 0x40000000000000   Has an Average delta: Yes   Average delta: 0x3fffffbff00000
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __GI___tunable_set_val, 0x785988b3a770, 310, 5
+RAX values: 0x88 -> 0x785988b5b880 -> 0x99 -> 0x785988b5b908 -> 0x77 -> 0x785988b5b7f8 -> 0x44 -> 0x785988b5b660 -> 0x1a9 -> 0x785988b5c188   Has an Average delta: Yes   Average delta: 0x785988b5b84e
+RBX values: 0xffffffffffffffff -> 0xffffffffffffffff -> 0x840 -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0x840 -> 0xffffffffffffffff -> 0xfffffffffffffff -> 0x840 -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0x7ffe7b4ae648 -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0x7ffe7b4ae648   Has an Average delta: Yes   Average delta: 0x2493fffacb4a16b
+RCX values: 0x8 -> 0x80 -> 0x88 -> 0x8 -> 0x80 -> 0x88 -> 0x785988b5b880 -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0x8 -> 0x80 -> 0x9 -> 0x90 -> 0x99 -> 0x9 -> 0x90 -> 0x99 -> 0x785988b5b908 -> 0xffffffffffffffff   Has an Average delta: Yes   Average delta: 0x195637ba77e6
+RDX values: 0xffffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0xfffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff -> 0xffffffffffffffff   Has an Average delta: Yes   Average delta: 0x38e38e38e38e38e
+RSI values: 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x4040 -> 0x1 -> 0x200 -> 0x1 -> 0x1   Has an Average delta: Yes   Average delta: 0xeb8
+RDI values: 0x7ffe7b4ae648 -> 0x0 -> 0x7ffe7b4ae648 -> 0x0 -> 0x7ffe7b4ae648 -> 0x4040 -> 0x7ffe7b4ae648 -> 0x200 -> 0x7ffe7b4ae648 -> 0x1   Has an Average delta: Yes   Average delta: 0x7ffe7b4ad78f
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_lookup_direct, 0x785988b30ca0, 274, 3
+RAX values: 0x785974205518 -> 0x78597420648c -> 0x7859744029b0 -> 0x7859742095e0 -> 0x7859744029a0 -> 0x785974224630 -> 0x785974bbb790 -> 0x785974bbb7c0 -> 0x785974212b80 -> 0x785974205518 -> 0x78597420648c -> 0x7859744029b0 -> 0x7859742095e0 -> 0x7859744029a0 -> 0x785974224630 -> 0x785974bbb790 -> 0x785974bbb7c0 -> 0x785974219210 -> 0x785974205518 -> 0x78597420648c   Has an Average delta: Yes   Average delta: 0x2da7f3
+RBX values: 0x785974bbb160 -> 0x785974bbb160 -> 0x785974bbb160   Has an Average delta: Yes   Average delta: 0x0
+RCX values:    Has an Average delta: No
+RDX values: 0x785974207d7c -> 0x18f0 -> 0x63c -> 0x63c -> 0x6 -> 0x785974208e94 -> 0x2a08 -> 0xa82 -> 0xa82 -> 0x6 -> 0x785974207238 -> 0xdac -> 0x36b -> 0x36b -> 0x7b   Has an Average delta: Yes   Average delta: 0x2afb6054bfe4
+RSI values: 0x78597420648c -> 0x12b4 -> 0x785988b53a03 -> 0x785988b539bf -> 0x78597420648c -> 0x1f86 -> 0x785988b53a31 -> 0x785988b539bf -> 0x78597420648c -> 0xa41 -> 0x785988b52b43 -> 0x785988b52b35   Has an Average delta: Yes   Average delta: 0x41a5316c8b92
+RDI values: 0x78597421bdc0 -> 0x78597421faa5 -> 0x785974224470 -> 0x78597421bdc0 -> 0x7859742239a4 -> 0x785974224470 -> 0x78597421bdc0 -> 0x78597421d57d -> 0x785974224622   Has an Average delta: Yes   Average delta: 0x5464
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_sort_maps, 0x785988b383a0, 263, 2
+RAX values: 0x2 -> 0x1 -> 0x0 -> 0xffffffffffffffff -> 0x27 -> 0x2 -> 0x20 -> 0x7ffe7b4add98 -> 0x7ffe7b4add90 -> 0x7ffe7b4add88 -> 0x7ffe7b4add80 -> 0x3 -> 0x2 -> 0x1 -> 0x0 -> 0xffffffffffffffff -> 0x2f -> 0x2 -> 0x20 -> 0x7ffe7b4ae4f0   Has an Average delta: Yes   Average delta: 0x1435a7ad81b9
+RBX values: 0x7ffe7b4add80 -> 0x3 -> 0x7ffe7b4ae4d0 -> 0x785988b5d000   Has an Average delta: Yes   Average delta: 0x57e0a30e47b3
+RCX values: 0x785988b5dab0 -> 0x785974bbb160 -> 0x785988b5e2e0 -> 0x7ffe7b4adda0 -> 0x7ffe7b4adda0 -> 0x7ffe7b4add98 -> 0x18 -> 0x7ffe7b4add80 -> 0x785988b5dab0 -> 0x785974bbb160 -> 0x785988b5e8c0 -> 0x785988b5e2e0 -> 0x7ffe7b4ae4f0 -> 0x7ffe7b4ae4f0 -> 0x7ffe7b4ae4f0 -> 0x20 -> 0x7ffe7b4ae4d0   Has an Average delta: Yes   Average delta: 0x216e914d3457
+RDX values: 0x18 -> 0x0 -> 0x0 -> 0x0 -> 0x18 -> 0x20 -> 0x7ffe7b4ae54f -> 0x7ffe7b4ae54f -> 0x7ffe7b4ae54f -> 0x7ffe7b4ae54f -> 0x20   Has an Average delta: Yes   Average delta: 0x19994bdbc775
+RSI values: 0x785988b5dab0 -> 0x785974bbb160 -> 0x785988b5e2e0 -> 0x7ffe7b4add80 -> 0x785988b5dab0 -> 0x785974bbb160 -> 0x785988b5e8c0 -> 0x785988b5e2e0 -> 0x7ffe7b4ae4d0   Has an Average delta: Yes   Average delta: 0x2dde4f4f818
+RDI values: 0x20 -> 0x0 -> 0x7ffe7b4ade00 -> 0x7ffe7b4ade00 -> 0x7ffe7b4ade00 -> 0x785974bbb6a0 -> 0x20 -> 0x0 -> 0x7ffe7b4ae550 -> 0x7ffe7b4ae550 -> 0x7ffe7b4ae550 -> 0x7ffe7b4ae550 -> 0x7ffe7b4ae5a0   Has an Average delta: Yes   Average delta: 0x1fff9ed2b825
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, dfs_traversal.part.0, 0x785988b38290, 241, 7
+RAX values: 0x0 -> 0x7ffe7b4add98 -> 0x785974bbb670 -> 0x7ffe7b4add90 -> 0x0 -> 0x7ffe7b4add88 -> 0x0 -> 0x0 -> 0x7ffe7b4ae4f0 -> 0x785974bbb670 -> 0x0 -> 0x7ffe7b4ae4e8 -> 0x0 -> 0x0 -> 0x7ffe7b4ae4e0 -> 0x785974bbb6a0 -> 0x0 -> 0x7ffe7b4ae4d8   Has an Average delta: Yes   Average delta: 0x53b814505ac0
+RBX values: 0x7ffe7b4add80 -> 0x10 -> 0x18 -> 0x7ffe7b4add80 -> 0x7ffe7b4add80 -> 0x7ffe7b4ae4d0 -> 0x10 -> 0x18 -> 0x7ffe7b4ae4d0 -> 0x7ffe7b4ae4d0 -> 0x10 -> 0x18 -> 0x20 -> 0x7ffe7b4ae4d0   Has an Average delta: Yes   Average delta: 0x3b12fdd3cb79
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4add90 -> 0x7ffe7b4add88 -> 0x7ffe7b4add80 -> 0x7ffe7b4ae4e8 -> 0x7ffe7b4ae4e0 -> 0x7ffe7b4ae4d8 -> 0x7ffe7b4ae4d0   Has an Average delta: Yes   Average delta: 0x142
+RSI values: 0x785974bbb160 -> 0x785988b5dab0 -> 0x0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x0 -> 0x785988b5e2e0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x0   Has an Average delta: Yes   Average delta: 0x42dc6f0dc1f8
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_find_object_from_map, 0x785988b29330, 232, 4
+RAX values: 0x63d2ed76e000 -> 0x63d2ed772018 -> 0x63d2ed76e040 -> 0x63d2ed76e078 -> 0x63d2ed76e0b0 -> 0x63d2ed76e0e8 -> 0x63d2ed76e120 -> 0x63d2ed76e158 -> 0x63d2ed76e190 -> 0x63d2ed76e1c8 -> 0x63d2ed76e200 -> 0x63d2ed76e238 -> 0x63d2ed76e270 -> 0x7ffe7b50e000 -> 0x7ffe7b50f01e -> 0x7ffe7b50e040 -> 0x7ffe7b50e078 -> 0x7ffe7b50e0b0 -> 0x7ffe7b50e0e8 -> 0x785974200000   Has an Average delta: Yes   Average delta: 0x1e28e94d0e8
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x68 -> 0x5b -> 0x63d2ed76e318 -> 0x63d2ed76e000 -> 0x63d2ed770004 -> 0x20 -> 0x1c -> 0x7ffe7b50e120 -> 0x7ffe7b50e000 -> 0x7ffe7b50e544 -> 0x70 -> 0x62 -> 0x785974200350 -> 0x785974200000 -> 0x7859743d67bc -> 0x58 -> 0x4d -> 0x785988b252a8 -> 0x785988b25000 -> 0x785988b574b4   Has an Average delta: Yes   Average delta: 0x2afbc0250f38
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, strlen, 0x785988b4db00, 224, 10
+RAX values: 0x7ffe7b4ae9f9 -> 0x785988b53fa7 -> 0x785988b54464 -> 0x785988b54464 -> 0x785988b54464 -> 0x63d2ed76e48a -> 0x785974bb7a51 -> 0x785974bb7a50 -> 0x785974bb7a40 -> 0x1f -> 0x7ffe7b4ad810 -> 0x7ffe7b4ad810 -> 0x7ffe7b4ad800 -> 0x1f -> 0x63d2ed76e48a -> 0x785974bbb140 -> 0x785974bbb140 -> 0x785974bbb140 -> 0x1f   Has an Average delta: Yes   Average delta: 0x24fc308c82b9
+RBX values:    Has an Average delta: No
+RCX values: 0x7ffe7b4ae9f9 -> 0x9f9 -> 0x785988b53fa7 -> 0xfa7 -> 0x785988b54464 -> 0x464 -> 0x785988b54464 -> 0x464 -> 0x785988b54464 -> 0x464 -> 0x63d2ed76e48a -> 0x48a -> 0x785974bb7a51 -> 0xa51 -> 0x0 -> 0x1 -> 0x100000000 -> 0x785974bb7a51 -> 0x1 -> 0x7ffe7b4ad810   Has an Average delta: Yes   Average delta: 0x63fdbb7ab212
+RDX values: 0x0 -> 0x100000000 -> 0x80000000 -> 0x80000000 -> 0xffffc0c080000000 -> 0xffffc0c080000000 -> 0x80000000 -> 0xffffc0ff80000000 -> 0xffffc0ff80000000   Has an Average delta: Yes   Average delta: 0x17b050000000
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_fini, 0x785988b2a380, 208, 1
+RAX values: 0x1 -> 0x5 -> 0xa0 -> 0x785988b5e2e0 -> 0x2f -> 0x2 -> 0x20 -> 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x0 -> 0x7ffe7b4ae5c0 -> 0x7ffe7b4ae5c0 -> 0x7ffe7b4ae5c0 -> 0x7ffe7b4ae5c0   Has an Average delta: Yes   Average delta: 0x28a05178fcc6
+RBX values: 0x785988b5d000 -> 0x785988b5cf60 -> 0x785974404fa8   Has an Average delta: Yes   Average delta: 0xa3ac02c
+RCX values: 0x4   Has an Average delta: No
+RDX values: 0x7ffe7b4ae5c0 -> 0x7ffe7b4ae5c0   Has an Average delta: Yes   Average delta: 0x0
+RSI values: 0x785988b5d000 -> 0x20 -> 0x0   Has an Average delta: Yes   Average delta: 0x3c2cc45ae800
+RDI values: 0x785988b5da08 -> 0x0 -> 0x7ffe7b4ae5a0 -> 0x785988b5da08 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785974bbb160 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x785988b5dab0 -> 0x0   Has an Average delta: Yes   Average delta: 0x25a243eccdc2
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, mmap, 0x785988b4ad00, 190, 8
+RAX values:    Has an Average delta: No
+RBX values: 0x0 -> 0x140 -> 0x0 -> 0xc -> 0x0 -> 0x4 -> 0x785974228000 -> 0x4 -> 0x7859743b0000 -> 0x4 -> 0x7859743ff000 -> 0x4 -> 0x785974405000 -> 0x4 -> 0x0 -> 0x10c8   Has an Average delta: Yes   Average delta: 0x402fb572e7af
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x0 -> 0x0 -> 0x0 -> 0x785974228000 -> 0x7859743b0000 -> 0x7859743ff000 -> 0x785974405000 -> 0x0   Has an Average delta: Yes   Average delta: 0x2262b38016db
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_process_pt_gnu_property, 0x785988b2c840, 180, 2
+RAX values: 0x63d2ed76e238 -> 0x785974200270   Has an Average delta: Yes   Average delta: 0x148686a92038
+RBX values:    Has an Average delta: No
+RCX values: 0x63d2ed76e368 -> 0x785974200380   Has an Average delta: Yes   Average delta: 0x148686a92018
+RDX values: 0x63d2ed76e000 -> 0x63d2ed76e338 -> 0x63d2ed76e348 -> 0xb -> 0x8 -> 0x63d2ed76e358 -> 0x785974200000 -> 0x785974200350 -> 0x785974200360 -> 0xb -> 0x8 -> 0x785974200370   Has an Average delta: Yes   Average delta: 0x29e5c0e4fe9a
+RSI values: 0x785988b5e2e0 -> 0x785974bbb160   Has an Average delta: Yes   Average delta: 0x13fa3180
+RDI values: 0xffff9c2d12891cd4 -> 0x63d2ed76e368 -> 0x10 -> 0xffff87a68bdffcbc -> 0x785974200380 -> 0x10   Has an Average delta: Yes   Average delta: 0x9c2c84fa8b17
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_init_paths, 0x785988b2c3f0, 179, 1
+RAX values: 0x4 -> 0xcccccccccccccccd -> 0x13 -> 0x785988b5ef60 -> 0x785988b52ef2 -> 0x785988b51040 -> 0x10 -> 0x50 -> 0xffffffffffffffb0 -> 0x785988b51020 -> 0x785988b51038 -> 0x50 -> 0xffffffffffffffb0 -> 0x785988b52ef2 -> 0x1a -> 0x785988b51072 -> 0x785988b51038 -> 0x50 -> 0xffffffffffffffb0 -> 0x785988b52ef2   Has an Average delta: Yes   Average delta: 0x563ed8e1db99557
+RBX values: 0xa -> 0x785988b51020 -> 0x785988b5ef68 -> 0x785988b5ef70 -> 0x785988b5ef78 -> 0x785988b5ef80 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x0   Has an Average delta: Yes   Average delta: 0x1e16622d7bde
+RCX values: 0x785988b5b3f0   Has an Average delta: No
+RDX values: 0x785988b5b3f8 -> 0x5f -> 0x4c -> 0x2 -> 0x50 -> 0x10 -> 0x10 -> 0x10 -> 0x10   Has an Average delta: Yes   Average delta: 0xf0b3116b690
+RSI values: 0x0   Has an Average delta: No
+RDI values: 0x0 -> 0xa -> 0x140 -> 0x785974bbb028 -> 0x785974bbb078 -> 0x785974bbb0c8 -> 0x785974bbb118   Has an Average delta: Yes   Average delta: 0x140ee8c9f2d9
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dlfo_process_initial, 0x785988b293a0, 174, 2
+RAX values: 0x1 -> 0x1 -> 0x0 -> 0x1 -> 0x0 -> 0x0 -> 0x1 -> 0x20 -> 0x2 -> 0x40 -> 0x1 -> 0x0   Has an Average delta: Yes   Average delta: 0x11
+RBX values: 0x785974bb2740 -> 0x0   Has an Average delta: Yes   Average delta: 0x785974bb2740
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x0 -> 0x0 -> 0x0 -> 0x785974bb31e0 -> 0x785974bb31e0 -> 0x785974bb31e0 -> 0x785974bb3200 -> 0x785974bb31e0 -> 0x785974bb3220   Has an Average delta: Yes   Average delta: 0xf0b2e97664c
+RDI values: 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x0 -> 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x0   Has an Average delta: Yes   Average delta: 0x281de11d997c
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, lookup_malloc_symbol, 0x785988b42400, 172, 4
+RAX values: 0x785974200000 -> 0x7859742ae7c0 -> 0x785974200000 -> 0x7859742add50 -> 0x785974200000 -> 0x7859742ad670 -> 0x785974200000 -> 0x7859742ae0c0   Has an Average delta: Yes   Average delta: 0xaded2
+RBX values: 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x0
+RCX values: 0x785988b5e680 -> 0x0 -> 0x785988b5e680 -> 0x0 -> 0x785988b5e680 -> 0x0 -> 0x785988b5e680 -> 0x0   Has an Average delta: Yes   Average delta: 0x785988b5e680
+RDX values: 0x7ffe7b4ae340 -> 0x7ffe7b4ae340 -> 0x7ffe7b4ae340 -> 0x7ffe7b4ae340   Has an Average delta: Yes   Average delta: 0x0
+RSI values: 0x785988b5e2e0 -> 0x0 -> 0x785988b5e2e0 -> 0x0 -> 0x785988b5e2e0 -> 0x0 -> 0x785988b5e2e0 -> 0x0   Has an Average delta: Yes   Average delta: 0x785988b5e2e0
+RDI values: 0x785988b539cb -> 0x785988b539d2 -> 0x785988b5307c -> 0x785988b539d7   Has an Average delta: Yes   Average delta: 0x63d
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, memcpy, 0x785988b4b920, 161, 10
+RAX values: 0x785988b5e8b8 -> 0x785988b5ee98 -> 0x7ffe7b4ad810 -> 0x785974bbb140 -> 0x785974bbb638 -> 0x785974bbb678 -> 0x785974bbb688 -> 0x785974bbb6a0 -> 0x785974bbb6a0 -> 0x7ffe7b4ae5a0   Has an Average delta: Yes   Average delta: 0x28c554ccf64
+RBX values:    Has an Average delta: No
+RCX values: 0x34762d34362d3638 -> 0x33762d34362d3638 -> 0x32762d34362d3638 -> 0x362e6f732e6362   Has an Average delta: Yes   Average delta: 0x116aaa419654f0f2
+RDX values:    Has an Average delta: No
+RSI values: 0x762d34362d363878 -> 0x762d34362d363878 -> 0x762d34362d363878 -> 0x2e6f732e6362696c   Has an Average delta: Yes   Average delta: 0x17e9eb02989befae
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, _IO_flush_all, 0x785974296100, 161, 1
+RAX values: 0x83fceea2dfaf0a00 -> 0x7859742944d0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x83fceea2dfaf0a00 -> 0x0   Has an Average delta: Yes   Average delta: 0xb9a9d476dba245c
+RBX values: 0x785974bb2740 -> 0x7859744044e0 -> 0x7859744045c0 -> 0x7859744038e0 -> 0x0 -> 0x785974404fa8   Has an Average delta: Yes   Average delta: 0x3023c8324b54
+RCX values:    Has an Average delta: No
+RDX values: 0x785974bb2740 -> 0x785974bb2740 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x0
+RSI values:    Has an Average delta: No
+RDI values: 0x7ffe7b4ae530 -> 0x785974405700 -> 0x785974405700 -> 0x785974405710 -> 0x785974405710 -> 0x785974405720 -> 0x785974405720 -> 0x7ffe7b4ae530   Has an Average delta: Yes   Average delta: 0x22f26954d32
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, _IO_cleanup, 0x7859742967e0, 152, 1
+RAX values: 0x83fceea2dfaf0a00 -> 0x7859742944d0 -> 0x0 -> 0x83fceea2dfaf0a00 -> 0x0   Has an Average delta: Yes   Average delta: 0x1d02893292515ae8
+RBX values: 0x785974bb2740 -> 0x7859744044e0 -> 0x7859744045c0 -> 0x7859744038e0 -> 0x0 -> 0x785974404fa8   Has an Average delta: Yes   Average delta: 0x3023c8324b54
+RCX values: 0x0 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RDX values: 0x785974bb2740 -> 0x785974bb2740 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x0
+RSI values:    Has an Average delta: No
+RDI values: 0x7ffe7b4ae5b0 -> 0x785974405700 -> 0x785974405710 -> 0x785974405710 -> 0x785974405720 -> 0x785974405720 -> 0x7ffe7b4ae5b0   Has an Average delta: Yes   Average delta: 0x28c57ae2f90
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_next_ld_env_entry, 0x785988b41940, 142, 1
+RAX values: 0x7ffe7b4afb24 -> 0x7ffe7b4afb34 -> 0x7ffe7b4afb4c -> 0x7ffe7b4afb63 -> 0x7ffe7b4afb75 -> 0x7ffe7b4afbb2 -> 0x7ffe7b4afbc6 -> 0x7ffe7b4afbdd -> 0x7ffe7b4afbea -> 0x7ffe7b4afc0d -> 0x7ffe7b4afc27 -> 0x7ffe7b4afc3b -> 0x7ffe7b4afc4c -> 0x7ffe7b4afc57 -> 0x7ffe7b4afc5f -> 0x7ffe7b4afc7f -> 0x7ffe7b4afc87 -> 0x7ffe7b4afeee -> 0x7ffe7b4aff24 -> 0x7ffe7b4aff34   Has an Average delta: Yes   Average delta: 0x36
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae7c0 -> 0x7ffe7b4ae7c8 -> 0x7ffe7b4ae7d0 -> 0x7ffe7b4ae7d8 -> 0x7ffe7b4ae7e0 -> 0x7ffe7b4ae7e8 -> 0x7ffe7b4ae7f0 -> 0x7ffe7b4ae7f8 -> 0x7ffe7b4ae800 -> 0x7ffe7b4ae808 -> 0x7ffe7b4ae810 -> 0x7ffe7b4ae818 -> 0x7ffe7b4ae820 -> 0x7ffe7b4ae828 -> 0x7ffe7b4ae830 -> 0x7ffe7b4ae838 -> 0x7ffe7b4ae840 -> 0x7ffe7b4ae848 -> 0x7ffe7b4ae850   Has an Average delta: Yes   Average delta: 0x8
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_add_to_namespace_list, 0x785988b31610, 126, 3
+RAX values: 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x1 -> 0x785988b5e2e0 -> 0x0 -> 0x0 -> 0x0 -> 0x1 -> 0x2 -> 0x785988b5e2e0 -> 0x785988b5dab0 -> 0x785988b5e8c0 -> 0x0 -> 0x0 -> 0x0 -> 0x3 -> 0x4   Has an Average delta: Yes   Average delta: 0x1abe90286cde
+RBX values: 0x0 -> 0x785988b5e2e0 -> 0x0 -> 0x30 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x3023d048c139
+RCX values: 0x0 -> 0x0 -> 0x785988b5d000 -> 0x0 -> 0x0 -> 0x785988b5d000 -> 0x785988b5e2e0 -> 0x0 -> 0x0 -> 0x785988b5d000 -> 0x785988b5e2e0 -> 0x785988b5dab0 -> 0x785988b5e8c0   Has an Average delta: Yes   Average delta: 0x32254e4bc7e8
+RDX values: 0x0 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RSI values: 0x785988b5d000 -> 0x785988b5d000 -> 0x785988b5d000   Has an Average delta: Yes   Average delta: 0x0
+RDI values: 0x785988b5da30 -> 0x785988b5da30 -> 0x785988b5da30 -> 0x785988b5da30 -> 0x785988b5da30 -> 0x785988b5da30   Has an Average delta: Yes   Average delta: 0x0
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, call_init.part.0, 0x785988b2a670, 122, 3
+RAX values: 0x0 -> 0x0 -> 0x785974402970 -> 0x785974200000 -> 0x7859743ffc70 -> 0x7859743ffc78 -> 0x7859743ffc80   Has an Average delta: Yes   Average delta: 0x140ee8c00d3a
+RBX values: 0x785988b5dab0 -> 0x8 -> 0x785974bbb160 -> 0x7859743ffc78 -> 0x7859743ffc80 -> 0x0 -> 0x785988b5e2e0 -> 0xfffffffffffffff8   Has an Average delta: Yes   Average delta: 0x55f6c9a82508
+RCX values: 0x0 -> 0x785974402960   Has an Average delta: Yes   Average delta: 0x785974402960
+RDX values: 0x10 -> 0x2 -> 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae7b8   Has an Average delta: Yes   Average delta: 0x2aaa2918f7ec
+RSI values: 0x63d2ed76e318 -> 0x785974bbb140 -> 0x7ffe7b4ae7a8 -> 0x7ffe7b4ae7a8 -> 0x785988b5e8b8   Has an Average delta: Yes   Average delta: 0x8f4201a40e0
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __rtld_malloc_init_real, 0x785988b424d0, 111, 1
+RAX values: 0x785988b539bf -> 0x4c0d630 -> 0x4c0d68f -> 0x4c0d68f -> 0x4c0d68f0 -> 0x4c0d6922 -> 0x4c0d6962 -> 0x4c0d69620 -> 0x4c0d6964e -> 0x4c0d6968e -> 0x4c0d6968e0 -> 0x4c0d696912 -> 0x4c0d696912 -> 0x4c0d6969120 -> 0x4c0d696914e -> 0x4c0d696919e -> 0x4c0d696919e0 -> 0x4c0d69691a15 -> 0x4c0d69691a75   Has an Average delta: Yes   Average delta: 0xae945cfd06f
+RBX values: 0x785988b5e2e0 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x13fabba0
+RCX values: 0x785988b539c4 -> 0x785988b539c5 -> 0x785988b539c6 -> 0x785988b539c7 -> 0x785988b539c8 -> 0x785988b539c9 -> 0x785988b539ca   Has an Average delta: Yes   Average delta: 0x1
+RDX values: 0x4c0d68f -> 0x4 -> 0x4c0d6922 -> 0x4c -> 0x4c0d6964e -> 0x4c0 -> 0x4c0d696912 -> 0x4c0d -> 0x4c0d696914e -> 0x4c0d6 -> 0x4c0d69691a15 -> 0x4c0d69 -> 0x7ffe7b4ae380 -> 0x7ffe7b4ae380 -> 0x7ffe7b4ae380 -> 0x7ffe7b4ae380   Has an Average delta: Yes   Average delta: 0x135969de1bf1
+RSI values: 0x785988b539cb -> 0x785988b539d2 -> 0x785988b5307c -> 0x785988b539d7   Has an Average delta: Yes   Average delta: 0x63d
+RDI values: 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x0
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_setup_hash, 0x785988b381b0, 110, 4
+RAX values: 0x785988b5dab0 -> 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160   Has an Average delta: Yes   Average delta: 0x6a8c1d0
+RBX values:    Has an Average delta: No
+RCX values: 0x24 -> 0xfffffffffffffffd -> 0x2 -> 0x3dd   Has an Average delta: Yes   Average delta: 0x157
+RDX values: 0x785988b5ce78 -> 0x785988b25430 -> 0x785988b25460 -> 0x785988b254f0 -> 0x63d2ed771e70 -> 0x63d2ed76e3b0 -> 0x63d2ed76e3c8 -> 0x63d2ed76e3bc -> 0x7ffe7b50e410 -> 0x168 -> 0x7ffe7b50e168 -> 0x7ffe7b50e188 -> 0x7ffe7b50e190 -> 0x785974402990 -> 0x785974204508 -> 0x785974205518 -> 0x78597420648c   Has an Average delta: Yes   Average delta: 0x1385426eb6b9
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_allocate_tls_init, 0x785988b392d0, 105, 1
+RAX values: 0x785974bbb160 -> 0x785974bb30e0 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x4510
+RBX values: 0x785974bb30e0 -> 0x2 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x785974bb2c0e
+RCX values: 0x1 -> 0x10 -> 0x785974bb30f0   Has an Average delta: Yes   Average delta: 0x3c2cba5d9877
+RDX values: 0x1 -> 0x10 -> 0x1 -> 0x785974bb30e0 -> 0x88 -> 0x10 -> 0x88 -> 0x78   Has an Average delta: Yes   Average delta: 0x2262b3a3329e
+RSI values: 0x40 -> 0x7859743ffc60 -> 0x40   Has an Average delta: Yes   Average delta: 0x7859743ffc20
+RDI values: 0x785988b5da58 -> 0x1 -> 0x785974bb2740 -> 0x785974bb26b8 -> 0x785974bb26c8 -> 0x785988b5da58   Has an Average delta: Yes   Average delta: 0x3023d048bdf2
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, open_verify.constprop.0, 0x785988b2ac80, 104, 1
+RAX values: 0x340 -> 0x327 -> 0x0   Has an Average delta: Yes   Average delta: 0x1a0
+RBX values: 0x785974bbb140 -> 0x63d2ed76e48a   Has an Average delta: Yes   Average delta: 0x14868744ccb6
+RCX values: 0x40   Has an Average delta: No
+RDX values: 0x340 -> 0x340 -> 0x10102464c457f -> 0x3010102464c457f -> 0x350 -> 0x327 -> 0x320 -> 0x310   Has an Average delta: Yes   Average delta: 0xdbb72538a812f4
+RSI values: 0x7ffe7b4ad9b8 -> 0x7ffe7b4ad8f0 -> 0x7ffe7b4ad8f0 -> 0x7ffe7b4ad5df -> 0x7ffe7b4ad5d0   Has an Average delta: Yes   Average delta: 0xfa
+RDI values: 0x785974bbb140   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __minimal_calloc, 0x785988b311c0, 99, 9
+RAX values: 0x5d9 -> 0x5d9 -> 0x5d9 -> 0x5d9 -> 0x4e2 -> 0x4e2 -> 0x4 -> 0x60 -> 0x3 -> 0x48 -> 0x2d -> 0x438 -> 0x8 -> 0xc0 -> 0x410 -> 0x410 -> 0x11 -> 0x110   Has an Average delta: Yes   Average delta: 0x16c
+RBX values:    Has an Average delta: No
+RCX values: 0x5d9 -> 0x5d9 -> 0x0 -> 0x5d9 -> 0x5d9 -> 0x0 -> 0x4e2 -> 0x4e3 -> 0x0 -> 0x4 -> 0x1c -> 0x0 -> 0x3 -> 0x1b -> 0x0 -> 0x2d -> 0x3d -> 0x0 -> 0x8 -> 0x18   Has an Average delta: Yes   Average delta: 0x17d
+RDX values: 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RSI values:    Has an Average delta: No
+RDI values: 0x5d9 -> 0x5d9 -> 0x4e2 -> 0x60 -> 0x48 -> 0x438 -> 0xc0 -> 0x410 -> 0x110   Has an Average delta: Yes   Average delta: 0x269
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_call_fini, 0x785988b26090, 85, 3
+RAX values: 0x63d2ed771e50 -> 0x63d2ed771e60 -> 0x8 -> 0x1 -> 0x63d2ed771df8 -> 0x63d2ed76e000 -> 0x63d2ed76f1a4 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x256f190cafb4
+RBX values: 0x63d2ed771df8 -> 0x63d2ed771df0 -> 0x785988b5d000 -> 0x785988b5d000 -> 0x785988b5d000   Has an Average delta: Yes   Average delta: 0x521a6cfac86
+RCX values:    Has an Average delta: No
+RDX values: 0x0 -> 0x63d2ed771e20 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x428c9e4f696a
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_catch_exception, 0x785988b26480, 84, 2
+RAX values: 0x0 -> 0x7ffe7b4add90 -> 0x785988b279f0 -> 0x0 -> 0x7ffe7b4adf40 -> 0x0 -> 0x7ffe7b4add70 -> 0x785988b279f0 -> 0x0 -> 0x7ffe7b4adf40   Has an Average delta: Yes   Average delta: 0x638d0a8f906a
+RBX values: 0x63d2ed771e00 -> 0x785974402940   Has an Average delta: Yes   Average delta: 0x148686c90b40
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4add8c -> 0x7ffe7b4add6c   Has an Average delta: Yes   Average delta: 0x20
+RSI values:    Has an Average delta: No
+RDI values: 0x7ffe7b4adda0 -> 0x7ffe7b4adf60 -> 0x7ffe7b4add80 -> 0x7ffe7b4adf60   Has an Average delta: Yes   Average delta: 0x1d5
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_init, 0x785988b2a780, 82, 1
+RAX values: 0x0 -> 0x785974bbb6a0 -> 0x785974bbb6a0 -> 0x785974bbb6a0   Has an Average delta: Yes   Average delta: 0x281dd193e78a
+RBX values: 0x0 -> 0x10 -> 0x8 -> 0x0 -> 0xfffffffffffffff8 -> 0x0   Has an Average delta: Yes   Average delta: 0x9
+RCX values: 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae7b8   Has an Average delta: Yes   Average delta: 0x0
+RDX values: 0x7ffe7b4ae7a8 -> 0x7ffe7b4ae7a8 -> 0x7ffe7b4ae7a8   Has an Average delta: Yes   Average delta: 0x0
+RSI values:    Has an Average delta: No
+RDI values: 0x0 -> 0x785988b5dab0 -> 0x785974bbb160 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x281de58e11d5
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dlfo_sort_mappings, 0x785988b29ab0, 80, 1
+RAX values: 0x1 -> 0x2 -> 0x3 -> 0x2 -> 0x3   Has an Average delta: Yes   Average delta: 0x1
+RBX values:    Has an Average delta: No
+RCX values: 0x7ffe7b50e000 -> 0x785974200000 -> 0x785974200000 -> 0x7ffe7b50e000 -> 0x785988b25000 -> 0x785988b25000   Has an Average delta: Yes   Average delta: 0x49633667666
+RDX values: 0x1 -> 0x20 -> 0x785974200000 -> 0x2 -> 0x40 -> 0x785988b25000 -> 0x2 -> 0x40 -> 0x785988b25000   Has an Average delta: Yes   Average delta: 0x4b37f04addfe
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __run_exit_handlers, 0x785974247910, 79, 1
+RAX values: 0x785974403680 -> 0x1 -> 0x0 -> 0x0 -> 0x785974404fc0 -> 0xed58620244614da9 -> 0xa6d4f6ac31012230 -> 0x785988b2a380 -> 0x1 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x11d5a470b469fc10
+RBX values: 0x785974404fa8   Has an Average delta: No
+RCX values: 0x4 -> 0xed58620244614da9   Has an Average delta: Yes   Average delta: 0x12a79dfdbb9eb25b
+RDX values: 0x785974403680   Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x0   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_determine_tlsoffset, 0x785988b39000, 79, 1
+RAX values: 0x785974bbbc90 -> 0x40 -> 0x8f -> 0x11 -> 0x1 -> 0x10 -> 0x680 -> 0x747 -> 0x1d   Has an Average delta: Yes   Average delta: 0xf0b2e977973
+RBX values: 0x88 -> 0x40   Has an Average delta: Yes   Average delta: 0x48
+RCX values: 0x7 -> 0x8f -> 0x8f -> 0x88 -> 0x88 -> 0x707 -> 0x747 -> 0x740 -> 0x1080   Has an Average delta: Yes   Average delta: 0x212
+RDX values: 0x7 -> 0x785974bbbc90 -> 0x7   Has an Average delta: Yes   Average delta: 0x785974bbbc89
+RSI values: 0x0 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RDI values: 0x8   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, init_tls, 0x785988b45040, 77, 1
+RAX values: 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x0 -> 0x785974bb30e0 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x281ddb90e9f5
+RBX values: 0x1 -> 0x40 -> 0x785974bb2740 -> 0x7ffe7b4ae470   Has an Average delta: Yes   Average delta: 0x2aaa2918f6cf
+RCX values: 0x1   Has an Average delta: No
+RDX values: 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RSI values: 0x785974bbbca0 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x9560
+RDI values: 0x41 -> 0x410 -> 0x0   Has an Average delta: Yes   Average delta: 0x3ef
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __libc_start_main, 0x78597422a200, 72, 1
+RAX values: 0x785988b5caa0 -> 0x78597440ad58 -> 0x63d2ed771df8   Has an Average delta: Yes   Average delta: 0xa434d9f5654
+RBX values: 0x7ffe7b4ae7a8   Has an Average delta: No
+RCX values: 0x63d2ed771e10 -> 0x1000 -> 0x63d2ed76f000 -> 0x63d2ed771e40 -> 0x63d2ed76e000 -> 0x63d2ed771df0 -> 0x63d2ed771df8   Has an Average delta: Yes   Average delta: 0x21464f27c416
+RDX values: 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae7a8   Has an Average delta: Yes   Average delta: 0x8
+RSI values: 0x7ffe7b4ae7a8 -> 0x8 -> 0x1 -> 0x7ffe7b4ae7a8   Has an Average delta: Yes   Average delta: 0x55545231efc4
+RDI values: 0x785988b2a380 -> 0x63d2ed771e30 -> 0x785988b5e2e0 -> 0x63d2ed76f15e   Has an Average delta: Yes   Average delta: 0x14869b3dbe80
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_check_all_versions, 0x785988b3b5a0, 72, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785988b5dab0 -> 0x0 -> 0x7ffe7b4ae470   Has an Average delta: Yes   Average delta: 0x31ab3bfdd456
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x785988b5e2e0 -> 0x785988b5e8c0 -> 0x785974bbb160 -> 0x785988b5dab0   Has an Average delta: Yes   Average delta: 0xd517785
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, get_common_indices.constprop.0, 0x785988b3d400, 72, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x68747541   Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __cxa_finalize, 0x7859742472c0, 58, 1
+RAX values: 0x0 -> 0x0 -> 0x0 -> 0x0 -> 0x785974404b70   Has an Average delta: Yes   Average delta: 0x1e165d1012dc
+RBX values: 0x785974404fb0 -> 0x63d2ed771df8   Has an Average delta: Yes   Average delta: 0x148686c931b8
+RCX values: 0x785974404b80 -> 0x0   Has an Average delta: Yes   Average delta: 0x785974404b80
+RDX values: 0x785974404b90   Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x63d2ed772008   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, bcmp, 0x785988b4b640, 57, 3
+RAX values: 0x762d34362d363878 -> 0x33762d34362d3638 -> 0x38362d36342d7633 -> 0xffffffffffffffff -> 0x762d34362d363878 -> 0x32762d34362d3638 -> 0x38362d36342d7632 -> 0xfffffffffffffffe -> 0x762d34362d363878 -> 0x32762d34362d3638 -> 0x38362d36342d7632 -> 0xffffffffffffffff   Has an Average delta: Yes   Average delta: 0xa202f02708d254b
+RBX values:    Has an Average delta: No
+RCX values: 0x762d34362d363878 -> 0x34762d34362d3638 -> 0x38362d36342d7634 -> 0x762d34362d363878 -> 0x34762d34362d3638 -> 0x38362d36342d7634 -> 0x762d34362d363878 -> 0x33762d34362d3638 -> 0x38362d36342d7633   Has an Average delta: Yes   Average delta: 0x9ca64617a25a967
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __tls_init_tp, 0x785988b39ed0, 57, 1
+RAX values: 0x785974bb2a00 -> 0x785974bb2a50 -> 0x785988b5b430 -> 0x785988b5b428 -> 0x7ffe7b4ae7a0   Has an Average delta: Yes   Average delta: 0x1e941a3ef6c
+RBX values: 0x785974bb2740 -> 0x785974bb3060 -> 0x920 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x503ba3276f80
+RCX values: 0x785988b5e0c8   Has an Average delta: No
+RDX values: 0x785988b5e0c8   Has an Average delta: No
+RSI values: 0x7ffe7b4ae39c   Has an Average delta: No
+RDI values: 0x785974bb2a10 -> 0x785974bb2a20 -> 0x785974bb3060   Has an Average delta: Yes   Average delta: 0x328
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_cet_check, 0x785988b3cbc0, 55, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x7ffe7b4ae470   Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x100000001   Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_hwcaps_subdirs_active, 0x785988b41e80, 52, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __GI___sigsetjmp, 0x785988b4b000, 48, 2
+RAX values: 0x7ffe7b4ade80 -> 0x7ffe7b4ade80 -> 0xfffcf695bd000000 -> 0x785988b26500 -> 0x785988b26500 -> 0xf0b31164ca000000 -> 0x7ffe7b4ade60 -> 0x7ffe7b4ade60 -> 0xfffcf695bcc00000 -> 0x785988b26500 -> 0x785988b26500 -> 0xf0b31164ca000000   Has an Average delta: Yes   Average delta: 0x42daa711d60ed05
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4add60 -> 0x7ffe7b4add60 -> 0xfffcf695bac00000 -> 0x7ffe7b4add40 -> 0x7ffe7b4add40 -> 0xfffcf695ba800000   Has an Average delta: Yes   Average delta: 0x21f3ed9f9b7f9
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __rtld_mutex_init, 0x785988b42700, 47, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x785974bbb160 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x8a20
+RCX values: 0x785988b539bf -> 0x785988b539bf   Has an Average delta: Yes   Average delta: 0x0
+RDX values: 0x785974200000 -> 0x78597429fff0 -> 0x785974200000 -> 0x7859742a1a70   Has an Average delta: Yes   Average delta: 0xa08c5
+RSI values: 0x785988b53a03 -> 0x785988b53a31   Has an Average delta: Yes   Average delta: 0x2e
+RDI values: 0x785974bbb160 -> 0x785974bbb160   Has an Average delta: Yes   Average delta: 0x0
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_dst_count, 0x785988b2bb50, 46, 2
+RAX values: 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RBX values: 0x63d2ed771e00 -> 0x785974402940   Has an Average delta: Yes   Average delta: 0x148686c90b40
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_sysdep_read_whole_file, 0x785988b312d0, 45, 1
+RAX values: 0x785974bb5000   Has an Average delta: No
+RBX values: 0x63d2ed76e48a   Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x7ffe7b4ad780 -> 0x51ff   Has an Average delta: Yes   Average delta: 0x7ffe7b4a8581
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, openaux, 0x785988b279f0, 44, 2
+RAX values:    Has an Average delta: No
+RBX values: 0x7ffe7b4adf60 -> 0x63d2ed771e00 -> 0x7ffe7b4adf60 -> 0x785974402940   Has an Average delta: Yes   Average delta: 0x15540b90bda0
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x63d2ed76e48a -> 0x785974224451   Has an Average delta: Yes   Average delta: 0x148686ab5fc7
+RDI values: 0x785988b5e2e0 -> 0x785974bbb160   Has an Average delta: Yes   Average delta: 0x13fa3180
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __pthread_mutex_lock, 0x78597429fff0, 44, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x785988b5d000   Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_tls_static_surplus_init, 0x785988b38d40, 40, 1
+RAX values: 0x680   Has an Average delta: No
+RBX values: 0x4 -> 0x4 -> 0x4 -> 0x40   Has an Average delta: Yes   Average delta: 0x14
+RCX values: 0x200   Has an Average delta: No
+RDX values: 0xc   Has an Average delta: No
+RSI values: 0x7ffe7b4ae388 -> 0x7ffe7b4ae388   Has an Average delta: Yes   Average delta: 0x0
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __GI___open64_nocancel, 0x785988b4ab40, 40, 2
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x785988b5338f -> 0x785974bbb140   Has an Average delta: Yes   Average delta: 0x13f9824f
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_find_object_init, 0x785988b29b60, 40, 1
+RAX values: 0x3 -> 0x2 -> 0x40 -> 0x785974bb3220 -> 0x7ffe7b50f01e   Has an Average delta: Yes   Average delta: 0x1fff9ed43c07
+RBX values: 0x0 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x785974bb2740
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x785988b5b3c0 -> 0x3   Has an Average delta: Yes   Average delta: 0x785988b5b3bd
+RDI values: 0x785988b5e2e0 -> 0x3 -> 0x60 -> 0x785974bb31e0   Has an Average delta: Yes   Average delta: 0x503ba9d05c3e
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __cxa_atexit, 0x7859742471f0, 39, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x785974404fa8 -> 0x7ffe7b4ae7a8   Has an Average delta: Yes   Average delta: 0x7a5070a9800
+RCX values:    Has an Average delta: No
+RDX values: 0x785988b2a380 -> 0xa6d4f6ac31012230 -> 0xed58620244614da9   Has an Average delta: Yes   Average delta: 0x4fd77681b588d664
+RSI values:    Has an Average delta: No
+RDI values: 0x785974403680   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_sysdep_start, 0x785988b43ec0, 37, 1
+RAX values: 0x63d2ed76f040   Has an Average delta: No
+RBX values: 0x785988b45af0 -> 0x785988b5dab0   Has an Average delta: Yes   Average delta: 0x17fc0
+RCX values: 0x7ffe7b4ae870   Has an Average delta: No
+RDX values: 0x785988b5e2d8 -> 0x7ffe7b4ae6b0   Has an Average delta: Yes   Average delta: 0x7a4f29503d8
+RSI values: 0x7ffe7b4ae6a0   Has an Average delta: No
+RDI values: 0x7ffe7b4ae7b8 -> 0x7ffe7b4ae9f9 -> 0x63d2ed76e040   Has an Average delta: Yes   Average delta: 0xe15c6ea05fd
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_debug_initialize, 0x785988b27880, 34, 1
+RAX values: 0x0 -> 0x785988b27820 -> 0x0 -> 0x0 -> 0x785988b5e2e0 -> 0x785988b5e128   Has an Average delta: Yes   Average delta: 0x4835b86bc42b
+RBX values:    Has an Average delta: No
+RCX values: 0x0 -> 0x785988b5e128   Has an Average delta: Yes   Average delta: 0x785988b5e128
+RDX values: 0x0 -> 0x785988b5d000   Has an Average delta: Yes   Average delta: 0x785988b5d000
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __pthread_mutex_unlock, 0x7859742a1a70, 34, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __new_exitfn, 0x785974247000, 33, 1
+RAX values: 0x0 -> 0x0 -> 0x785974404fd0   Has an Average delta: Yes   Average delta: 0x3c2cba2027e8
+RBX values: 0x785974403680 -> 0x785974404fa8   Has an Average delta: Yes   Average delta: 0x1928
+RCX values:    Has an Average delta: No
+RDX values: 0x785974404fd0   Has an Average delta: No
+RSI values: 0x785974404fc0   Has an Average delta: No
+RDI values: 0x785974404fc0   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_audit_activity_nsid, 0x785988b3f9e0, 33, 3
+RAX values: 0x0 -> 0x0 -> 0x785988b5e2e0 -> 0x0 -> 0x0 -> 0x785988b5e2e0 -> 0x0 -> 0x0 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x4b37f571adcc
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x785988b5d000 -> 0x785988b5d000 -> 0x785988b5d000   Has an Average delta: Yes   Average delta: 0x0
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, strncmp, 0x785988b4dca0, 32, 1
+RAX values: 0x11   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values: 0x6   Has an Average delta: No
+RDX values: 0x1   Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __set_vma_name, 0x785988b4ae10, 32, 2
+RAX values:    Has an Average delta: No
+RBX values: 0x785974bbb000 -> 0x140   Has an Average delta: Yes   Average delta: 0x785974bbaec0
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x7ffe7b4ae30c   Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_add_to_slotinfo, 0x785988b39bd0, 28, 1
+RAX values: 0x40 -> 0x0 -> 0x1   Has an Average delta: Yes   Average delta: 0x20
+RBX values: 0x1 -> 0x10 -> 0x785974bbb160   Has an Average delta: Yes   Average delta: 0x3c2cba5dd8af
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __libc_start_call_main, 0x78597422a150, 28, 1
+RAX values: 0x83fceea2dfaf0a00 -> 0x0 -> 0x0 -> 0x7ffe7b4ae6b0 -> 0x78597440ad58 -> 0x63d2ed76f15e   Has an Average delta: Yes   Average delta: 0x18cd891b08499066
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4ae7b8   Has an Average delta: No
+RSI values: 0x7ffe7b4ae7a8   Has an Average delta: No
+RDI values: 0x7ffe7b4ae6b0   Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __init_misc, 0x785974329920, 26, 1
+RAX values: 0x785974404370 -> 0x785974404378   Has an Average delta: Yes   Average delta: 0x8
+RBX values: 0x7ffe7b4ae7a8 -> 0x7859743ffc78   Has an Average delta: Yes   Average delta: 0x7a5070aeb30
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4afb20 -> 0x7ffe7b4afb1e   Has an Average delta: Yes   Average delta: 0x2
+RSI values:    Has an Average delta: No
+RDI values: 0x7ffe7b4afb1e   Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __GI___libc_cleanup_push_defer, 0x785974298e10, 26, 2
+RAX values: 0x785974bb2740 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x0
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x0 -> 0x785974bb2a48 -> 0x0 -> 0x785974bb2a48   Has an Average delta: Yes   Average delta: 0x785974bb2a48
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __libc_scratch_buffer_set_array_size, 0x785988b4ac40, 25, 1
+RAX values: 0x24 -> 0x120   Has an Average delta: Yes   Average delta: 0xfc
+RBX values: 0x7ffe7b4adf90 -> 0x63d2ed771f70   Has an Average delta: Yes   Average delta: 0x1c2b8dd3c020
+RCX values: 0x8 -> 0x2c -> 0x0   Has an Average delta: Yes   Average delta: 0x28
+RDX values: 0x0   Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_call_libc_early_init, 0x785988b26000, 25, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x785974bbb160 -> 0x5c4fb075cc8a   Has an Average delta: Yes   Average delta: 0x1c09c445e4d6
+RCX values: 0x785988b52b35   Has an Average delta: No
+RDX values: 0x785974200000 -> 0x7859743854d0   Has an Average delta: Yes   Average delta: 0x1854d0
+RSI values: 0x785988b52b43   Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, rtld_mutex_dummy, 0x785988b39e60, 24, 8
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_help, 0x785988b44270, 23, 0
+RAX values: 0x63d2ed76f040   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values: 0x7ffe7b4ae7b8   Has an Average delta: No
+RDX values: 0x1 -> 0x7ffe7b4ae7a8 -> 0x785988b2a380   Has an Average delta: Yes   Average delta: 0x43d1b6f195e7
+RSI values: 0x1   Has an Average delta: No
+RDI values: 0x7ffe7b4ae7a0 -> 0x785988b5e2e0   Has an Average delta: Yes   Average delta: 0x7a4f29504c0
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, _init_first, 0x78597422a060, 22, 1
+RAX values: 0x785974403000 -> 0x785988b5caa0 -> 0x78597440ad58   Has an Average delta: Yes   Average delta: 0x14755bf4
+RBX values: 0x7859743ffc78   Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_receive_error, 0x785988b263e0, 22, 1
+RAX values: 0x785988b44b20   Has an Average delta: No
+RBX values: 0x0 -> 0x7ffe7b4ae470   Has an Average delta: Yes   Average delta: 0x7ffe7b4ae470
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x7ffe7b4ae470   Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __sigsetjmp, 0x785974244ed0, 22, 1
+RAX values: 0x7ffe7b4ae720 -> 0xa6d4f10bc2f96690 -> 0xe21785f2cd214da9 -> 0x78597422a181 -> 0xa6d4f6accd912031 -> 0xed599b2240634da9   Has an Average delta: Yes   Average delta: 0x1067d8e08092e20e
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4ae690 -> 0xa6d4f10bc2f96720 -> 0xe21785f2ce414da9   Has an Average delta: Yes   Average delta: 0x4a3711ece1ccb2fc
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __mempcpy, 0x785988b4b910, 20, 5
+RAX values: 0x785988b5ef1d -> 0x785988b5ef26 -> 0x785988b5ef34 -> 0x785988b5ef3d -> 0x785988b5ef4b -> 0x785988b5ef54 -> 0x785974bbb650 -> 0x785974bbb670 -> 0x785974bb26b8 -> 0x785974bb26c8   Has an Average delta: Yes   Average delta: 0x2384f3c
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __unregister_atfork, 0x78597430e090, 20, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x63d2ed772008 -> 0x785974404fb0   Has an Average delta: Yes   Average delta: 0x148686c92fa8
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x0   Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, strdup, 0x785988b4daa0, 19, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x7ffe7b4ad810 -> 0x51ff   Has an Average delta: Yes   Average delta: 0x7ffe7b4a8611
+RCX values:    Has an Average delta: No
+RDX values: 0x20   Has an Average delta: No
+RSI values: 0x7ffe7b4ad810   Has an Average delta: No
+RDI values: 0x20 -> 0x785974bbb140   Has an Average delta: Yes   Average delta: 0x785974bbb120
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __strrchr_evex, 0x78597439d8c0, 19, 1
+RAX values: 0x7ffe7b4afb1f   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, mprotect, 0x785988b4adb0, 18, 3
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __GI___libc_cleanup_pop_restore, 0x785974298e60, 18, 2
+RAX values: 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x785974bb2740 -> 0x785974bb2740   Has an Average delta: Yes   Average delta: 0x0
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __tls_pre_init_tp, 0x785988b39e70, 17, 1
+RAX values: 0x785988b5e0b8 -> 0x785988b5e0c8 -> 0x785988b5e0d8 -> 0x785988b39e60   Has an Average delta: Yes   Average delta: 0xc0dd
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_audit_activity_map, 0x785988b3f930, 17, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x0 -> 0x63d2ed76e468   Has an Average delta: Yes   Average delta: 0x63d2ed76e468
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __sbrk, 0x785988b4a300, 16, 1
+RAX values: 0x63d2fb79b000   Has an Average delta: No
+RBX values: 0x0 -> 0x785988b45af0   Has an Average delta: Yes   Average delta: 0x785988b45af0
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, version_check_doit, 0x785988b44c70, 15, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x7ffe7b4ae470 -> 0x0   Has an Average delta: Yes   Average delta: 0x7ffe7b4ae470
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x785988b5e2e0   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_audit_objclose, 0x785988b3fcd0, 15, 3
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_sort_maps_init, 0x785988b38370, 14, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x7ffe7b4ae68c   Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_debug_update, 0x785988b27830, 14, 2
+RAX values: 0x785988b5e128 -> 0x785988b5e128   Has an Average delta: Yes   Average delta: 0x0
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __GI___pread64_nocancel, 0x785988b4abb0, 14, 2
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_hwcaps_split, 0x785988b41f40, 13, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __call_tls_dtors, 0x7859742476f0, 13, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x0 -> 0x7ffe7b4ae7a8   Has an Average delta: Yes   Average delta: 0x7ffe7b4ae7a8
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, __sigjmp_save, 0x785974244f50, 13, 1
+RAX values:    Has an Average delta: No
+RBX values: 0x7ffe7b4ae6b0 -> 0x7ffe7b4ae7a8   Has an Average delta: Yes   Average delta: 0xf8
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_unload_cache, 0x785988b3c390, 13, 1
+RAX values: 0x785974bb4fff   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x51ff   Has an Average delta: No
+RDI values: 0x785974bb5000   Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, __do_global_dtors_aux, 0x63d2ed76f0e0, 13, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x63d2ed772008   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __GI___close_nocancel, 0x785988b4aa20, 12, 2
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __GI___fstat64, 0x785988b4a8f0, 12, 2
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_assign_tls_modid, 0x785988b38de0, 12, 1
+RAX values: 0x1   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values: 0x1   Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, _start, 0x63d2ed76f040, 12, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x7ffe7b4ae7a8   Has an Average delta: No
+RSI values: 0x1   Has an Average delta: No
+RDI values: 0x63d2ed76f15e   Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, check_stdfiles_vtables, 0x78597422a0d0, 12, 1
+RAX values: 0x785974402030   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values: 0x7859744038e0 -> 0x7859744045c0 -> 0x7859744044e0   Has an Average delta: Yes   Average delta: 0x6e0
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_audit_objopen, 0x785988b3fbb0, 10, 2
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __rtld_malloc_init_stubs, 0x785988b421f0, 10, 1
+RAX values: 0x785988b311c0 -> 0x785988b31200 -> 0x785988b31070 -> 0x785988b31240   Has an Average delta: Yes   Average delta: 0x135
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, register_tm_clones, 0x63d2ed76f0a0, 10, 1
+RAX values: 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x0
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x63d2ed772010 -> 0x0 -> 0x0 -> 0x0 -> 0x0   Has an Average delta: Yes   Average delta: 0x18f4bb5dc804
+RDI values: 0x63d2ed772010   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, access, 0x785988b4a8c0, 9, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __brk, 0x785988b499c0, 8, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, exit, 0x785974247ba0, 7, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x785974403680   Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, _init, 0x63d2ed76f000, 7, 1
+RAX values: 0x0   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __x86_cpu_features_ifunc, 0x785988b3f8d0, 6, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, __read_nocancel, 0x785988b4abe0, 6, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_count_modids, 0x785988b38f00, 6, 1
+RAX values: 0x0   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0x0   Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, munmap, 0x785988b4ade0, 6, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, _Exit, 0x7859742ee200, 6, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values: 0xffffffffffffff88   Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_x86_init_cpu_features, 0x785988b3f900, 5, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, deregister_tm_clones, 0x63d2ed76f070, 5, 1
+RAX values: 0x63d2ed772010   Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values: 0x63d2ed772010   Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_audit_preinit, 0x785988b3fda0, 5, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, _fini, 0x63d2ed76f1a4, 4, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_debug_state, 0x785988b27820, 4, 2
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_cet_setup_features, 0x785988b3cb40, 4, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, .plt.sec, 0x785974228400, 4, 0
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib/x86_64-linux-gnu/libc.so.6, 0x785974200000, _setjmp, 0x785974244fa0, 3, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, .plt.got, 0x63d2ed76f030, 2, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/home/noamgrosman/technionCourses/binary_translation/ex2/tst, 0x63d2ed76e000, frame_dummy, 0x63d2ed76f120, 2, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
+/lib64/ld-linux-x86-64.so.2, 0x785988b25000, _dl_sysdep_start_cleanup, 0x785988b43f80, 2, 1
+RAX values:    Has an Average delta: No
+RBX values:    Has an Average delta: No
+RCX values:    Has an Average delta: No
+RDX values:    Has an Average delta: No
+RSI values:    Has an Average delta: No
+RDI values:    Has an Average delta: No
