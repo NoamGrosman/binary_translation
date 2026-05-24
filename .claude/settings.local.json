@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(env)",
+      "Bash(wsl -d ubuntu -- bash -c 'cd ~/binary_translation/ex1 && which pin; echo ---; ls ~ | grep -i pin; echo ---; echo PIN_ROOT=$PIN_ROOT; find ~ -maxdepth 3 -name '\\\\''pin'\\\\'' -type f 2>/dev/null | head')",
+      "Bash(wsl -d ubuntu -- bash -c 'cd ~/binary_translation/ex1 && time $HOME/pin/pin -t obj-intel64/ex1.so -- ./tst')",
+      "Bash(wsl -d ubuntu -- bash -c 'cd ~/binary_translation/ex1 && time $HOME/pin/pin -t obj-intel64/ex1.so -- ./bzip2 -k -f input.txt')"
+    ]
+  }
+}
