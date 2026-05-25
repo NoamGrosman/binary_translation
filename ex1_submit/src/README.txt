@@ -10,6 +10,7 @@ Compilation:
 
 Run:
 	$PIN_ROOT/pin -t obj-intel64/ex1.so -- ./bzip2 -k -f input.txt
+	or ~/pin-external-4.0-99633-g5ca9893f2-gcc-linux/pin -t obj-intel64/ex1.so -- ./bzip2 -k -f input.txt
 
 Output:
 	Produce rtn-output.csv in the current directory.

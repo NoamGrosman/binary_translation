@@ -124,18 +124,18 @@ VOID FINI(INT32 code, VOID* v) {
         RoutineData& r = routinesArray[i];
         if (r.instructionCount == 0 && r.callCount == 0) continue;
 
-        // routine row
+        // routine info
         outFile << r.imageName << ", "
                 << "0x" << std::hex << r.imageAddress << std::dec << ", "
                 << r.routineName << ", "
                 << "0x" << std::hex << r.routineAddress << std::dec << ", "
                 << r.instructionCount << ", "
-                << r.callCount << std::endl;
+                << r.callCount;
 
-        // 6 register lines under this routine
+        // 6 register sections in the same line
         for (int j = 0; j < NUM_TRACKED_REGS; j++) {
             const RegSamples& s = r.regs[j];
-            outFile << TRACKED_REG_NAMES[j] << " values: ";
+            outFile << ", " << TRACKED_REG_NAMES[j] << " values: ";
             for (int k = 0; k < s.count; k++) {
                 outFile << "0x" << std::hex << s.values[k] << std::dec;
                 if (k < s.count - 1) outFile << " -> ";
@@ -152,8 +152,8 @@ VOID FINI(INT32 code, VOID* v) {
             } else {
                 outFile << "  Has an Average delta: No";
             }
-            outFile << std::endl;
         }
+        outFile << std::endl;
     }
     outFile.close();
 }
