@@ -1,0 +1,685 @@
+ allocated memory at: 0x621fadcb2000
+after memory allocation
+after identifying candidate routines
+after chaining all branch targets
+after setting initial estimated new ins addrs in tc
+after fixing instructions displacements
+after write all new instructions to memory tc
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad434edf translated routine addr: 0x621fadcb2f29
+0x621fad434edf: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad436678 translated routine addr: 0x621fadcb4a73
+0x621fad436678: xor edx, edx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad437e67 translated routine addr: 0x621fadcb659a
+0x621fad437e67: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad438bc3 translated routine addr: 0x621fadcb74c9
+0x621fad438bc3: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad43d581 translated routine addr: 0x621fadcbc6d1
+0x621fad43d581: push 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad43dc1c translated routine addr: 0x621fadcbce74
+0x621fad43dc1c: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad43ffd8 translated routine addr: 0x621fadcbf58e
+0x621fad43ffd8: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad441c99 translated routine addr: 0x621fadcc15bf
+0x621fad441c99: xor ecx, ecx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad442e6b translated routine addr: 0x621fadcc29d2
+0x621fad442e6b: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad443a20 translated routine addr: 0x621fadcc3729
+0x621fad443a20: sub rdi, 0xffffffffffffff80
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4808a1 translated routine addr: 0x621fadd0608e
+0x621fad4808a1: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad497b7c translated routine addr: 0x621fadd1f3a3
+0x621fad497b7c: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4a1166 translated routine addr: 0x621fadd29b3e
+0x621fad4a1166: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4aee6d translated routine addr: 0x621fadd390db
+0x621fad4aee6d: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4af1c6 translated routine addr: 0x621fadd394dd
+0x621fad4af1c6: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4b35b0 translated routine addr: 0x621fadd3e19a
+0x621fad4b35b0: lea rax, ptr [rdi+0x10]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4cf99d translated routine addr: 0x621fadd5cfd2
+0x621fad4cf99d: push rbp
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4d0945 translated routine addr: 0x621fadd5e1a6
+0x621fad4d0945: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4d877d translated routine addr: 0x621fadd66c4a
+0x621fad4d877d: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4d87b6 translated routine addr: 0x621fadd66c92
+0x621fad4d87b6: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4de557 translated routine addr: 0x621fadd6d367
+0x621fad4de557: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4e23c0 translated routine addr: 0x621fadd718a8
+0x621fad4e23c0: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f02e6 translated routine addr: 0x621fadd8128d
+0x621fad4f02e6: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f5a99 translated routine addr: 0x621fadd87135
+0x621fad4f5a99: mov rdi, qword ptr [rip+0x6af2d8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f8c84 translated routine addr: 0x621fadd8a836
+0x621fad4f8c84: mov rax, qword ptr [rdi+0x18]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f991d translated routine addr: 0x621fadd8b5f5
+0x621fad4f991d: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f991e translated routine addr: 0x621fadd8b5f6
+0x621fad4f991e: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f991f translated routine addr: 0x621fadd8b5f7
+0x621fad4f991f: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f9920 translated routine addr: 0x621fadd8b5f8
+0x621fad4f9920: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f9924 translated routine addr: 0x621fadd8b5fc
+0x621fad4f9924: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f9925 translated routine addr: 0x621fadd8b5fd
+0x621fad4f9925: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f9927 translated routine addr: 0x621fadd8b5ff
+0x621fad4f9927: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f9928 translated routine addr: 0x621fadd8b600
+0x621fad4f9928: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f9929 translated routine addr: 0x621fadd8b601
+0x621fad4f9929: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f992a translated routine addr: 0x621fadd8b602
+0x621fad4f992a: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f992c translated routine addr: 0x621fadd8b604
+0x621fad4f992c: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f99c5 translated routine addr: 0x621fadd8b6ae
+0x621fad4f99c5: mov eax, dword ptr [rdi+0x14]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4f9e08 translated routine addr: 0x621fadd8bb77
+0x621fad4f9e08: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad4fc9c5 translated routine addr: 0x621fadd8ec5d
+0x621fad4fc9c5: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad50d59c translated routine addr: 0x621fadda13a7
+0x621fad50d59c: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad513672 translated routine addr: 0x621fadda7d5b
+0x621fad513672: mov rcx, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad518222 translated routine addr: 0x621faddacf71
+0x621fad518222: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad518226 translated routine addr: 0x621faddacf75
+0x621fad518226: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad51881d translated routine addr: 0x621faddad5df
+0x621fad51881d: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad522ca9 translated routine addr: 0x621faddb8b14
+0x621fad522ca9: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad524803 translated routine addr: 0x621faddba982
+0x621fad524803: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad524b7f translated routine addr: 0x621faddbadcf
+0x621fad524b7f: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad524fd4 translated routine addr: 0x621faddbb35c
+0x621fad524fd4: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad524fe7 translated routine addr: 0x621faddbb36f
+0x621fad524fe7: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5258fa translated routine addr: 0x621faddbbdf5
+0x621fad5258fa: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad52590d translated routine addr: 0x621faddbbe08
+0x621fad52590d: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad525920 translated routine addr: 0x621faddbbe1b
+0x621fad525920: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad52dfc1 translated routine addr: 0x621faddc532f
+0x621fad52dfc1: mov eax, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad530b85 translated routine addr: 0x621faddc8457
+0x621fad530b85: mov ecx, dword ptr [rdi+0x50]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad530b95 translated routine addr: 0x621faddc8467
+0x621fad530b95: mov ecx, dword ptr [rdi+0x10]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad530bba translated routine addr: 0x621faddc848c
+0x621fad530bba: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5318ba translated routine addr: 0x621faddc9334
+0x621fad5318ba: mov eax, dword ptr [rdi+0x10]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad531b39 translated routine addr: 0x621faddc95eb
+0x621fad531b39: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad535a28 translated routine addr: 0x621faddcdbf7
+0x621fad535a28: mov rax, qword ptr [rdi+0x18]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad536bb6 translated routine addr: 0x621faddcef79
+0x621fad536bb6: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad536d23 translated routine addr: 0x621faddcf10b
+0x621fad536d23: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5392ae translated routine addr: 0x621faddd1be9
+0x621fad5392ae: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad53af0d translated routine addr: 0x621faddd3dbc
+0x621fad53af0d: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad53aff7 translated routine addr: 0x621faddd3eb4
+0x621fad53aff7: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad53c08a translated routine addr: 0x621faddd50e1
+0x621fad53c08a: mov eax, dword ptr [rdi+0x8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad53c536 translated routine addr: 0x621faddd5617
+0x621fad53c536: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5589cc translated routine addr: 0x621faddf3f7a
+0x621fad5589cc: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad55a902 translated routine addr: 0x621faddf61a3
+0x621fad55a902: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad55a9e7 translated routine addr: 0x621faddf62a0
+0x621fad55a9e7: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad55a9e9 translated routine addr: 0x621faddf62a2
+0x621fad55a9e9: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad560884 translated routine addr: 0x621faddfc9c1
+0x621fad560884: push 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad580284 translated routine addr: 0x621fade200d4
+0x621fad580284: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5813fb translated routine addr: 0x621fade21452
+0x621fad5813fb: mov rdi, qword ptr [rdi+0x8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58140d translated routine addr: 0x621fade21464
+0x621fad58140d: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad582d52 translated routine addr: 0x621fade23091
+0x621fad582d52: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad583038 translated routine addr: 0x621fade233c8
+0x621fad583038: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5854e8 translated routine addr: 0x621fade25ca7
+0x621fad5854e8: jmp 0x621fad5854ea
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad585607 translated routine addr: 0x621fade25de1
+0x621fad585607: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58734d translated routine addr: 0x621fade27ec9
+0x621fad58734d: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58c482 translated routine addr: 0x621fade2d8c5
+0x621fad58c482: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58eb26 translated routine addr: 0x621fade303bd
+0x621fad58eb26: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58eb46 translated routine addr: 0x621fade303dd
+0x621fad58eb46: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58ed5c translated routine addr: 0x621fade30632
+0x621fad58ed5c: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58f7e5 translated routine addr: 0x621fade3118e
+0x621fad58f7e5: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58f7e6 translated routine addr: 0x621fade3118f
+0x621fad58f7e6: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad58fbee translated routine addr: 0x621fade315e5
+0x621fad58fbee: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5932b3 translated routine addr: 0x621fade3530b
+0x621fad5932b3: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5934ac translated routine addr: 0x621fade35594
+0x621fad5934ac: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad594e6d translated routine addr: 0x621fade372ce
+0x621fad594e6d: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad59ae74 translated routine addr: 0x621fade3da9f
+0x621fad59ae74: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a22e0 translated routine addr: 0x621fade4593f
+0x621fad5a22e0: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a71a4 translated routine addr: 0x621fade4b317
+0x621fad5a71a4: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a73b1 translated routine addr: 0x621fade4b5b1
+0x621fad5a73b1: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a7799 translated routine addr: 0x621fade4bac3
+0x621fad5a7799: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a7da5 translated routine addr: 0x621fade4c288
+0x621fad5a7da5: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a7edf translated routine addr: 0x621fade4c42c
+0x621fad5a7edf: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a8079 translated routine addr: 0x621fade4c640
+0x621fad5a8079: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a80a0 translated routine addr: 0x621fade4c672
+0x621fad5a80a0: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a80dd translated routine addr: 0x621fade4c6be
+0x621fad5a80dd: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5a811f translated routine addr: 0x621fade4c713
+0x621fad5a811f: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5ab402 translated routine addr: 0x621fade5038f
+0x621fad5ab402: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5ab5b2 translated routine addr: 0x621fade5057b
+0x621fad5ab5b2: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5ab5c7 translated routine addr: 0x621fade50590
+0x621fad5ab5c7: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b56ed translated routine addr: 0x621fade5b966
+0x621fad5b56ed: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5944 translated routine addr: 0x621fade5bbc1
+0x621fad5b5944: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5945 translated routine addr: 0x621fade5bbc2
+0x621fad5b5945: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b594b translated routine addr: 0x621fade5bbc8
+0x621fad5b594b: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b594e translated routine addr: 0x621fade5bbcb
+0x621fad5b594e: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5954 translated routine addr: 0x621fade5bbd1
+0x621fad5b5954: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5957 translated routine addr: 0x621fade5bbd4
+0x621fad5b5957: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b595b translated routine addr: 0x621fade5bbd8
+0x621fad5b595b: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b595e translated routine addr: 0x621fade5bbdb
+0x621fad5b595e: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5961 translated routine addr: 0x621fade5bbde
+0x621fad5b5961: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5967 translated routine addr: 0x621fade5bbe4
+0x621fad5b5967: test rdx, rdx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b596e translated routine addr: 0x621fade5bbeb
+0x621fad5b596e: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5971 translated routine addr: 0x621fade5bbee
+0x621fad5b5971: push 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5978 translated routine addr: 0x621fade5bbf5
+0x621fad5b5978: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b597b translated routine addr: 0x621fade5bbf8
+0x621fad5b597b: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5981 translated routine addr: 0x621fade5bbfe
+0x621fad5b5981: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5982 translated routine addr: 0x621fade5bbff
+0x621fad5b5982: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5983 translated routine addr: 0x621fade5bc00
+0x621fad5b5983: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5987 translated routine addr: 0x621fade5bc04
+0x621fad5b5987: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b598a translated routine addr: 0x621fade5bc07
+0x621fad5b598a: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5990 translated routine addr: 0x621fade5bc0d
+0x621fad5b5990: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5993 translated routine addr: 0x621fade5bc10
+0x621fad5b5993: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b5999 translated routine addr: 0x621fade5bc16
+0x621fad5b5999: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b599c translated routine addr: 0x621fade5bc19
+0x621fad5b599c: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59a2 translated routine addr: 0x621fade5bc1f
+0x621fad5b59a2: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59a9 translated routine addr: 0x621fade5bc26
+0x621fad5b59a9: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59ac translated routine addr: 0x621fade5bc29
+0x621fad5b59ac: mov rax, rdx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59b3 translated routine addr: 0x621fade5bc30
+0x621fad5b59b3: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59b6 translated routine addr: 0x621fade5bc33
+0x621fad5b59b6: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59bc translated routine addr: 0x621fade5bc39
+0x621fad5b59bc: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59bf translated routine addr: 0x621fade5bc3c
+0x621fad5b59bf: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59c5 translated routine addr: 0x621fade5bc42
+0x621fad5b59c5: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59c8 translated routine addr: 0x621fade5bc45
+0x621fad5b59c8: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59dc translated routine addr: 0x621fade5bc58
+0x621fad5b59dc: mov dword ptr [rsi], edi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59e4 translated routine addr: 0x621fade5bc5e
+0x621fad5b59e4: mov qword ptr [rsi], rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b59e8 translated routine addr: 0x621fade5bc62
+0x621fad5b59e8: mov qword ptr [rsi], rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5b6d53 translated routine addr: 0x621fade5d28e
+0x621fad5b6d53: xor edx, edx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5bb1c6 translated routine addr: 0x621fade6210f
+0x621fad5bb1c6: jmp 0x621fad5bb1c8
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5c429b translated routine addr: 0x621fade6bf44
+0x621fad5c429b: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5c429e translated routine addr: 0x621fade6bf47
+0x621fad5c429e: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5c42a4 translated routine addr: 0x621fade6bf4d
+0x621fad5c42a4: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5c45d1 translated routine addr: 0x621fade6c29a
+0x621fad5c45d1: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5c99dc translated routine addr: 0x621fade720b6
+0x621fad5c99dc: jmp 0x621fad5c99de
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5c9bd0 translated routine addr: 0x621fade722eb
+0x621fad5c9bd0: jmp 0x621fad5c9bd2
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5cd8a2 translated routine addr: 0x621fade76351
+0x621fad5cd8a2: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5d3866 translated routine addr: 0x621fade7ccd1
+0x621fad5d3866: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5d3d2d translated routine addr: 0x621fade7d223
+0x621fad5d3d2d: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad5dc50f translated routine addr: 0x621fade868bd
+0x621fad5dc50f: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad6878cc translated routine addr: 0x621fadf452bd
+0x621fad6878cc: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad6878d3 translated routine addr: 0x621fadf452c4
+0x621fad6878d3: vxorps xmm0, xmm0, xmm0
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad6d249b translated routine addr: 0x621fadf91d17
+0x621fad6d249b: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad73ad0e translated routine addr: 0x621fadffda5f
+0x621fad73ad0e: jmp 0x621fad73ad10
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7414bb translated routine addr: 0x621fae004cc3
+0x621fad7414bb: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7491af translated routine addr: 0x621fae00d975
+0x621fad7491af: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad74a3a6 translated routine addr: 0x621fae00edfa
+0x621fad74a3a6: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad75455d translated routine addr: 0x621fae01a0a2
+0x621fad75455d: mov rax, qword ptr [rdi+0x18]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad754965 translated routine addr: 0x621fae01a521
+0x621fad754965: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764c39 translated routine addr: 0x621fae02c3f1
+0x621fad764c39: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764c3a translated routine addr: 0x621fae02c3f2
+0x621fad764c3a: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764c3f translated routine addr: 0x621fae02c3f7
+0x621fad764c3f: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764c42 translated routine addr: 0x621fae02c3fa
+0x621fad764c42: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764c46 translated routine addr: 0x621fae02c3fe
+0x621fad764c46: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764c4c translated routine addr: 0x621fae02c404
+0x621fad764c4c: lea rax, ptr [rip+0x48b395]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764c5d translated routine addr: 0x621fae02c415
+0x621fad764c5d: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764d9e translated routine addr: 0x621fae02c587
+0x621fad764d9e: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764dbe translated routine addr: 0x621fae02c5ab
+0x621fad764dbe: push 0xffffffffffffffff
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764e5a translated routine addr: 0x621fae02c653
+0x621fad764e5a: mov rax, qword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764e86 translated routine addr: 0x621fae02c67f
+0x621fad764e86: push 0xffffffffffffffff
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764ea7 translated routine addr: 0x621fae02c6a0
+0x621fad764ea7: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad764f36 translated routine addr: 0x621fae02c736
+0x621fad764f36: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad765204 translated routine addr: 0x621fae02ca66
+0x621fad765204: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad76520c translated routine addr: 0x621fae02ca6e
+0x621fad76520c: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad765214 translated routine addr: 0x621fae02ca76
+0x621fad765214: mov eax, dword ptr [rdi+0x38]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad765230 translated routine addr: 0x621fae02ca92
+0x621fad765230: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad766b2e translated routine addr: 0x621fae02e580
+0x621fad766b2e: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad768722 translated routine addr: 0x621fae0304c4
+0x621fad768722: mov eax, dword ptr [rdi+0x14]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad769595 translated routine addr: 0x621fae0314e2
+0x621fad769595: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad77786e translated routine addr: 0x621fae040b36
+0x621fad77786e: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7778f2 translated routine addr: 0x621fae040bc8
+0x621fad7778f2: add rdi, 0x8
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad77c3ce translated routine addr: 0x621fae045d81
+0x621fad77c3ce: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad784138 translated routine addr: 0x621fae04e6ea
+0x621fad784138: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad787a97 translated routine addr: 0x621fae0524ea
+0x621fad787a97: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad78809e translated routine addr: 0x621fae052b5d
+0x621fad78809e: mov rax, qword ptr [rdi+0x18]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7887d4 translated routine addr: 0x621fae053381
+0x621fad7887d4: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad796d16 translated routine addr: 0x621fae062daf
+0x621fad796d16: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7b53f3 translated routine addr: 0x621fae083c14
+0x621fad7b53f3: mov eax, dword ptr [rdi+0x8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7c5bc5 translated routine addr: 0x621fae095ffc
+0x621fad7c5bc5: mov rsi, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7c5d98 translated routine addr: 0x621fae096210
+0x621fad7c5d98: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7c987e translated routine addr: 0x621fae09a3b8
+0x621fad7c987e: add rdi, 0x40
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7cb231 translated routine addr: 0x621fae09c0df
+0x621fad7cb231: push rbp
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7d1d58 translated routine addr: 0x621fae0a35b8
+0x621fad7d1d58: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7ed607 translated routine addr: 0x621fae0c1d9f
+0x621fad7ed607: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7ef3da translated routine addr: 0x621fae0c3f0c
+0x621fad7ef3da: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7f1379 translated routine addr: 0x621fae0c6541
+0x621fad7f1379: add rdi, 0x40
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7f46d2 translated routine addr: 0x621fae0c9f5f
+0x621fad7f46d2: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7f46d5 translated routine addr: 0x621fae0c9f62
+0x621fad7f46d5: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7f8fcf translated routine addr: 0x621fae0cf054
+0x621fad7f8fcf: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7f9c1e translated routine addr: 0x621fae0cfe29
+0x621fad7f9c1e: xor edx, edx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad7fbbf0 translated routine addr: 0x621fae0d21e8
+0x621fad7fbbf0: push 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad800270 translated routine addr: 0x621fae0d6d8f
+0x621fad800270: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad802ada translated routine addr: 0x621fae0d9916
+0x621fad802ada: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad805acd translated routine addr: 0x621fae0dcda8
+0x621fad805acd: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad80aaac translated routine addr: 0x621fae0e2679
+0x621fad80aaac: xor edx, edx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad80cd8c translated routine addr: 0x621fae0e4c3e
+0x621fad80cd8c: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad817bdd translated routine addr: 0x621fae0f09e6
+0x621fad817bdd: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8309cf translated routine addr: 0x621fae10bd55
+0x621fad8309cf: lea rdx, ptr [rip-0x8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830a3b translated routine addr: 0x621fae10bdc1
+0x621fad830a3b: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d23 translated routine addr: 0x621fae10c135
+0x621fad830d23: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d29 translated routine addr: 0x621fae10c13b
+0x621fad830d29: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d2d translated routine addr: 0x621fae10c13f
+0x621fad830d2d: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d31 translated routine addr: 0x621fae10c143
+0x621fad830d31: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d34 translated routine addr: 0x621fae10c146
+0x621fad830d34: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d38 translated routine addr: 0x621fae10c14a
+0x621fad830d38: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d3f translated routine addr: 0x621fae10c151
+0x621fad830d3f: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d40 translated routine addr: 0x621fae10c152
+0x621fad830d40: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d42 translated routine addr: 0x621fae10c154
+0x621fad830d42: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d43 translated routine addr: 0x621fae10c155
+0x621fad830d43: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d44 translated routine addr: 0x621fae10c156
+0x621fad830d44: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d45 translated routine addr: 0x621fae10c157
+0x621fad830d45: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d46 translated routine addr: 0x621fae10c158
+0x621fad830d46: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d47 translated routine addr: 0x621fae10c159
+0x621fad830d47: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d48 translated routine addr: 0x621fae10c15a
+0x621fad830d48: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d4a translated routine addr: 0x621fae10c15c
+0x621fad830d4a: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d4b translated routine addr: 0x621fae10c15d
+0x621fad830d4b: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d4c translated routine addr: 0x621fae10c15e
+0x621fad830d4c: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d4d translated routine addr: 0x621fae10c15f
+0x621fad830d4d: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d4e translated routine addr: 0x621fae10c160
+0x621fad830d4e: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d50 translated routine addr: 0x621fae10c162
+0x621fad830d50: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d51 translated routine addr: 0x621fae10c163
+0x621fad830d51: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d52 translated routine addr: 0x621fae10c164
+0x621fad830d52: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d55 translated routine addr: 0x621fae10c167
+0x621fad830d55: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d58 translated routine addr: 0x621fae10c16a
+0x621fad830d58: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d5e translated routine addr: 0x621fae10c170
+0x621fad830d5e: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d61 translated routine addr: 0x621fae10c173
+0x621fad830d61: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d67 translated routine addr: 0x621fae10c179
+0x621fad830d67: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d6a translated routine addr: 0x621fae10c17c
+0x621fad830d6a: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d70 translated routine addr: 0x621fae10c182
+0x621fad830d70: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d73 translated routine addr: 0x621fae10c185
+0x621fad830d73: push 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d7a translated routine addr: 0x621fae10c18c
+0x621fad830d7a: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d80 translated routine addr: 0x621fae10c192
+0x621fad830d80: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d81 translated routine addr: 0x621fae10c193
+0x621fad830d81: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d83 translated routine addr: 0x621fae10c195
+0x621fad830d83: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830d84 translated routine addr: 0x621fae10c196
+0x621fad830d84: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830e67 translated routine addr: 0x621fae10c299
+0x621fad830e67: mov rax, rdi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830e8b translated routine addr: 0x621fae10c2bd
+0x621fad830e8b: lea rax, ptr [rip+0x3bfffe]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830e9a translated routine addr: 0x621fae10c2cc
+0x621fad830e9a: lea rax, ptr [rip+0x3621bf]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830ee1 translated routine addr: 0x621fae10c313
+0x621fad830ee1: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830efa translated routine addr: 0x621fae10c32c
+0x621fad830efa: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830f00 translated routine addr: 0x621fae10c332
+0x621fad830f00: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad830f73 translated routine addr: 0x621fae10c3b1
+0x621fad830f73: lea rdi, ptr [rip+0x15d005]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831021 translated routine addr: 0x621fae10c484
+0x621fad831021: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831057 translated routine addr: 0x621fae10c4c6
+0x621fad831057: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83105a translated routine addr: 0x621fae10c4c9
+0x621fad83105a: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83105d translated routine addr: 0x621fae10c4cc
+0x621fad83105d: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831063 translated routine addr: 0x621fae10c4d2
+0x621fad831063: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831066 translated routine addr: 0x621fae10c4d5
+0x621fad831066: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831067 translated routine addr: 0x621fae10c4d6
+0x621fad831067: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83126c translated routine addr: 0x621fae10c6f7
+0x621fad83126c: mov rax, qword ptr [r8+0x8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831288 translated routine addr: 0x621fae10c71b
+0x621fad831288: lea rax, ptr [rip+0x468799]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83129f translated routine addr: 0x621fae10c732
+0x621fad83129f: test esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83143b translated routine addr: 0x621fae10c8ea
+0x621fad83143b: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831491 translated routine addr: 0x621fae10c948
+0x621fad831491: push 0x5
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad831498 translated routine addr: 0x621fae10c94f
+0x621fad831498: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83cb4d translated routine addr: 0x621fae119014
+0x621fad83cb4d: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83d64f translated routine addr: 0x621fae119c41
+0x621fad83d64f: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83ef6b translated routine addr: 0x621fae11b8c1
+0x621fad83ef6b: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad83ff06 translated routine addr: 0x621fae11ca74
+0x621fad83ff06: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad841833 translated routine addr: 0x621fae11e703
+0x621fad841833: jmp 0x621fad841835
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad843fd0 translated routine addr: 0x621fae121249
+0x621fad843fd0: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad843fd4 translated routine addr: 0x621fae121250
+0x621fad843fd4: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad844010 translated routine addr: 0x621fae12129d
+0x621fad844010: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad852f31 translated routine addr: 0x621fae1318ed
+0x621fad852f31: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad852ff7 translated routine addr: 0x621fae1319c5
+0x621fad852ff7: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad855beb translated routine addr: 0x621fae134a29
+0x621fad855beb: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad85db44 translated routine addr: 0x621fae13d6d5
+0x621fad85db44: mov rax, qword ptr [rdi+0x18]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad860b4a translated routine addr: 0x621fae140b59
+0x621fad860b4a: push r14
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad86138d translated routine addr: 0x621fae1414c9
+0x621fad86138d: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad86377a translated routine addr: 0x621fae143c71
+0x621fad86377a: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad869b69 translated routine addr: 0x621fae14a957
+0x621fad869b69: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad87009d translated routine addr: 0x621fae151855
+0x621fad87009d: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad873e1a translated routine addr: 0x621fae155b62
+0x621fad873e1a: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad88071e translated routine addr: 0x621fae1635db
+0x621fad88071e: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad888420 translated routine addr: 0x621fae16c197
+0x621fad888420: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8894f6 translated routine addr: 0x621fae16d3c4
+0x621fad8894f6: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad88d559 translated routine addr: 0x621fae171b84
+0x621fad88d559: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad88d583 translated routine addr: 0x621fae171bb5
+0x621fad88d583: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad890acb translated routine addr: 0x621fae175747
+0x621fad890acb: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad890acf translated routine addr: 0x621fae17574e
+0x621fad890acf: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad891728 translated routine addr: 0x621fae176528
+0x621fad891728: mov eax, dword ptr [rdi+0x40]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad89394c translated routine addr: 0x621fae178b83
+0x621fad89394c: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad895578 translated routine addr: 0x621fae17aa23
+0x621fad895578: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad897c7c translated routine addr: 0x621fae17d50d
+0x621fad897c7c: mov al, 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad89c158 translated routine addr: 0x621fae182108
+0x621fad89c158: mov eax, dword ptr [rdi+0xc]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad89c25b translated routine addr: 0x621fae18222d
+0x621fad89c25b: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad89ee57 translated routine addr: 0x621fae185383
+0x621fad89ee57: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8afd81 translated routine addr: 0x621fae197c97
+0x621fad8afd81: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8affa9 translated routine addr: 0x621fae197f0a
+0x621fad8affa9: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8b3cde translated routine addr: 0x621fae19c407
+0x621fad8b3cde: xor edi, edi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8b565d translated routine addr: 0x621fae19e021
+0x621fad8b565d: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8b9d5c translated routine addr: 0x621fae1a2df1
+0x621fad8b9d5c: mov eax, dword ptr [rdi+0x18]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8c065e translated routine addr: 0x621fae1aa14f
+0x621fad8c065e: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8c276f translated routine addr: 0x621fae1ac6c9
+0x621fad8c276f: mov rax, qword ptr [rdi+0x18]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8c5fe9 translated routine addr: 0x621fae1b05b9
+0x621fad8c5fe9: mov eax, dword ptr [rdi+0x4]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8c60ea translated routine addr: 0x621fae1b06c2
+0x621fad8c60ea: mov eax, dword ptr [rdi+0x4]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8c6193 translated routine addr: 0x621fae1b0791
+0x621fad8c6193: mov eax, dword ptr [rdi+0x4]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8ccf1a translated routine addr: 0x621fae1b807d
+0x621fad8ccf1a: mov eax, dword ptr [rdi+0x8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8ceb13 translated routine addr: 0x621fae1ba05f
+0x621fad8ceb13: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d0c75 translated routine addr: 0x621fae1bc565
+0x621fad8d0c75: jmp 0x621fad8d0c77
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d1793 translated routine addr: 0x621fae1bd200
+0x621fad8d1793: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d18da translated routine addr: 0x621fae1bd38b
+0x621fad8d18da: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d18de translated routine addr: 0x621fae1bd392
+0x621fad8d18de: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d4ffb translated routine addr: 0x621fae1c1154
+0x621fad8d4ffb: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d500a translated routine addr: 0x621fae1c1163
+0x621fad8d500a: mov eax, dword ptr [rdi+0x1c]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d5771 translated routine addr: 0x621fae1c1a1d
+0x621fad8d5771: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d80dc translated routine addr: 0x621fae1c4887
+0x621fad8d80dc: xor edi, edi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8d93f3 translated routine addr: 0x621fae1c5e15
+0x621fad8d93f3: test byte ptr [rdi+0x61], 0x2
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8f4741 translated routine addr: 0x621fae1e37de
+0x621fad8f4741: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8f880e translated routine addr: 0x621fae1e7f99
+0x621fad8f880e: xor esi, esi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8ff658 translated routine addr: 0x621fae1ef888
+0x621fad8ff658: mov eax, dword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad8ff8f7 translated routine addr: 0x621fae1efb63
+0x621fad8ff8f7: mov eax, dword ptr [rdi+0x8]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad900d5e translated routine addr: 0x621fae1f1212
+0x621fad900d5e: push rbx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad900fb0 translated routine addr: 0x621fae1f14fa
+0x621fad900fb0: push rax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad90800a translated routine addr: 0x621fae1f9666
+0x621fad90800a: mov eax, edi
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad91cdeb translated routine addr: 0x621fae210629
+0x621fad91cdeb: xor edx, edx
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad91d3ac translated routine addr: 0x621fae210c79
+0x621fad91d3ac: push r15
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad91e83d translated routine addr: 0x621fae2123cd
+0x621fad91e83d: push 0x1
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad91ea0e translated routine addr: 0x621fae2125a2
+0x621fad91ea0e: mov eax, dword ptr [rdi+0x10]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad91fbd4 translated routine addr: 0x621fae2139cf
+0x621fad91fbd4: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad91fbd5 translated routine addr: 0x621fae2139d0
+0x621fad91fbd5: push rbp
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad9210ea translated routine addr: 0x621fae215188
+0x621fad9210ea: mov eax, dword ptr [rdi+0x2c]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad921ce4 translated routine addr: 0x621fae215f6c
+0x621fad921ce4: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad921f30 translated routine addr: 0x621fae216210
+0x621fad921f30: ret 
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad926b54 translated routine addr: 0x621fae21b5ce
+0x621fad926b54: mov rax, qword ptr [rdi]
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad92f912 translated routine addr: 0x621fae225004
+0x621fad92f912: xor eax, eax
+RTN_ReplaceProbed failed. orig routine addr: 0x621fad932d4f translated routine addr: 0x621fae228a96
+0x621fad932d4f: push rbx
+after commit of translated routines from orig code to TC
+ create tc took: 16.5778 seconds
