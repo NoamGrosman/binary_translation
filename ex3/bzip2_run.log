@@ -1,0 +1,638 @@
+ allocated memory at: 0x61f000
+after memory allocation
+after identifying candidate routines
+after chaining all branch targets
+after setting initial estimated new ins addrs in tc
+jump to orig addr: 0x4011b0 : 0x401334: call 0x4011b0
+jump to orig addr: 0x4010e0 : 0x401668: call 0x4010e0
+jump to orig addr: 0x401130 : 0x401679: call 0x401130
+jump to orig addr: 0x401180 : 0x4016a1: call 0x401180
+jump to orig addr: 0x401240 : 0x4016c2: call 0x401240
+jump to orig addr: 0x4010f0 : 0x4016f9: call 0x4010f0
+jump to orig addr: 0x4010f0 : 0x401710: call 0x4010f0
+jump to orig addr: 0x4011a0 : 0x401774: call 0x4011a0
+jump to orig addr: 0x401110 : 0x4017ad: call 0x401110
+jump to orig addr: 0x4010f0 : 0x4017bf: call 0x4010f0
+jump to orig addr: 0x4010f0 : 0x401858: call 0x4010f0
+jump to orig addr: 0x401230 : 0x40186f: call 0x401230
+jump to orig addr: 0x401120 : 0x40189b: call 0x401120
+jump to orig addr: 0x4010f0 : 0x4018cd: call 0x4010f0
+jump to orig addr: 0x401120 : 0x4018e4: call 0x401120
+jump to orig addr: 0x4012d0 : 0x401931: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x401a5f: call 0x4011f0
+jump to orig addr: 0x4010f0 : 0x401b30: call 0x4010f0
+jump to orig addr: 0x4010f0 : 0x401b47: call 0x4010f0
+jump to orig addr: 0x4012d0 : 0x401c0a: call 0x4012d0
+jump to orig addr: 0x4010f0 : 0x401c19: call 0x4010f0
+jump to orig addr: 0x4010e0 : 0x401ca2: call 0x4010e0
+jump to orig addr: 0x401130 : 0x401cb3: call 0x401130
+jump to orig addr: 0x4010f0 : 0x401d14: call 0x4010f0
+jump to orig addr: 0x401120 : 0x401d2b: call 0x401120
+jump to orig addr: 0x4010f0 : 0x401d47: call 0x4010f0
+jump to orig addr: 0x401230 : 0x401d5e: call 0x401230
+jump to orig addr: 0x401120 : 0x401d8a: call 0x401120
+jump to orig addr: 0x4012d0 : 0x401dd6: call 0x4012d0
+jump to orig addr: 0x401170 : 0x401dff: call 0x401170
+jump to orig addr: 0x401110 : 0x401e38: call 0x401110
+jump to orig addr: 0x4010f0 : 0x401e4a: call 0x4010f0
+jump to orig addr: 0x4012d0 : 0x401e79: call 0x4012d0
+jump to orig addr: 0x4010f0 : 0x401e88: call 0x4010f0
+jump to orig addr: 0x401120 : 0x401f18: call 0x401120
+jump to orig addr: 0x401120 : 0x401f37: call 0x401120
+jump to orig addr: 0x4011f0 : 0x401f74: call 0x4011f0
+jump to orig addr: 0x4010f0 : 0x401fc1: call 0x4010f0
+jump to orig addr: 0x4010e0 : 0x4020cf: call 0x4010e0
+jump to orig addr: 0x401130 : 0x4020e0: call 0x401130
+jump to orig addr: 0x4010f0 : 0x402141: call 0x4010f0
+jump to orig addr: 0x401120 : 0x402158: call 0x401120
+jump to orig addr: 0x4012d0 : 0x40218e: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x4021de: call 0x4011f0
+jump to orig addr: 0x4012d0 : 0x402228: call 0x4012d0
+jump to orig addr: 0x4012d0 : 0x402255: call 0x4012d0
+jump to orig addr: 0x401120 : 0x40227e: call 0x401120
+jump to orig addr: 0x4012d0 : 0x4022a2: call 0x4012d0
+jump to orig addr: 0x4012d0 : 0x4022d2: call 0x4012d0
+jump to orig addr: 0x4012d0 : 0x40232f: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x402363: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4023f4: call 0x4011f0
+jump to orig addr: 0x401120 : 0x40240f: call 0x401120
+jump to orig addr: 0x4010b0 : 0x402419: call 0x4010b0
+jump to orig addr: 0x4011f0 : 0x402446: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40246b: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40248b: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4024b0: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4024d0: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x402538: call 0x4011f0
+jump to orig addr: 0x4012c0 : 0x402552: call 0x4012c0
+jump to orig addr: 0x4011f0 : 0x402582: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4025b5: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4025f8: call 0x4011f0
+jump to orig addr: 0x4012a0 : 0x402607: call 0x4012a0
+jump to orig addr: 0x4011f0 : 0x40263f: call 0x4011f0
+jump to orig addr: 0x4012a0 : 0x40264e: call 0x4012a0
+jump to orig addr: 0x4011f0 : 0x402688: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4026c8: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4026ea: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x402737: call 0x4011f0
+jump to orig addr: 0x4012d0 : 0x402768: call 0x4012d0
+jump to orig addr: 0x4012c0 : 0x40277f: call 0x4012c0
+jump to orig addr: 0x401150 : 0x402798: call 0x401150
+jump to orig addr: 0x4011a0 : 0x4027c1: call 0x4011a0
+jump to orig addr: 0x401150 : 0x4027d7: call 0x401150
+jump to orig addr: 0x401150 : 0x402808: call 0x401150
+jump to orig addr: 0x4011f0 : 0x402832: call 0x4011f0
+jump to orig addr: 0x4012c0 : 0x402849: call 0x4012c0
+jump to orig addr: 0x4010a0 : 0x402861: call 0x4010a0
+jump to orig addr: 0x401290 : 0x40288d: call 0x401290
+jump to orig addr: 0x401120 : 0x4028af: call 0x401120
+jump to orig addr: 0x401280 : 0x4028e0: call 0x401280
+jump to orig addr: 0x401260 : 0x402901: call 0x401260
+jump to orig addr: 0x401190 : 0x402916: call 0x401190
+jump to orig addr: 0x401270 : 0x402a21: call 0x401270
+jump to orig addr: 0x401070 : 0x402a42: call 0x401070
+jump to orig addr: 0x401250 : 0x402a6a: call 0x401250
+jump to orig addr: 0x401150 : 0x402a9a: call 0x401150
+jump to orig addr: 0x401150 : 0x402aa9: call 0x401150
+jump to orig addr: 0x4011c0 : 0x402adf: call 0x4011c0
+jump to orig addr: 0x401150 : 0x402b30: call 0x401150
+jump to orig addr: 0x401150 : 0x402b3f: call 0x401150
+jump to orig addr: 0x4012b0 : 0x402b62: call 0x4012b0
+jump to orig addr: 0x4011f0 : 0x402cbb: call 0x4011f0
+jump to orig addr: 0x401090 : 0x402ce8: call 0x401090
+jump to orig addr: 0x4012e0 : 0x402cf1: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x402d1c: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x402d92: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x402e0c: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x402e6f: call 0x4011f0
+jump to orig addr: 0x4010b0 : 0x402eac: call 0x4010b0
+jump to orig addr: 0x4011f0 : 0x402ed3: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x402f48: call 0x4011f0
+jump to orig addr: 0x401200 : 0x402fb2: call 0x401200
+jump to orig addr: 0x401100 : 0x402fb9: call 0x401100
+jump to orig addr: 0x4011f0 : 0x402fe1: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403008: call 0x4011f0
+jump to orig addr: 0x401290 : 0x403026: call 0x401290
+jump to orig addr: 0x401200 : 0x403044: call 0x401200
+jump to orig addr: 0x401100 : 0x40304b: call 0x401100
+jump to orig addr: 0x4011f0 : 0x40306f: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403096: call 0x4011f0
+jump to orig addr: 0x401120 : 0x4030a9: call 0x401120
+jump to orig addr: 0x401090 : 0x4030c8: call 0x401090
+jump to orig addr: 0x4012e0 : 0x4030d1: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x4030fc: call 0x4011f0
+jump to orig addr: 0x401290 : 0x40311a: call 0x401290
+jump to orig addr: 0x401090 : 0x40313d: call 0x401090
+jump to orig addr: 0x4012e0 : 0x403146: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x403171: call 0x4011f0
+jump to orig addr: 0x401120 : 0x403184: call 0x401120
+jump to orig addr: 0x401090 : 0x40319f: call 0x401090
+jump to orig addr: 0x4012e0 : 0x4031a8: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x4031d3: call 0x4011f0
+jump to orig addr: 0x401120 : 0x4031e6: call 0x401120
+jump to orig addr: 0x4011f0 : 0x40322e: call 0x4011f0
+jump to orig addr: 0x401230 : 0x403247: call 0x401230
+jump to orig addr: 0x4010b0 : 0x4032a8: call 0x4010b0
+jump to orig addr: 0x4011f0 : 0x403454: call 0x4011f0
+jump to orig addr: 0x401090 : 0x403481: call 0x401090
+jump to orig addr: 0x4012e0 : 0x40348a: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x4034b5: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403525: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403588: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x4035d3: call 0x4011f0
+jump to orig addr: 0x4010b0 : 0x403601: call 0x4010b0
+jump to orig addr: 0x4011f0 : 0x403628: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40369d: call 0x4011f0
+jump to orig addr: 0x401200 : 0x403707: call 0x401200
+jump to orig addr: 0x401100 : 0x40370e: call 0x401100
+jump to orig addr: 0x4011f0 : 0x403736: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40375d: call 0x4011f0
+jump to orig addr: 0x401290 : 0x40377b: call 0x401290
+jump to orig addr: 0x401090 : 0x40379a: call 0x401090
+jump to orig addr: 0x4012e0 : 0x4037a3: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x4037ce: call 0x4011f0
+jump to orig addr: 0x401120 : 0x4037e1: call 0x401120
+jump to orig addr: 0x401290 : 0x4037ff: call 0x401290
+jump to orig addr: 0x401090 : 0x403822: call 0x401090
+jump to orig addr: 0x4012e0 : 0x40382b: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x403856: call 0x4011f0
+jump to orig addr: 0x401120 : 0x403869: call 0x401120
+jump to orig addr: 0x401090 : 0x403884: call 0x401090
+jump to orig addr: 0x4012e0 : 0x40388d: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x4038b8: call 0x4011f0
+jump to orig addr: 0x401120 : 0x4038cb: call 0x401120
+jump to orig addr: 0x4011f0 : 0x403913: call 0x4011f0
+jump to orig addr: 0x401230 : 0x40392c: call 0x401230
+jump to orig addr: 0x4010b0 : 0x403996: call 0x4010b0
+jump to orig addr: 0x4010b0 : 0x4039c7: call 0x4010b0
+jump to orig addr: 0x4012d0 : 0x403a0a: call 0x4012d0
+jump to orig addr: 0x4012d0 : 0x403a3e: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x403a65: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403b48: call 0x4011f0
+jump to orig addr: 0x401090 : 0x403b75: call 0x401090
+jump to orig addr: 0x4012e0 : 0x403b7e: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x403ba9: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403c0e: call 0x4011f0
+jump to orig addr: 0x401200 : 0x403c4b: call 0x401200
+jump to orig addr: 0x401100 : 0x403c52: call 0x401100
+jump to orig addr: 0x4011f0 : 0x403c76: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403c9d: call 0x4011f0
+jump to orig addr: 0x401290 : 0x403cc8: call 0x401290
+jump to orig addr: 0x401090 : 0x403cd8: call 0x401090
+jump to orig addr: 0x4012e0 : 0x403ce1: call 0x4012e0
+jump to orig addr: 0x4011f0 : 0x403d0c: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403d4e: call 0x4011f0
+jump to orig addr: 0x401230 : 0x403d67: call 0x401230
+jump to orig addr: 0x4012d0 : 0x403daf: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x403de3: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403e16: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x403e48: call 0x4011f0
+jump to orig addr: 0x401220 : 0x403e62: call 0x401220
+jump to orig addr: 0x401150 : 0x403ed7: call 0x401150
+jump to orig addr: 0x4010d0 : 0x403efe: call 0x4010d0
+jump to orig addr: 0x401060 : 0x403f68: call 0x401060
+jump to orig addr: 0x401300 : 0x403fbd: call 0x401300
+jump to orig addr: 0x401300 : 0x403fff: call 0x401300
+jump to orig addr: 0x4011d0 : 0x404164: call 0x4011d0
+jump to orig addr: 0x4011d0 : 0x404173: call 0x4011d0
+jump to orig addr: 0x4011c0 : 0x404289: call 0x4011c0
+jump to orig addr: 0x401150 : 0x4042c5: call 0x401150
+jump to orig addr: 0x401150 : 0x4042e0: call 0x401150
+jump to orig addr: 0x4012f0 : 0x40433e: call 0x4012f0
+jump to orig addr: 0x4012f0 : 0x404357: call 0x4012f0
+jump to orig addr: 0x4012f0 : 0x40437a: call 0x4012f0
+jump to orig addr: 0x4012f0 : 0x404393: call 0x4012f0
+jump to orig addr: 0x4012f0 : 0x4043ac: call 0x4012f0
+jump to orig addr: 0x4012f0 : 0x4043c5: call 0x4012f0
+jump to orig addr: 0x4011c0 : 0x404411: call 0x4011c0
+jump to orig addr: 0x4012c0 : 0x404598: call 0x4012c0
+jump to orig addr: 0x4011f0 : 0x4045bf: call 0x4011f0
+jump to orig addr: 0x4012c0 : 0x4045d8: call 0x4012c0
+jump to orig addr: 0x4011c0 : 0x404631: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x40464d: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x404674: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x40469b: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x4046c2: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x4046e6: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x40470d: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x404731: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x404755: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x404779: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x40479b: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x4047bd: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x4047e4: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x404810: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x40483c: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x404863: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x40488a: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x4048b6: call 0x4011c0
+jump to orig addr: 0x4012c0 : 0x4048d3: call 0x4012c0
+jump to orig addr: 0x4010c0 : 0x4048ec: call 0x4010c0
+jump to orig addr: 0x4011f0 : 0x404917: call 0x4011f0
+jump to orig addr: 0x4012c0 : 0x404930: call 0x4012c0
+jump to orig addr: 0x4011f0 : 0x4049c0: call 0x4011f0
+jump to orig addr: 0x4012c0 : 0x4049ca: call 0x4012c0
+jump to orig addr: 0x4011d0 : 0x404a18: call 0x4011d0
+jump to orig addr: 0x4011d0 : 0x404a27: call 0x4011d0
+jump to orig addr: 0x4011d0 : 0x404a36: call 0x4011d0
+jump to orig addr: 0x4011c0 : 0x404a81: call 0x4011c0
+jump to orig addr: 0x4011c0 : 0x404b27: call 0x4011c0
+jump to orig addr: 0x4012c0 : 0x404b9f: call 0x4012c0
+jump to orig addr: 0x4011c0 : 0x404bdf: call 0x4011c0
+jump to orig addr: 0x4012d0 : 0x404c65: call 0x4012d0
+jump to orig addr: 0x4012c0 : 0x404c7c: call 0x4012c0
+jump to orig addr: 0x401080 : 0x404cad: call 0x401080
+jump to orig addr: 0x401080 : 0x404cb9: call 0x401080
+jump to orig addr: 0x4011e0 : 0x404cf0: call 0x4011e0
+jump to orig addr: 0x401140 : 0x404cf8: call 0x401140
+jump to orig addr: 0x4011e0 : 0x404d89: call 0x4011e0
+jump to orig addr: 0x401140 : 0x404d91: call 0x401140
+jump to orig addr: 0x4011e0 : 0x404e1d: call 0x4011e0
+jump to orig addr: 0x401140 : 0x404e25: call 0x401140
+jump to orig addr: 0x4011f0 : 0x404ed2: call 0x4011f0
+jump to orig addr: 0x4012d0 : 0x404ef9: call 0x4012d0
+jump to orig addr: 0x4012c0 : 0x404f03: call 0x4012c0
+jump to orig addr: 0x401220 : 0x404f31: call 0x401220
+jump to orig addr: 0x401080 : 0x404f5e: call 0x401080
+jump to orig addr: 0x4011f0 : 0x407970: call 0x4011f0
+jump to orig addr: 0x4011a0 : 0x407990: call 0x4011a0
+jump to orig addr: 0x4011f0 : 0x407a5f: call 0x4011f0
+jump to orig addr: 0x401180 : 0x407bcd: call 0x401180
+jump to orig addr: 0x401240 : 0x407bee: call 0x401240
+jump to orig addr: 0x4010f0 : 0x407ca7: call 0x4010f0
+jump to orig addr: 0x401220 : 0x407ce5: call 0x401220
+jump to orig addr: 0x401080 : 0x407e03: call 0x401080
+jump to orig addr: 0x4010f0 : 0x407efe: call 0x4010f0
+jump to orig addr: 0x4012d0 : 0x408044: call 0x4012d0
+jump to orig addr: 0x4010f0 : 0x40805e: call 0x4010f0
+jump to orig addr: 0x4010f0 : 0x4081cc: call 0x4010f0
+jump to orig addr: 0x4012d0 : 0x408327: call 0x4012d0
+jump to orig addr: 0x4010f0 : 0x408341: call 0x4010f0
+jump to orig addr: 0x4010f0 : 0x408394: call 0x4010f0
+jump to orig addr: 0x401230 : 0x4083a7: call 0x401230
+jump to orig addr: 0x4010f0 : 0x4083b6: call 0x4010f0
+jump to orig addr: 0x401080 : 0x408489: call 0x401080
+jump to orig addr: 0x4010f0 : 0x408567: call 0x4010f0
+jump to orig addr: 0x401220 : 0x4085a5: call 0x401220
+jump to orig addr: 0x401080 : 0x4086fc: call 0x401080
+jump to orig addr: 0x401080 : 0x40880e: call 0x401080
+jump to orig addr: 0x4010f0 : 0x408942: call 0x4010f0
+jump to orig addr: 0x401110 : 0x4089c0: call 0x401110
+jump to orig addr: 0x4010f0 : 0x4089d2: call 0x4010f0
+jump to orig addr: 0x401300 : 0x408fe0: call 0x401300
+jump to orig addr: 0x401290 : 0x40911d: call 0x401290
+jump to orig addr: 0x401260 : 0x40913a: call 0x401260
+jump to orig addr: 0x401120 : 0x4091e9: call 0x401120
+jump to orig addr: 0x401120 : 0x4093a9: call 0x401120
+jump to orig addr: 0x4012d0 : 0x409c8e: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x409fc6: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40a38f: call 0x4011f0
+jump to orig addr: 0x4012d0 : 0x40a3ce: call 0x4012d0
+jump to orig addr: 0x4012d0 : 0x40b87e: call 0x4012d0
+jump to orig addr: 0x4012d0 : 0x40bb54: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x40c12c: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40c66a: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40c7ee: call 0x4011f0
+jump to orig addr: 0x4012d0 : 0x40c819: call 0x4012d0
+jump to orig addr: 0x4011f0 : 0x40cf60: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x40d193: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x410415: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x410443: call 0x4011f0
+jump to orig addr: 0x4011a0 : 0x410463: call 0x4011a0
+jump to orig addr: 0x4011f0 : 0x41091e: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x410a09: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x410b97: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x412158: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x412245: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x412468: call 0x4011f0
+jump to orig addr: 0x4011f0 : 0x413710: call 0x4011f0
+jump to orig addr: 0x4012d0 : 0x4166d8: call 0x4012d0
+jump to orig addr: 0x401210 : 0x41861b: jmp 0x401210
+jump to orig addr: 0x401160 : 0x41862b: jmp 0x401160
+jump to orig addr: 0x418640 : 0x418635: call 0x418640
+jump to orig addr: 0x4011b0 : 0x401334: call qword ptr [rip+0x1e06bed]
+jump to orig addr: 0x4010e0 : 0x401668: call qword ptr [rip+0x1e06891]
+jump to orig addr: 0x401130 : 0x401679: call qword ptr [rip+0x1e06887]
+jump to orig addr: 0x401180 : 0x4016a1: call qword ptr [rip+0x1e06866]
+jump to orig addr: 0x401240 : 0x4016c2: call qword ptr [rip+0x1e06845]
+jump to orig addr: 0x4010f0 : 0x4016f9: call qword ptr [rip+0x1e06815]
+jump to orig addr: 0x4010f0 : 0x401710: call qword ptr [rip+0x1e067fd]
+jump to orig addr: 0x4011a0 : 0x401774: call qword ptr [rip+0x1e0679c]
+jump to orig addr: 0x401110 : 0x4017ad: call qword ptr [rip+0x1e06763]
+jump to orig addr: 0x4010f0 : 0x4017bf: call qword ptr [rip+0x1e06740]
+jump to orig addr: 0x4010f0 : 0x401858: call qword ptr [rip+0x1e0669e]
+jump to orig addr: 0x401230 : 0x40186f: call qword ptr [rip+0x1e0669e]
+jump to orig addr: 0x401120 : 0x40189b: call qword ptr [rip+0x1e06675]
+jump to orig addr: 0x4010f0 : 0x4018cd: call qword ptr [rip+0x1e06622]
+jump to orig addr: 0x401120 : 0x4018e4: call qword ptr [rip+0x1e0662a]
+jump to orig addr: 0x4012d0 : 0x401931: call qword ptr [rip+0x1e065dc]
+jump to orig addr: 0x4011f0 : 0x401a5f: call qword ptr [rip+0x1e064b5]
+jump to orig addr: 0x4010f0 : 0x401b30: call qword ptr [rip+0x1e0638f]
+jump to orig addr: 0x4010f0 : 0x401b47: call qword ptr [rip+0x1e06377]
+jump to orig addr: 0x4012d0 : 0x401c0a: call qword ptr [rip+0x1e062c9]
+jump to orig addr: 0x4010f0 : 0x401c19: call qword ptr [rip+0x1e06291]
+jump to orig addr: 0x4010e0 : 0x401ca2: call qword ptr [rip+0x1e061df]
+jump to orig addr: 0x401130 : 0x401cb3: call qword ptr [rip+0x1e061d5]
+jump to orig addr: 0x4010f0 : 0x401d14: call qword ptr [rip+0x1e06187]
+jump to orig addr: 0x401120 : 0x401d2b: call qword ptr [rip+0x1e0618f]
+jump to orig addr: 0x4010f0 : 0x401d47: call qword ptr [rip+0x1e06152]
+jump to orig addr: 0x401230 : 0x401d5e: call qword ptr [rip+0x1e06152]
+jump to orig addr: 0x401120 : 0x401d8a: call qword ptr [rip+0x1e06129]
+jump to orig addr: 0x4012d0 : 0x401dd6: call qword ptr [rip+0x1e060e0]
+jump to orig addr: 0x401170 : 0x401dff: call qword ptr [rip+0x1e060c6]
+jump to orig addr: 0x401110 : 0x401e38: call qword ptr [rip+0x1e0605d]
+jump to orig addr: 0x4010f0 : 0x401e4a: call qword ptr [rip+0x1e0603a]
+jump to orig addr: 0x4012d0 : 0x401e79: call qword ptr [rip+0x1e0602e]
+jump to orig addr: 0x4010f0 : 0x401e88: call qword ptr [rip+0x1e05ff6]
+jump to orig addr: 0x401120 : 0x401f18: call qword ptr [rip+0x1e05f66]
+jump to orig addr: 0x401120 : 0x401f37: call qword ptr [rip+0x1e05f42]
+jump to orig addr: 0x4011f0 : 0x401f74: call qword ptr [rip+0x1e05f09]
+jump to orig addr: 0x4010f0 : 0x401fc1: call qword ptr [rip+0x1e05e88]
+jump to orig addr: 0x4010e0 : 0x4020cf: call qword ptr [rip+0x1e05d4b]
+jump to orig addr: 0x401130 : 0x4020e0: call qword ptr [rip+0x1e05d41]
+jump to orig addr: 0x4010f0 : 0x402141: call qword ptr [rip+0x1e05cf3]
+jump to orig addr: 0x401120 : 0x402158: call qword ptr [rip+0x1e05cfb]
+jump to orig addr: 0x4012d0 : 0x40218e: call qword ptr [rip+0x1e05cc8]
+jump to orig addr: 0x4011f0 : 0x4021de: call qword ptr [rip+0x1e05c78]
+jump to orig addr: 0x4012d0 : 0x402228: call qword ptr [rip+0x1e05c1f]
+jump to orig addr: 0x4012d0 : 0x402255: call qword ptr [rip+0x1e05bf1]
+jump to orig addr: 0x401120 : 0x40227e: call qword ptr [rip+0x1e05bbb]
+jump to orig addr: 0x4012d0 : 0x4022a2: call qword ptr [rip+0x1e05b9a]
+jump to orig addr: 0x4012d0 : 0x4022d2: call qword ptr [rip+0x1e05b62]
+jump to orig addr: 0x4012d0 : 0x40232f: call qword ptr [rip+0x1e05af9]
+jump to orig addr: 0x4011f0 : 0x402363: call qword ptr [rip+0x1e05ac8]
+jump to orig addr: 0x4011f0 : 0x4023f4: call qword ptr [rip+0x1e05a32]
+jump to orig addr: 0x401120 : 0x40240f: call qword ptr [rip+0x1e05a02]
+jump to orig addr: 0x4010b0 : 0x402419: call qword ptr [rip+0x1e05a17]
+jump to orig addr: 0x4011f0 : 0x402446: call qword ptr [rip+0x1e059d9]
+jump to orig addr: 0x4011f0 : 0x40246b: call qword ptr [rip+0x1e059b3]
+jump to orig addr: 0x4011f0 : 0x40248b: call qword ptr [rip+0x1e05992]
+jump to orig addr: 0x4011f0 : 0x4024b0: call qword ptr [rip+0x1e0596c]
+jump to orig addr: 0x4011f0 : 0x4024d0: call qword ptr [rip+0x1e0594b]
+jump to orig addr: 0x4011f0 : 0x402538: call qword ptr [rip+0x1e058d6]
+jump to orig addr: 0x4012c0 : 0x402552: call qword ptr [rip+0x1e058d3]
+jump to orig addr: 0x4011f0 : 0x402582: call qword ptr [rip+0x1e0588a]
+jump to orig addr: 0x4011f0 : 0x4025b5: call qword ptr [rip+0x1e05856]
+jump to orig addr: 0x4011f0 : 0x4025f8: call qword ptr [rip+0x1e0580e]
+jump to orig addr: 0x4012a0 : 0x402607: call qword ptr [rip+0x1e0581e]
+jump to orig addr: 0x4011f0 : 0x40263f: call qword ptr [rip+0x1e057c5]
+jump to orig addr: 0x4012a0 : 0x40264e: call qword ptr [rip+0x1e057d5]
+jump to orig addr: 0x4011f0 : 0x402688: call qword ptr [rip+0x1e0577a]
+jump to orig addr: 0x4011f0 : 0x4026c8: call qword ptr [rip+0x1e05735]
+jump to orig addr: 0x4011f0 : 0x4026ea: call qword ptr [rip+0x1e0570f]
+jump to orig addr: 0x4011f0 : 0x402737: call qword ptr [rip+0x1e056bd]
+jump to orig addr: 0x4012d0 : 0x402768: call qword ptr [rip+0x1e05683]
+jump to orig addr: 0x4012c0 : 0x40277f: call qword ptr [rip+0x1e0568b]
+jump to orig addr: 0x401150 : 0x402798: call qword ptr [rip+0x1e05681]
+jump to orig addr: 0x4011a0 : 0x4027c1: call qword ptr [rip+0x1e05600]
+jump to orig addr: 0x401150 : 0x4027d7: call qword ptr [rip+0x1e05639]
+jump to orig addr: 0x401150 : 0x402808: call qword ptr [rip+0x1e05600]
+jump to orig addr: 0x4011f0 : 0x402832: call qword ptr [rip+0x1e055a9]
+jump to orig addr: 0x4012c0 : 0x402849: call qword ptr [rip+0x1e055a9]
+jump to orig addr: 0x4010a0 : 0x402861: call qword ptr [rip+0x1e055a8]
+jump to orig addr: 0x401290 : 0x40288d: call qword ptr [rip+0x1e05583]
+jump to orig addr: 0x401120 : 0x4028af: call qword ptr [rip+0x1e05514]
+jump to orig addr: 0x401280 : 0x4028e0: call qword ptr [rip+0x1e05532]
+jump to orig addr: 0x401260 : 0x402901: call qword ptr [rip+0x1e05511]
+jump to orig addr: 0x401190 : 0x402916: call qword ptr [rip+0x1e054ff]
+jump to orig addr: 0x401270 : 0x402a21: call qword ptr [rip+0x1e053e2]
+jump to orig addr: 0x401070 : 0x402a42: call qword ptr [rip+0x1e053c4]
+jump to orig addr: 0x401250 : 0x402a6a: call qword ptr [rip+0x1e0539f]
+jump to orig addr: 0x401150 : 0x402a9a: call qword ptr [rip+0x1e0532e]
+jump to orig addr: 0x401150 : 0x402aa9: call qword ptr [rip+0x1e0531e]
+jump to orig addr: 0x4011c0 : 0x402adf: call qword ptr [rip+0x1e05328]
+jump to orig addr: 0x401150 : 0x402b30: call qword ptr [rip+0x1e05280]
+jump to orig addr: 0x401150 : 0x402b3f: call qword ptr [rip+0x1e05270]
+jump to orig addr: 0x4012b0 : 0x402b62: call qword ptr [rip+0x1e0529c]
+jump to orig addr: 0x4011f0 : 0x402cbb: call qword ptr [rip+0x1e050af]
+jump to orig addr: 0x401090 : 0x402ce8: call qword ptr [rip+0x1e050f9]
+jump to orig addr: 0x4012e0 : 0x402cf1: call qword ptr [rip+0x1e050f7]
+jump to orig addr: 0x4011f0 : 0x402d1c: call qword ptr [rip+0x1e05043]
+jump to orig addr: 0x4011f0 : 0x402d92: call qword ptr [rip+0x1e04fc1]
+jump to orig addr: 0x4011f0 : 0x402e0c: call qword ptr [rip+0x1e04f36]
+jump to orig addr: 0x4011f0 : 0x402e6f: call qword ptr [rip+0x1e04ec2]
+jump to orig addr: 0x4010b0 : 0x402eac: call qword ptr [rip+0x1e04e88]
+jump to orig addr: 0x4011f0 : 0x402ed3: call qword ptr [rip+0x1e04e4d]
+jump to orig addr: 0x4011f0 : 0x402f48: call qword ptr [rip+0x1e04dc4]
+jump to orig addr: 0x401200 : 0x402fb2: call qword ptr [rip+0x1e04de5]
+jump to orig addr: 0x401100 : 0x402fb9: call qword ptr [rip+0x1e04de5]
+jump to orig addr: 0x4011f0 : 0x402fe1: call qword ptr [rip+0x1e04d24]
+jump to orig addr: 0x4011f0 : 0x403008: call qword ptr [rip+0x1e04cfc]
+jump to orig addr: 0x401290 : 0x403026: call qword ptr [rip+0x1e04d15]
+jump to orig addr: 0x401200 : 0x403044: call qword ptr [rip+0x1e04d4e]
+jump to orig addr: 0x401100 : 0x40304b: call qword ptr [rip+0x1e04d4e]
+jump to orig addr: 0x4011f0 : 0x40306f: call qword ptr [rip+0x1e04c8d]
+jump to orig addr: 0x4011f0 : 0x403096: call qword ptr [rip+0x1e04c65]
+jump to orig addr: 0x401120 : 0x4030a9: call qword ptr [rip+0x1e04c3d]
+jump to orig addr: 0x401090 : 0x4030c8: call qword ptr [rip+0x1e04cad]
+jump to orig addr: 0x4012e0 : 0x4030d1: call qword ptr [rip+0x1e04cab]
+jump to orig addr: 0x4011f0 : 0x4030fc: call qword ptr [rip+0x1e04bf7]
+jump to orig addr: 0x401290 : 0x40311a: call qword ptr [rip+0x1e04c10]
+jump to orig addr: 0x401090 : 0x40313d: call qword ptr [rip+0x1e04c30]
+jump to orig addr: 0x4012e0 : 0x403146: call qword ptr [rip+0x1e04c2e]
+jump to orig addr: 0x4011f0 : 0x403171: call qword ptr [rip+0x1e04b7a]
+jump to orig addr: 0x401120 : 0x403184: call qword ptr [rip+0x1e04b52]
+jump to orig addr: 0x401090 : 0x40319f: call qword ptr [rip+0x1e04bc2]
+jump to orig addr: 0x4012e0 : 0x4031a8: call qword ptr [rip+0x1e04bc0]
+jump to orig addr: 0x4011f0 : 0x4031d3: call qword ptr [rip+0x1e04b0c]
+jump to orig addr: 0x401120 : 0x4031e6: call qword ptr [rip+0x1e04ae4]
+jump to orig addr: 0x4011f0 : 0x40322e: call qword ptr [rip+0x1e04aa1]
+jump to orig addr: 0x401230 : 0x403247: call qword ptr [rip+0x1e04a6f]
+jump to orig addr: 0x4010b0 : 0x4032a8: call qword ptr [rip+0x1e04a2d]
+jump to orig addr: 0x4011f0 : 0x403454: call qword ptr [rip+0x1e04843]
+jump to orig addr: 0x401090 : 0x403481: call qword ptr [rip+0x1e0488d]
+jump to orig addr: 0x4012e0 : 0x40348a: call qword ptr [rip+0x1e0488b]
+jump to orig addr: 0x4011f0 : 0x4034b5: call qword ptr [rip+0x1e047d7]
+jump to orig addr: 0x4011f0 : 0x403525: call qword ptr [rip+0x1e0475a]
+jump to orig addr: 0x4011f0 : 0x403588: call qword ptr [rip+0x1e046e6]
+jump to orig addr: 0x4011f0 : 0x4035d3: call qword ptr [rip+0x1e04692]
+jump to orig addr: 0x4010b0 : 0x403601: call qword ptr [rip+0x1e04667]
+jump to orig addr: 0x4011f0 : 0x403628: call qword ptr [rip+0x1e0462c]
+jump to orig addr: 0x4011f0 : 0x40369d: call qword ptr [rip+0x1e045a3]
+jump to orig addr: 0x401200 : 0x403707: call qword ptr [rip+0x1e045c4]
+jump to orig addr: 0x401100 : 0x40370e: call qword ptr [rip+0x1e045c4]
+jump to orig addr: 0x4011f0 : 0x403736: call qword ptr [rip+0x1e04503]
+jump to orig addr: 0x4011f0 : 0x40375d: call qword ptr [rip+0x1e044db]
+jump to orig addr: 0x401290 : 0x40377b: call qword ptr [rip+0x1e044f4]
+jump to orig addr: 0x401090 : 0x40379a: call qword ptr [rip+0x1e0451c]
+jump to orig addr: 0x4012e0 : 0x4037a3: call qword ptr [rip+0x1e0451a]
+jump to orig addr: 0x4011f0 : 0x4037ce: call qword ptr [rip+0x1e04466]
+jump to orig addr: 0x401120 : 0x4037e1: call qword ptr [rip+0x1e0443e]
+jump to orig addr: 0x401290 : 0x4037ff: call qword ptr [rip+0x1e04467]
+jump to orig addr: 0x401090 : 0x403822: call qword ptr [rip+0x1e04487]
+jump to orig addr: 0x4012e0 : 0x40382b: call qword ptr [rip+0x1e04485]
+jump to orig addr: 0x4011f0 : 0x403856: call qword ptr [rip+0x1e043d1]
+jump to orig addr: 0x401120 : 0x403869: call qword ptr [rip+0x1e043a9]
+jump to orig addr: 0x401090 : 0x403884: call qword ptr [rip+0x1e04419]
+jump to orig addr: 0x4012e0 : 0x40388d: call qword ptr [rip+0x1e04417]
+jump to orig addr: 0x4011f0 : 0x4038b8: call qword ptr [rip+0x1e04363]
+jump to orig addr: 0x401120 : 0x4038cb: call qword ptr [rip+0x1e0433b]
+jump to orig addr: 0x4011f0 : 0x403913: call qword ptr [rip+0x1e042f8]
+jump to orig addr: 0x401230 : 0x40392c: call qword ptr [rip+0x1e042c6]
+jump to orig addr: 0x4010b0 : 0x403996: call qword ptr [rip+0x1e04277]
+jump to orig addr: 0x4010b0 : 0x4039c7: call qword ptr [rip+0x1e0423d]
+jump to orig addr: 0x4012d0 : 0x403a0a: call qword ptr [rip+0x1e041d5]
+jump to orig addr: 0x4012d0 : 0x403a3e: call qword ptr [rip+0x1e04199]
+jump to orig addr: 0x4011f0 : 0x403a65: call qword ptr [rip+0x1e04176]
+jump to orig addr: 0x4011f0 : 0x403b48: call qword ptr [rip+0x1e0406c]
+jump to orig addr: 0x401090 : 0x403b75: call qword ptr [rip+0x1e040b6]
+jump to orig addr: 0x4012e0 : 0x403b7e: call qword ptr [rip+0x1e040b4]
+jump to orig addr: 0x4011f0 : 0x403ba9: call qword ptr [rip+0x1e04000]
+jump to orig addr: 0x4011f0 : 0x403c0e: call qword ptr [rip+0x1e03f92]
+jump to orig addr: 0x401200 : 0x403c4b: call qword ptr [rip+0x1e03fdd]
+jump to orig addr: 0x401100 : 0x403c52: call qword ptr [rip+0x1e03fdd]
+jump to orig addr: 0x4011f0 : 0x403c76: call qword ptr [rip+0x1e03f1c]
+jump to orig addr: 0x4011f0 : 0x403c9d: call qword ptr [rip+0x1e03ef4]
+jump to orig addr: 0x401290 : 0x403cc8: call qword ptr [rip+0x1e03efd]
+jump to orig addr: 0x401090 : 0x403cd8: call qword ptr [rip+0x1e03f30]
+jump to orig addr: 0x4012e0 : 0x403ce1: call qword ptr [rip+0x1e03f2e]
+jump to orig addr: 0x4011f0 : 0x403d0c: call qword ptr [rip+0x1e03e7a]
+jump to orig addr: 0x4011f0 : 0x403d4e: call qword ptr [rip+0x1e03e33]
+jump to orig addr: 0x401230 : 0x403d67: call qword ptr [rip+0x1e03e01]
+jump to orig addr: 0x4012d0 : 0x403daf: call qword ptr [rip+0x1e03dc0]
+jump to orig addr: 0x4011f0 : 0x403de3: call qword ptr [rip+0x1e03d8f]
+jump to orig addr: 0x4011f0 : 0x403e16: call qword ptr [rip+0x1e03d5b]
+jump to orig addr: 0x4011f0 : 0x403e48: call qword ptr [rip+0x1e03d28]
+jump to orig addr: 0x401220 : 0x403e62: call qword ptr [rip+0x1e03dad]
+jump to orig addr: 0x401150 : 0x403ed7: call qword ptr [rip+0x1e03cb7]
+jump to orig addr: 0x4010d0 : 0x403efe: call qword ptr [rip+0x1e03d0f]
+jump to orig addr: 0x401060 : 0x403f68: call qword ptr [rip+0x1e03ca2]
+jump to orig addr: 0x401300 : 0x403fbd: call qword ptr [rip+0x1e03c4e]
+jump to orig addr: 0x401300 : 0x403fff: call qword ptr [rip+0x1e03c00]
+jump to orig addr: 0x4011d0 : 0x404164: call qword ptr [rip+0x1e03a8c]
+jump to orig addr: 0x4011d0 : 0x404173: call qword ptr [rip+0x1e03a7c]
+jump to orig addr: 0x4011c0 : 0x404289: call qword ptr [rip+0x1e03903]
+jump to orig addr: 0x401150 : 0x4042c5: call qword ptr [rip+0x1e0386f]
+jump to orig addr: 0x401150 : 0x4042e0: call qword ptr [rip+0x1e0384f]
+jump to orig addr: 0x4012f0 : 0x40433e: call qword ptr [rip+0x1e03886]
+jump to orig addr: 0x4012f0 : 0x404357: call qword ptr [rip+0x1e03868]
+jump to orig addr: 0x4012f0 : 0x40437a: call qword ptr [rip+0x1e03840]
+jump to orig addr: 0x4012f0 : 0x404393: call qword ptr [rip+0x1e03822]
+jump to orig addr: 0x4012f0 : 0x4043ac: call qword ptr [rip+0x1e03804]
+jump to orig addr: 0x4012f0 : 0x4043c5: call qword ptr [rip+0x1e037e6]
+jump to orig addr: 0x4011c0 : 0x404411: call qword ptr [rip+0x1e03736]
+jump to orig addr: 0x4012c0 : 0x404598: call qword ptr [rip+0x1e0354a]
+jump to orig addr: 0x4011f0 : 0x4045bf: call qword ptr [rip+0x1e0350a]
+jump to orig addr: 0x4012c0 : 0x4045d8: call qword ptr [rip+0x1e03508]
+jump to orig addr: 0x4011c0 : 0x404631: call qword ptr [rip+0x1e03503]
+jump to orig addr: 0x4011c0 : 0x40464d: call qword ptr [rip+0x1e034e6]
+jump to orig addr: 0x4011c0 : 0x404674: call qword ptr [rip+0x1e034ba]
+jump to orig addr: 0x4011c0 : 0x40469b: call qword ptr [rip+0x1e0348e]
+jump to orig addr: 0x4011c0 : 0x4046c2: call qword ptr [rip+0x1e03462]
+jump to orig addr: 0x4011c0 : 0x4046e6: call qword ptr [rip+0x1e03439]
+jump to orig addr: 0x4011c0 : 0x40470d: call qword ptr [rip+0x1e0340d]
+jump to orig addr: 0x4011c0 : 0x404731: call qword ptr [rip+0x1e033e4]
+jump to orig addr: 0x4011c0 : 0x404755: call qword ptr [rip+0x1e033bb]
+jump to orig addr: 0x4011c0 : 0x404779: call qword ptr [rip+0x1e03392]
+jump to orig addr: 0x4011c0 : 0x40479b: call qword ptr [rip+0x1e0336b]
+jump to orig addr: 0x4011c0 : 0x4047bd: call qword ptr [rip+0x1e03344]
+jump to orig addr: 0x4011c0 : 0x4047e4: call qword ptr [rip+0x1e03318]
+jump to orig addr: 0x4011c0 : 0x404810: call qword ptr [rip+0x1e032e7]
+jump to orig addr: 0x4011c0 : 0x40483c: call qword ptr [rip+0x1e032b6]
+jump to orig addr: 0x4011c0 : 0x404863: call qword ptr [rip+0x1e0328a]
+jump to orig addr: 0x4011c0 : 0x40488a: call qword ptr [rip+0x1e0325e]
+jump to orig addr: 0x4011c0 : 0x4048b6: call qword ptr [rip+0x1e0322d]
+jump to orig addr: 0x4012c0 : 0x4048d3: call qword ptr [rip+0x1e031b3]
+jump to orig addr: 0x4010c0 : 0x4048ec: call qword ptr [rip+0x1e03251]
+jump to orig addr: 0x4011f0 : 0x404917: call qword ptr [rip+0x1e03151]
+jump to orig addr: 0x4012c0 : 0x404930: call qword ptr [rip+0x1e0314f]
+jump to orig addr: 0x4011f0 : 0x4049c0: call qword ptr [rip+0x1e0308b]
+jump to orig addr: 0x4012c0 : 0x4049ca: call qword ptr [rip+0x1e03098]
+jump to orig addr: 0x4011d0 : 0x404a18: call qword ptr [rip+0x1e030e1]
+jump to orig addr: 0x4011d0 : 0x404a27: call qword ptr [rip+0x1e030d1]
+jump to orig addr: 0x4011d0 : 0x404a36: call qword ptr [rip+0x1e030c1]
+jump to orig addr: 0x4011c0 : 0x404a81: call qword ptr [rip+0x1e0301e]
+jump to orig addr: 0x4011c0 : 0x404b27: call qword ptr [rip+0x1e02f57]
+jump to orig addr: 0x4012c0 : 0x404b9f: call qword ptr [rip+0x1e02e70]
+jump to orig addr: 0x4011c0 : 0x404bdf: call qword ptr [rip+0x1e02e7d]
+jump to orig addr: 0x4012d0 : 0x404c65: call qword ptr [rip+0x1e02d60]
+jump to orig addr: 0x4012c0 : 0x404c7c: call qword ptr [rip+0x1e02d68]
+jump to orig addr: 0x401080 : 0x404cad: call qword ptr [rip+0x1e02def]
+jump to orig addr: 0x401080 : 0x404cb9: call qword ptr [rip+0x1e02de2]
+jump to orig addr: 0x4011e0 : 0x404cf0: call qword ptr [rip+0x1e02dae]
+jump to orig addr: 0x401140 : 0x404cf8: call qword ptr [rip+0x1e02dad]
+jump to orig addr: 0x4011e0 : 0x404d89: call qword ptr [rip+0x1e02d01]
+jump to orig addr: 0x401140 : 0x404d91: call qword ptr [rip+0x1e02d00]
+jump to orig addr: 0x4011e0 : 0x404e1d: call qword ptr [rip+0x1e02c59]
+jump to orig addr: 0x401140 : 0x404e25: call qword ptr [rip+0x1e02c58]
+jump to orig addr: 0x4011f0 : 0x404ed2: call qword ptr [rip+0x1e02ab2]
+jump to orig addr: 0x4012d0 : 0x404ef9: call qword ptr [rip+0x1e02a7e]
+jump to orig addr: 0x4012c0 : 0x404f03: call qword ptr [rip+0x1e02a93]
+jump to orig addr: 0x401220 : 0x404f31: call qword ptr [rip+0x1e02aec]
+jump to orig addr: 0x401080 : 0x404f5e: call qword ptr [rip+0x1e02af2]
+jump to orig addr: 0x4011f0 : 0x407970: call qword ptr [rip+0x1dffd8d]
+jump to orig addr: 0x4011a0 : 0x407990: call qword ptr [rip+0x1dffd40]
+jump to orig addr: 0x4011f0 : 0x407a5f: call qword ptr [rip+0x1dffc89]
+jump to orig addr: 0x401180 : 0x407bcd: call qword ptr [rip+0x1dffab8]
+jump to orig addr: 0x401240 : 0x407bee: call qword ptr [rip+0x1dffa97]
+jump to orig addr: 0x4010f0 : 0x407ca7: call qword ptr [rip+0x1dff9b9]
+jump to orig addr: 0x401220 : 0x407ce5: call qword ptr [rip+0x1dffa3e]
+jump to orig addr: 0x401080 : 0x407e03: call qword ptr [rip+0x1dff933]
+jump to orig addr: 0x4010f0 : 0x407efe: call qword ptr [rip+0x1dff70c]
+jump to orig addr: 0x4012d0 : 0x408044: call qword ptr [rip+0x1dff5d2]
+jump to orig addr: 0x4010f0 : 0x40805e: call qword ptr [rip+0x1dff58b]
+jump to orig addr: 0x4010f0 : 0x4081cc: call qword ptr [rip+0x1dff3e0]
+jump to orig addr: 0x4012d0 : 0x408327: call qword ptr [rip+0x1dff285]
+jump to orig addr: 0x4010f0 : 0x408341: call qword ptr [rip+0x1dff23e]
+jump to orig addr: 0x4010f0 : 0x408394: call qword ptr [rip+0x1dff1de]
+jump to orig addr: 0x401230 : 0x4083a7: call qword ptr [rip+0x1dff1de]
+jump to orig addr: 0x4010f0 : 0x4083b6: call qword ptr [rip+0x1dff1b6]
+jump to orig addr: 0x401080 : 0x408489: call qword ptr [rip+0x1dff1ca]
+jump to orig addr: 0x4010f0 : 0x408567: call qword ptr [rip+0x1dfef99]
+jump to orig addr: 0x401220 : 0x4085a5: call qword ptr [rip+0x1dff01e]
+jump to orig addr: 0x401080 : 0x4086fc: call qword ptr [rip+0x1dfeed7]
+jump to orig addr: 0x401080 : 0x40880e: call qword ptr [rip+0x1dfed97]
+jump to orig addr: 0x4010f0 : 0x408942: call qword ptr [rip+0x1dfeb1d]
+jump to orig addr: 0x401110 : 0x4089c0: call qword ptr [rip+0x1dfeaa2]
+jump to orig addr: 0x4010f0 : 0x4089d2: call qword ptr [rip+0x1dfea7f]
+jump to orig addr: 0x401300 : 0x408fe0: call qword ptr [rip+0x1dfe452]
+jump to orig addr: 0x401290 : 0x40911d: call qword ptr [rip+0x1dfe270]
+jump to orig addr: 0x401260 : 0x40913a: call qword ptr [rip+0x1dfe25f]
+jump to orig addr: 0x401120 : 0x4091e9: call qword ptr [rip+0x1dfe138]
+jump to orig addr: 0x401120 : 0x4093a9: call qword ptr [rip+0x1dfdf48]
+jump to orig addr: 0x4012d0 : 0x409c8e: call qword ptr [rip+0x1dfd601]
+jump to orig addr: 0x4011f0 : 0x409fc6: call qword ptr [rip+0x1dfd298]
+jump to orig addr: 0x4011f0 : 0x40a38f: call qword ptr [rip+0x1dfce7d]
+jump to orig addr: 0x4012d0 : 0x40a3ce: call qword ptr [rip+0x1dfce2d]
+jump to orig addr: 0x4012d0 : 0x40b87e: call qword ptr [rip+0x1dfb867]
+jump to orig addr: 0x4012d0 : 0x40bb54: call qword ptr [rip+0x1dfb577]
+jump to orig addr: 0x4011f0 : 0x40c12c: call qword ptr [rip+0x1dfaf8a]
+jump to orig addr: 0x4011f0 : 0x40c66a: call qword ptr [rip+0x1dfaa07]
+jump to orig addr: 0x4011f0 : 0x40c7ee: call qword ptr [rip+0x1dfa867]
+jump to orig addr: 0x4012d0 : 0x40c819: call qword ptr [rip+0x1dfa82b]
+jump to orig addr: 0x4011f0 : 0x40cf60: call qword ptr [rip+0x1dfa08c]
+jump to orig addr: 0x4011f0 : 0x40d193: call qword ptr [rip+0x1df9e0b]
+jump to orig addr: 0x4011f0 : 0x410415: call qword ptr [rip+0x1df6b3e]
+jump to orig addr: 0x4011f0 : 0x410443: call qword ptr [rip+0x1df6b0c]
+jump to orig addr: 0x4011a0 : 0x410463: call qword ptr [rip+0x1df6abf]
+jump to orig addr: 0x4011f0 : 0x41091e: call qword ptr [rip+0x1df65c1]
+jump to orig addr: 0x4011f0 : 0x410a09: call qword ptr [rip+0x1df64c3]
+jump to orig addr: 0x4011f0 : 0x410b97: call qword ptr [rip+0x1df6322]
+jump to orig addr: 0x4011f0 : 0x412158: call qword ptr [rip+0x1df4d50]
+jump to orig addr: 0x4011f0 : 0x412245: call qword ptr [rip+0x1df4c5a]
+jump to orig addr: 0x4011f0 : 0x412468: call qword ptr [rip+0x1df4a2e]
+jump to orig addr: 0x4011f0 : 0x413710: call qword ptr [rip+0x1df3713]
+jump to orig addr: 0x4012d0 : 0x4166d8: call qword ptr [rip+0x1df05b0]
+jump to orig addr: 0x401210 : 0x41861b: jmp qword ptr [rip+0x1dee665]
+jump to orig addr: 0x401160 : 0x41862b: jmp qword ptr [rip+0x1dee65c]
+jump to orig addr: 0x418640 : 0x418635: call qword ptr [rip+0x1dee659]
+after fixing instructions displacements
+after write all new instructions to memory tc
+after commit of translated routines from orig code to TC
+ create tc took: 0.132784 seconds
+=== btranslate stats ===
+  routines seen           : 122
+  skipped .plt sections   : 1  [THE segfault bug]
+  skipped (unsafe-probe)  : 0  [Bug C]
+  skipped (size < 5)      : 1  [Bug D]
+  skipped (max_rtns cap)  : 0  [bisect]
+  translated              : 121
+  RTN_ReplaceProbed succ  : 121
+  RTN_ReplaceProbed fail  : 0
+  jump_to_orig_addr_map   : 44 unique entries  [Bug A]
+    total calls           : 612
+    dedup hits (saved)    : 568  [Bug A FIX active iff > 0]
+  1-byte disp overflows   : 0  [Bug B]
+  cond br to orig target  : 0  [Bug E]
+  num_of_instr_map_entries: 24127
+========================
+Reached _exit.

@@ -151,7 +151,9 @@ struct {
     unsigned disp1_overflow_caught;     // Bug B
     unsigned jump_orig_total_calls;     // Bug A: total calls to fix_direct_br_call_to_orig_addr
     unsigned jump_orig_dedup_hits;      // Bug A: search found existing entry (dedup worked)
-} stats = {0,0,0,0,0,0,0,0,0,0};
+    unsigned cond_br_to_orig;           // Bug E: Jcc re-encoded with rel32 to original target
+    unsigned rtns_skipped_plt;          // THE bug: .plt sections never translated
+} stats = {0,0,0,0,0,0,0,0,0,0,0,0};
 
 /* ============================================================= */
 /* Service dump routines                                         */
@@ -694,13 +696,23 @@ int fix_direct_br_or_call_displacement(unsigned instr_map_entry)
     // indirect branches via a rip offset which had previously been
     // formed by previouis calls to fix_direct_br_call_to_orig_addr()
     // in order to relpace direct jumps to orig targ addrs.
-    if (instr_map[instr_map_entry].targ_map_entry < 0) {
+    ADDRINT new_targ_addr;
+    if (instr_map[instr_map_entry].targ_map_entry >= 0) {
+       new_targ_addr = instr_map[instr_map[instr_map_entry].targ_map_entry].new_ins_addr;
+    } else if (category_enum == XED_CATEGORY_COND_BR) {
+       // A Jcc whose target was not translated (e.g. it lies in a routine we
+       // skipped as unsafe for probed replacement). Unlike CALL/JMP, Jcc has
+       // no memory-indirect form, so it cannot be routed via
+       // jump_to_orig_addr_map. Instead, re-encode it with a rel32
+       // displacement straight back to the original target address; the TC
+       // is allocated right after the image so rel32 always reaches (the
+       // 32-bit displacement check below guards this).
+       stats.cond_br_to_orig++;
+       new_targ_addr = instr_map[instr_map_entry].orig_targ_addr;
+    } else {
        int rc = fix_direct_br_call_to_orig_addr(instr_map_entry);
        return rc;
     }
-
-    ADDRINT new_targ_addr;
-    new_targ_addr = instr_map[instr_map[instr_map_entry].targ_map_entry].new_ins_addr;
 
     new_disp =
       (new_targ_addr - instr_map[instr_map_entry].new_ins_addr) - instr_map[instr_map_entry].size; // orig_size;
@@ -838,7 +850,23 @@ int find_candidate_rtns_for_tc(IMG img)
     {
         if (!SEC_IsExecutable(sec) || SEC_IsWriteable(sec) || !SEC_Address(sec))
             continue;
-                
+
+        // THE main fix for the exercise's segfault: never translate the PLT.
+        // Pin exposes .plt (and .plt.got/.plt.sec) as regular RTNs, but they
+        // are the dynamic linker's lazy-binding trampolines, not real code.
+        // Probe-replacing the .plt RTN overwrites PLT0 - the trampoline that
+        // pushes the link_map (GOT[1]) and jumps to _dl_runtime_resolve
+        // (GOT[2]) - so the first call through any unresolved PLT stub enters
+        // ld.so's _dl_fixup with a corrupted link_map and SIGSEGVs inside
+        // ld-linux-x86-64.so.2. Skipping the PLT keeps the original
+        // lazy-binding machinery fully intact; calls from translated code to
+        // PLT stubs are routed back to the original stubs via
+        // fix_direct_br_call_to_orig_addr().
+        if (SEC_Name(sec).compare(0, 4, ".plt") == 0) {
+            stats.rtns_skipped_plt += 1;
+            continue;
+        }
+
         for (RTN rtn = SEC_RtnHead(sec); RTN_Valid(rtn); rtn = RTN_Next(rtn))
         {
             stats.rtns_seen++;
@@ -862,6 +890,12 @@ int find_candidate_rtns_for_tc(IMG img)
                 continue;
             }
             stats.rtns_translated++;
+
+            // When bisecting, log which routines made the cut so the N-th
+            // (faulty) routine can be identified by name.
+            if (KnobMaxRtns.Value())
+                cerr << "translating rtn #" << dec << stats.rtns_translated
+                     << ": " << RTN_Name(rtn) << " at 0x" << hex << RTN_Address(rtn) << endl;
 
             // Keep the entry num of the rtn head in case we need to
             // revert the insertin of the instruction in rtn into the instructions
@@ -1255,6 +1289,7 @@ VOID create_tc(IMG img, VOID *v)
 
     cerr << "=== btranslate stats ===" << endl
          << "  routines seen           : " << dec << stats.rtns_seen << endl
+         << "  skipped .plt sections   : " << stats.rtns_skipped_plt       << "  [THE segfault bug]" << endl
          << "  skipped (unsafe-probe)  : " << stats.rtns_skipped_unsafe    << "  [Bug C]" << endl
          << "  skipped (size < 5)      : " << stats.rtns_skipped_too_small << "  [Bug D]" << endl
          << "  skipped (max_rtns cap)  : " << stats.rtns_skipped_max_rtns  << "  [bisect]" << endl
@@ -1265,6 +1300,7 @@ VOID create_tc(IMG img, VOID *v)
          << "    total calls           : " << stats.jump_orig_total_calls << endl
          << "    dedup hits (saved)    : " << stats.jump_orig_dedup_hits << "  [Bug A FIX active iff > 0]" << endl
          << "  1-byte disp overflows   : " << stats.disp1_overflow_caught << "  [Bug B]" << endl
+         << "  cond br to orig target  : " << stats.cond_br_to_orig << "  [Bug E]" << endl
          << "  num_of_instr_map_entries: " << num_of_instr_map_entries << endl
          << "========================" << endl;
 }

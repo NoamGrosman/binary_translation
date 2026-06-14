@@ -1,0 +1,29 @@
+ allocated memory at: 0x5f8fdc96c000
+after memory allocation
+translating rtn #1: _init at 0x5f8fdc0ee100
+translating rtn #2: .plt at 0x5f8fdc0ee120
+after identifying candidate routines
+after chaining all branch targets
+after setting initial estimated new ins addrs in tc
+jump to orig addr: 0x5f8fdc0ee6e0 : 0x5f8fdc0ee110: call 0x5f8fdc0ee6e0
+jump to orig addr: 0x5f8fdc0ee6e0 : 0x5f8fdc0ee110: call qword ptr [rip+0x70cf54cb]
+after fixing instructions displacements
+after write all new instructions to memory tc
+after commit of translated routines from orig code to TC
+ create tc took: 3.9716 seconds
+=== btranslate stats ===
+  routines seen           : 15393
+  skipped (unsafe-probe)  : 2  [Bug C]
+  skipped (size < 5)      : 435  [Bug D]
+  skipped (max_rtns cap)  : 14954  [bisect]
+  translated              : 2
+  RTN_ReplaceProbed succ  : 2
+  RTN_ReplaceProbed fail  : 0
+  jump_to_orig_addr_map   : 1 unique entries  [Bug A]
+    total calls           : 2
+    dedup hits (saved)    : 1  [Bug A FIX active iff > 0]
+  1-byte disp overflows   : 0  [Bug B]
+  cond br to orig target  : 0  [Bug E]
+  num_of_instr_map_entries: 10
+========================
+timeout: the monitored command dumped core
