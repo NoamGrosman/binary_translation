@@ -1,0 +1,53 @@
+--- /home/noamgrosman/technionCourses/binary_translation/ex3/src/btranslate.cpp	2026-06-22 15:39:29.838110120 +0300
++++ /home/noamgrosman/technionCourses/binary_translation/ex3/src_fixed/btranslate.cpp	2026-06-22 17:12:41.803724913 +0300
+@@ -866,6 +866,13 @@
+             stats.rtns_skipped_plt += 1;
+             continue;
+         }
++        // .init/.fini are ELF startup/teardown stubs (_init / _fini), not normal
++        // functions; probe-replacing them corrupts startup of (especially
++        // statically-linked) programs. Leave them running natively.
++        if (SEC_Name(sec) == ".init" || SEC_Name(sec) == ".fini") {
++            stats.rtns_skipped_plt += 1;
++            continue;
++        }
+ 
+         for (RTN rtn = SEC_RtnHead(sec); RTN_Valid(rtn); rtn = RTN_Next(rtn))
+         {
+@@ -1102,7 +1109,7 @@
+     // located in an address that is more than 32bits afar:
+     const size_t mem_size = 
+               tclen +                                   // TC size
+-              2 * max_ins_count * sizeof(instr_map_t) + // instr_map size
++              0 + // instr_map moved off the executable mmap (calloc below)
+               MAX_JUMP_TO_ORIG_ADDR_MAP * sizeof(ADDRINT);  // jump_to_orig_addr_map size
+     char *addr = nullptr;
+     ADDRINT max_distance = 0x7FFFFFFF;
+@@ -1164,17 +1171,20 @@
+     // debug print.
+     cerr << " allocated memory at: 0x" << hex << (ADDRINT)addr << "\n";
+ 
+-    // TC is allocated first.
++    // TC first; jump_to_orig_addr_map immediately after it so the RIP-relative
++    // (disp32) indirect jmp/call into it stays within 32 bits of the TC.
+     tc = (char *)addr;
+     addr += tclen;
+-
+-    // Allocate memory for teh instr_map table.
+-    instr_map = (instr_map_t *)addr;
+-    addr += (2 * max_ins_count * sizeof(instr_map_t));
+-
+-    // Allocate memory to the jump map to orig addrs which cannot be relocated.
+     jump_to_orig_addr_map = (ADDRINT *)addr;
+ 
++    // instr_map is tool-internal only (never RIP-referenced from translated
++    // code); allocate it on the heap, off the executable mmap.
++    instr_map = (instr_map_t *)calloc(2 * max_ins_count, sizeof(instr_map_t));
++    if (!instr_map) {
++        cerr << "failed to allocate instr_map" << endl;
++        return -1;
++    }
++
+     return 0;
+ }
+ 
