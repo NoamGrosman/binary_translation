@@ -139,20 +139,21 @@ unsigned num_of_instr_map_entries = 0;
 unsigned max_ins_count = 0;
 std::map<ADDRINT, unsigned> entry_map;
 
-// Stats — populated during translation, printed at end of create_tc.
+// Counters filled in during translation and dumped at the end of create_tc.
+// Mostly useful while debugging / bisecting.
 struct {
     unsigned rtns_seen;
-    unsigned rtns_skipped_unsafe;       // Bug C
-    unsigned rtns_skipped_too_small;    // Bug D
-    unsigned rtns_skipped_max_rtns;     // bisect knob
+    unsigned rtns_skipped_unsafe;
+    unsigned rtns_skipped_too_small;
+    unsigned rtns_skipped_max_rtns;
     unsigned rtns_translated;
     unsigned rtn_replace_succ;
     unsigned rtn_replace_fail;
-    unsigned disp1_overflow_caught;     // Bug B
-    unsigned jump_orig_total_calls;     // Bug A: total calls to fix_direct_br_call_to_orig_addr
-    unsigned jump_orig_dedup_hits;      // Bug A: search found existing entry (dedup worked)
-    unsigned cond_br_to_orig;           // Bug E: Jcc re-encoded with rel32 to original target
-    unsigned rtns_skipped_plt;          // THE bug: .plt sections never translated
+    unsigned disp1_overflow_caught;
+    unsigned jump_orig_total_calls;
+    unsigned jump_orig_dedup_hits;
+    unsigned cond_br_to_orig;
+    unsigned rtns_skipped_plt;
 } stats = {0,0,0,0,0,0,0,0,0,0,0,0};
 
 /* ============================================================= */
@@ -700,13 +701,11 @@ int fix_direct_br_or_call_displacement(unsigned instr_map_entry)
     if (instr_map[instr_map_entry].targ_map_entry >= 0) {
        new_targ_addr = instr_map[instr_map[instr_map_entry].targ_map_entry].new_ins_addr;
     } else if (category_enum == XED_CATEGORY_COND_BR) {
-       // A Jcc whose target was not translated (e.g. it lies in a routine we
-       // skipped as unsafe for probed replacement). Unlike CALL/JMP, Jcc has
-       // no memory-indirect form, so it cannot be routed via
-       // jump_to_orig_addr_map. Instead, re-encode it with a rel32
-       // displacement straight back to the original target address; the TC
-       // is allocated right after the image so rel32 always reaches (the
-       // 32-bit displacement check below guards this).
+       // Jcc whose target wasn't translated (it's in a routine we skipped).
+       // Jcc has no memory-indirect form, so we can't route it through
+       // jump_to_orig_addr_map like CALL/JMP. Just point the rel32 back at the
+       // original target instead; the displacement check below makes sure it
+       // still fits.
        stats.cond_br_to_orig++;
        new_targ_addr = instr_map[instr_map_entry].orig_targ_addr;
     } else {
@@ -737,9 +736,8 @@ int fix_direct_br_or_call_displacement(unsigned instr_map_entry)
       new_disp_byts = 1;
     }
 
-    // For LOOP/LOOPE/LOOPNE/JRCXZ the displacement field is 8-bit:
-    // a silently-truncated value would jump to garbage. Bail out so the
-    // routine is skipped instead of producing a broken translation.
+    // These (LOOP/JRCXZ) only have an 8-bit displacement. If the new one
+    // doesn't fit, bail out instead of silently truncating to a bad target.
     if (new_disp_byts == 1 && (new_disp > 0x7F || new_disp < -0x80)) {
         stats.disp1_overflow_caught++;
         cerr << "1-byte branch displacement overflow at 0x"
@@ -851,18 +849,18 @@ int find_candidate_rtns_for_tc(IMG img)
         if (!SEC_IsExecutable(sec) || SEC_IsWriteable(sec) || !SEC_Address(sec))
             continue;
 
-        // THE main fix for the exercise's segfault: never translate the PLT.
-        // Pin exposes .plt (and .plt.got/.plt.sec) as regular RTNs, but they
-        // are the dynamic linker's lazy-binding trampolines, not real code.
-        // Probe-replacing the .plt RTN overwrites PLT0 - the trampoline that
-        // pushes the link_map (GOT[1]) and jumps to _dl_runtime_resolve
-        // (GOT[2]) - so the first call through any unresolved PLT stub enters
-        // ld.so's _dl_fixup with a corrupted link_map and SIGSEGVs inside
-        // ld-linux-x86-64.so.2. Skipping the PLT keeps the original
-        // lazy-binding machinery fully intact; calls from translated code to
-        // PLT stubs are routed back to the original stubs via
-        // fix_direct_br_call_to_orig_addr().
-        if (SEC_Name(sec).compare(0, 4, ".plt") == 0) {
+        // This is the fix for the segfault. Pin hands us .plt as if it were a
+        // normal RTN, but it's the linker's lazy-binding stub code, not a real
+        // function. Probe-replacing it clobbers PLT0, so the first call through
+        // an unresolved stub jumps into _dl_runtime_resolve with a bad
+        // link_map and crashes inside ld.so. Same story for the .init/.fini
+        // CRT glue, which runs at startup/teardown before main(). We leave all
+        // of these as the original code; direct calls into them from translated
+        // code still get routed back via fix_direct_br_call_to_orig_addr().
+        const string sname = SEC_Name(sec);
+        if (sname.compare(0, 4, ".plt")  == 0 ||
+            sname.compare(0, 5, ".init") == 0 ||
+            sname.compare(0, 5, ".fini") == 0) {
             stats.rtns_skipped_plt += 1;
             continue;
         }
@@ -871,10 +869,9 @@ int find_candidate_rtns_for_tc(IMG img)
         {
             stats.rtns_seen++;
 
-            // Skip routines we cannot probe-replace later. Translating their
-            // instructions into the TC while leaving the original entrypoint
-            // un-patched causes mixed orig/TC control flow at runtime
-            // (segfault). Also skip routines too small to hold a 5-byte JMP.
+            // If we can't probe-replace it, don't translate it either, or we
+            // end up with the original entry still live alongside a TC copy and
+            // crash. Also need at least 5 bytes for the probe JMP.
             if (!RTN_IsSafeForProbedReplacement(rtn)) {
                 stats.rtns_skipped_unsafe++;
                 continue;
@@ -884,15 +881,29 @@ int find_candidate_rtns_for_tc(IMG img)
                 continue;
             }
 
-            // Bisect support: cap how many routines we translate.
+            // A few libc bootstrap routines run before main() and poke at TLS
+            // and the brk. Like .plt/.init/.fini they don't survive being
+            // probe-translated at that point (saw __libc_setup_tls's TLS memcpy
+            // crash on sgcc_peak after __sbrk returned a near-null break), so
+            // leave them native too.
+            {
+                const string rname = RTN_Name(rtn);
+                if (rname == "__libc_setup_tls" ||
+                    rname == "__sbrk" || rname == "sbrk" ||
+                    rname == "__brk"  || rname == "brk") {
+                    stats.rtns_skipped_plt += 1;   // grouped with CRT skips
+                    continue;
+                }
+            }
+
+            // -max_rtns: only translate the first N routines (for bisecting).
             if (KnobMaxRtns.Value() && stats.rtns_translated >= KnobMaxRtns.Value()) {
                 stats.rtns_skipped_max_rtns++;
                 continue;
             }
             stats.rtns_translated++;
 
-            // When bisecting, log which routines made the cut so the N-th
-            // (faulty) routine can be identified by name.
+            // Log each routine that makes the cut so we can spot the bad one.
             if (KnobMaxRtns.Value())
                 cerr << "translating rtn #" << dec << stats.rtns_translated
                      << ": " << RTN_Name(rtn) << " at 0x" << hex << RTN_Address(rtn) << endl;
@@ -1077,8 +1088,12 @@ int allocate_and_init_memory(IMG img)
         }
     }
 
-    max_ins_count *= 10; // estimating that the num of instrs of the inlined 
-                         // functions will not exceed the total nunmber of the entire code.
+    // Translation is basically 1:1 here (we measured ~0.97x), so the original
+    // x10 was wildly oversized (~2.5GB) and made it more likely to collide with
+    // Pin's own mappings. x3 is plenty of headroom; if it's ever not enough the
+    // "out of memory for map_instr" guard in add_new_instr_entry() aborts
+    // cleanly rather than corrupting anything.
+    max_ins_count *= 3;
 
 
     // get a page size in the system:
@@ -1107,8 +1122,19 @@ int allocate_and_init_memory(IMG img)
     char *addr = nullptr;
     ADDRINT max_distance = 0x7FFFFFFF;
     const size_t step = pagesize; // Try every page
-    // Align target address to page boundary
-    ADDRINT aligned_target = ((ADDRINT)highest_addr) & ~(pagesize - 1);
+    // Align target address to page boundary.
+    //
+    // For a non-PIE binary loaded low (the static gcc sits at 0x400000) the brk
+    // heap grows right after the image, so mapping the TC there boxes the heap
+    // in and the program dies once malloc can't grow it (gcc wants ~0.5GB).
+    // Putting the TC at ~1GB clears the heap and still stays within a 32-bit
+    // branch displacement of the code. PIE images load high with their heap
+    // elsewhere, so for those we keep the original placement.
+    ADDRINT aligned_target;
+    if (highest_addr < 0x100000000ULL)            // non-PIE, loaded low
+        aligned_target = ((ADDRINT)0x40000000) & ~((ADDRINT)pagesize - 1);
+    else                                          // PIE: original behaviour
+        aligned_target = ((ADDRINT)highest_addr) & ~((ADDRINT)pagesize - 1);
     // Try exact address first
     void* result = mmap((void*)aligned_target, mem_size,
                        PROT_READ | PROT_WRITE | PROT_EXEC,
@@ -1168,12 +1194,17 @@ int allocate_and_init_memory(IMG img)
     tc = (char *)addr;
     addr += tclen;
 
-    // Allocate memory for teh instr_map table.
+    // jump_to_orig_addr_map has to go right after the TC. Translated code
+    // reaches it with a rip-relative indirect branch, so it must stay within a
+    // 32-bit displacement of the TC. The original layout put it after instr_map,
+    // which is big enough (>2GB on the gcc binaries) to push the map out of
+    // range and trigger "Invalid rip displacement larger than 32 bits".
+    // instr_map itself is only host-side bookkeeping, so it can sit anywhere.
+    jump_to_orig_addr_map = (ADDRINT *)addr;
+    addr += MAX_JUMP_TO_ORIG_ADDR_MAP * sizeof(ADDRINT);
+
     instr_map = (instr_map_t *)addr;
     addr += (2 * max_ins_count * sizeof(instr_map_t));
-
-    // Allocate memory to the jump map to orig addrs which cannot be relocated.
-    jump_to_orig_addr_map = (ADDRINT *)addr;
 
     return 0;
 }
@@ -1289,19 +1320,21 @@ VOID create_tc(IMG img, VOID *v)
 
     cerr << "=== btranslate stats ===" << endl
          << "  routines seen           : " << dec << stats.rtns_seen << endl
-         << "  skipped .plt sections   : " << stats.rtns_skipped_plt       << "  [THE segfault bug]" << endl
-         << "  skipped (unsafe-probe)  : " << stats.rtns_skipped_unsafe    << "  [Bug C]" << endl
-         << "  skipped (size < 5)      : " << stats.rtns_skipped_too_small << "  [Bug D]" << endl
-         << "  skipped (max_rtns cap)  : " << stats.rtns_skipped_max_rtns  << "  [bisect]" << endl
+         << "  skipped CRT/bootstrap   : " << stats.rtns_skipped_plt  << "  (.plt/.init/.fini + TLS/brk)" << endl
+         << "  skipped (unsafe-probe)  : " << stats.rtns_skipped_unsafe    << endl
+         << "  skipped (size < 5)      : " << stats.rtns_skipped_too_small << endl
+         << "  skipped (max_rtns cap)  : " << stats.rtns_skipped_max_rtns  << endl
          << "  translated              : " << stats.rtns_translated << endl
          << "  RTN_ReplaceProbed succ  : " << stats.rtn_replace_succ << endl
          << "  RTN_ReplaceProbed fail  : " << stats.rtn_replace_fail << endl
-         << "  jump_to_orig_addr_map   : " << jump_to_orig_addr_num << " unique entries  [Bug A]" << endl
+         << "  jump_to_orig_addr_map   : " << jump_to_orig_addr_num << " unique entries" << endl
          << "    total calls           : " << stats.jump_orig_total_calls << endl
-         << "    dedup hits (saved)    : " << stats.jump_orig_dedup_hits << "  [Bug A FIX active iff > 0]" << endl
-         << "  1-byte disp overflows   : " << stats.disp1_overflow_caught << "  [Bug B]" << endl
-         << "  cond br to orig target  : " << stats.cond_br_to_orig << "  [Bug E]" << endl
+         << "    dedup hits            : " << stats.jump_orig_dedup_hits << endl
+         << "  1-byte disp overflows   : " << stats.disp1_overflow_caught << endl
+         << "  cond br to orig target  : " << stats.cond_br_to_orig << endl
          << "  num_of_instr_map_entries: " << num_of_instr_map_entries << endl
+         << "  instr_map capacity      : " << max_ins_count
+         << "  (buffer = 2x = " << (2 * max_ins_count) << " entries)" << endl
          << "========================" << endl;
 }
 

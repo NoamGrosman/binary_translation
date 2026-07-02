@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(///wsl.localhost/Ubuntu/home/noam/binary_translation/**)",
+      "Bash(cd \"\\\\\\\\\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\noam\\\\binary_translation\\\\ex3\")",
+      "Bash(wc -c btranslate.cpp src/btranslate.cpp)",
+      "Bash(mkdir -p /tmp/ex3chk)",
+      "Bash(unzip -o -q ex3.zip -d /tmp/ex3chk)",
+      "Read(//tmp/ex3chk/src/**)",
+      "Bash(unzip -l ex3.zip)",
+      "Bash(unzip -p ex3.zip src/makefile.rules)",
+      "Bash(unzip -p ex3.zip src/makefile)"
+    ]
+  }
+}
