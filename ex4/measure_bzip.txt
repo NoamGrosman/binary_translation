@@ -1,0 +1,10 @@
+ORIG_run1 wall=0:10.65 user=9.45 sys=0.69 minflt=77613
+OPT_run1 wall=0:06.67 user=6.70 sys=0.34 minflt=77396
+ORIG_run2 wall=0:07.73 user=7.80 sys=0.34 minflt=77608
+OPT_run2 wall=0:06.49 user=6.52 sys=0.32 minflt=77400
+ORIG_run3 wall=0:12.97 user=12.64 sys=0.34 minflt=77614
+OPT_run3 wall=0:15.00 user=14.83 sys=1.18 minflt=77399
+ORIG_run4 wall=0:12.85 user=12.14 sys=0.55 minflt=77611
+OPT_run4 wall=0:07.20 user=7.28 sys=0.39 minflt=77401
+ORIG_run5 wall=0:07.60 user=7.60 sys=0.41 minflt=77610
+OPT_run5 wall=0:07.26 user=6.54 sys=0.29 minflt=77398

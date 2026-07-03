@@ -1,0 +1,33 @@
+# Build outputs
+obj-intel64/
+*.o
+core
+core.*
+
+# ex4: binaries duplicated from ex3/ (the test script falls back to ../ex3)
+ex4/bzip2
+ex4/cpugcc_r_base.Oz-m64
+ex4/sgcc_base.mytest-m64
+ex4/sgcc_peak.mytest-m64
+ex4/input-long.txt
+ex4/input-long.txt.bz2
+ex4/cc1.gz
+
+# ex4: regenerable per-run artifacts (outputs, logs, profiles, scratch)
+ex4/*.s
+ex4/*.log
+ex4/bprofile.out
+ex4/edge-profile*.csv
+ex4/bzip_*.csv
+ex4/cc1_OPT.csv
+ex4/cc1_ORIG*.csv
+ex4/native_*
+ex4/pin_cpugcc*
+ex4/zt_*
+ex4/dbg/
+ex4/zen4_results.txt
+ex4/bisect_state.txt
+ex4/measure_sgcc.txt
+ex4/measure_sgcc_a.txt
+ex4/measure_sgcc_b.txt
+ex4/pie_switch
