@@ -49,6 +49,17 @@ and their inputs):
      after executing the translated startup path, producing no output
      either way.
 
+     UPDATE (2026-07-04): full functional verification of cpugcc was
+     completed on an AVX-512-capable machine (AMD Ryzen 7 7800X3D,
+     Zen 4). Under the tool (probe mode, -prof_time 10) cpugcc runs
+     200.i to correct completion: 3/3 runs of the optimized tool and
+     1/1 run of the unoptimized baseline produced a 200.s byte-identical
+     to the native run on that machine (3,873,835 bytes), each with a
+     clean TC verifier ("TCVERIFY: 0 bad branch/rip targets"). The same
+     session also re-verified sgcc_peak (2/2), cc1 (2/2), sgcc_base
+     (2/2) and bzip2 (byte-identical outputs, TCVERIFY 0) on that CPU.
+     Nothing in this submission is untested anymore.
+
 The profile is written to edge-profile.csv in the working directory on
 program exit, one line per executed BBL, hottest first:
 

@@ -1,5 +1,10 @@
 # Zen4 / AVX-512 verification of the ex4 tool — instructions
 
+> **DONE (2026-07-04):** this test was run on the Ryzen 7 7800X3D —
+> `ZEN4_RESULT: ALL TESTS PASSED` (cpugcc OPT 3/3 + ORIG 1/1 byte-identical,
+> TCVERIFY 0; sgcc_peak/cc1/sgcc_base 2/2 each; bzip2 pass). See
+> `WORK_SUMMARY.md` §9 and `zen4_results.txt`.
+
 You're running this because the dev machine (Intel Meteor Lake) has **no
 AVX-512**, so the real `cpugcc_r_base.Oz-m64` (the only PIE binary in the
 course set) could never be executed to completion there. Your 7800X3D can.

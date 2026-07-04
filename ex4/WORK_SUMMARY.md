@@ -1,6 +1,6 @@
 # Exercise 4 — Work Summary (session handoff)
 
-**Status: COMPLETE (revised 2026-07-03).** All 8 Definition-of-Done items from `FABLE_PROMPT.md` verified on 2026-07-02; on 2026-07-03 five additional fixes were merged after comparing against a friend's submission (see §8 at the end — READ IT, it supersedes parts of §4/§5).
+**Status: COMPLETE (revised 2026-07-04 — nothing untested remains).** All 8 Definition-of-Done items from `FABLE_PROMPT.md` verified on 2026-07-02; on 2026-07-03 five additional fixes were merged after comparing against a friend's submission (see §8 at the end — READ IT, it supersedes parts of §4/§5); on 2026-07-04 the last open item — full functional verification of the real cpugcc on an AVX-512 CPU — passed on a Ryzen 7 7800X3D (see §9).
 This document is the full record of what was done, why, how it was verified, and where everything lives.
 
 ---
@@ -248,4 +248,29 @@ byte-identical backup (no de-AVX512 variant exists; the no-AVX512 "files from ex
 ARE sgcc_base/sgcc_peak). But the real PIE cpugcc now translates fully under the
 tool (465,103 stubs, TCVERIFY 0 — impossible before the PIE fix) and behaves
 identically to native: SIGILL exit 132 both ways, no output either way. Full
-functional verification on an AVX-512 CPU remains the only untested step.
+functional verification on an AVX-512 CPU was the only untested step — closed
+on 2026-07-04, see §9.
+
+## 9. 2026-07-04 Zen4 verification (the last open item — PASSED)
+
+`run_zen4_test.sh` was run on the AMD Ryzen 7 7800X3D machine (WSL Ubuntu,
+repo at `~/technionCourses/binary_translation`, kit
+`~/pin-external-4.0-99633-g5ca9893f2-gcc-linux`). The **prebuilt** `bprofile.so`
+loaded as-is (no rebuild needed). Full log in `ex4/zen4_results.txt` on that
+machine (gitignored, regenerable). Results — `ZEN4_RESULT: ALL TESTS PASSED`:
+
+| binary | native | under tool (`-prof_time 10`) |
+|---|---|---|
+| **cpugcc_r_base.Oz-m64** (the main event, PIE + AVX-512) | OK, 3,873,835 B | OPT 3/3 byte-identical + ORIG 1/1, TCVERIFY 0 |
+| sgcc_peak.mytest-m64 | OK | OPT 2/2 byte-identical, TCVERIFY 0 |
+| cc1 | OK, 6,783,961 B | OPT 2/2 byte-identical, TCVERIFY 0 |
+| sgcc_base.mytest-m64 | OK | OPT 2/2 byte-identical, TCVERIFY 0 |
+| bzip2 (`-prof_time 9999`) | OK | OPT byte-identical, TCVERIFY 0 |
+
+cpugcc stub stats on that run: dead-reg optimization active across all
+binaries (e.g. sgcc_base: 753,346 stubs / 455,069 mem-ADD / 30,420 RAX-skips —
+matches the dev-machine numbers). The cpugcc note in `src/README.md` /
+`src/REDAME.txt` was updated with an UPDATE paragraph recording this, and
+`ex4.zip` was rebuilt to include it. Note cc1's native output on this machine
+is 6,783,961 B (vs the dev machine) — expected, different gcc host environment;
+the byte-compare is against the *same-machine* native reference, as designed.
