@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>הפרויקט הסופי — TC2</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="page">
+  <header class="hero">
+    <span class="eyebrow">פרק 05 • Final Project</span>
+    <h1>הפרויקט — מפרופיל לקוד טוב יותר</h1>
+    <p>מימוש מלא של optimizer בינארי דו־שלבי: TC1 לומד את התנהגות התוכנית, TC2 מסיר את עלות המדידה ומיישם de-virtualization ו־profile-guided code reordering.</p>
+    <div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a><a class="button secondary" href="0007-defense.html">הבא: תסריט הגנה</a></div>
+  </header>
+  <div class="layout">
+    <main>
+      <section id="status"><h2>1. מצב המימוש בפועל</h2>
+        <div class="grid three">
+          <div class="card"><h3>כלי מותאם</h3><p><code>src/project.cpp</code> נבנה ל־<code>project.so</code> ומכיל profiling, stripping, de-virtualization ו־reordering.</p></div>
+          <div class="card"><h3>Baseline הוגן</h3><p><code>project_baseline.cpp</code> כולל אותה תשתית ואותם תיקוני נכונות, אך TC2 שלו אינו מפעיל את שתי האופטימיזציות.</p></div>
+          <div class="card"><h3>Evidence</h3><p>קיימים README, goldens, scripts, dumps, לוגי מדידה, audit ledger ו־<code>project.zip</code>.</p></div>
+        </div>
+        <div class="callout success"><strong>המסקנה המעודכנת:</strong> זה כבר אינו שלד או תכנית עתידית. המימוש נבנה, רץ ומציג שיפור גדול מ־5%. בהמשך הפרק נבדיל בין תוצאות ההגשה, שחזור audit עדכני וממצאים שעדיין פתוחים.</div>
+      </section>
+
+      <section id="objective"><h2>2. הבעיה שהפרויקט פותר</h2>
+        <p>תרגילים 1–4 יודעים למדוד קוד ולתרגם אותו, אבל עדיין אינם משתמשים ב־profile כדי לייצר גרסה חדשה שמותאמת להתנהגות runtime. הפרויקט סוגר את הלולאה:</p>
+        <div class="flow" style="--steps:5">
+          <div class="step"><b>Translate</b>המרת routines מן ה־binary אל TC1.</div>
+          <div class="step"><b>Observe</b>ספירת BBLs ויעדים של indirect JMP/CALL.</div>
+          <div class="step"><b>Decide</b>בחירת sites ו־layout לפי profile.</div>
+          <div class="step"><b>Generate</b>יצירת TC2 נקי ומותאם.</div>
+          <div class="step"><b>Switch</b>הפניית routine heads מ־TC1 אל TC2.</div>
+        </div>
+        <p>המדד <code>Translated code run took</code> מתחיל לאחר בניית TC1 ומסתיים ב־exit, ולכן הוא כולל את כל המחיר האמיתי:</p>
+        <pre><code>profile window + TC2 build/commit + TC2 execution</code></pre>
+      </section>
+
+      <section id="gearing"><h2>3. Gearing — למה צריך שתי translation caches?</h2>
+        <div class="table-wrap"><table><thead><tr><th>TC1 — הילוך למידה</th><th>TC2 — הילוך ביצוע</th></tr></thead><tbody>
+          <tr><td>נבנה לפני שיש מידע דינמי.</td><td>נבנה לאחר חלון <code>-prof_time</code>.</td></tr>
+          <tr><td>מכיל stubs שמעדכנים counters ו־target tables.</td><td>מסיר profiling instructions ו־NOPs שאינם נחוצים עוד.</td></tr>
+          <tr><td>שומר layout קרוב לתרגום הבסיסי.</td><td>מסדר BBLs מחדש ומרחיב sites עקיפים ל־guards.</td></tr>
+          <tr><td>אוסף evidence.</td><td>מנצל את ה־evidence.</td></tr>
+        </tbody></table></div>
+        <p>Thread פנימי ממתין N שניות, מפסיק את איסוף ה־profile, בונה את TC2 באזור נפרד, מבצע fixups ו־verification, ואז <code>commit_translated_rtns_to_tc2</code> משנה את הכניסות השמורות ב־TC1 ל־jumps אל TC2.</p>
+        <div class="callout"><strong>למה לא patch בתוך TC1?</strong> Guard ו־layout חדש משנים את אורכי ה־instructions ואת המרחקים בין targets. Cache נפרד מאפשר לבנות, לקודד ולבדוק הכול לפני שמפנים אליו execution.</div>
+      </section>
+
+      <section id="profiling"><h2>4. מה TC1 מודד — ומה שופר לעומת תרגיל 4?</h2>
+        <div class="grid">
+          <div class="card"><h3>BBL profile</h3><p>מונה executions ו־fall-through לכל block. מכאן נגזרים heat ו־edge bias עבור reordering.</p></div>
+          <div class="card"><h3>Indirect targets</h3><p>גם indirect JMP וגם indirect CALL מסיימים BBL ומקבלים target profile; תרגיל 4 התמקד בקפיצות.</p></div>
+        </div>
+        <h3>Exact top-4 במקום hash מאבד</h3>
+        <p>בשלד, <code>target &amp; 3</code> בוחר אחד מארבעה buckets. כתובות שונות מתנגשות, ולכן address ו־count עלולים לייצג דברים שונים. בפרויקט כל site מחזיק עד ארבעה pairs מדויקים של כתובת מלאה ומונה.</p>
+        <ul>
+          <li>אם ה־target כבר נמצא — מגדילים את המונה שלו.</li>
+          <li>אם יש slot פנוי — מכניסים address חדש עם count התחלתי.</li>
+          <li>אם ארבעת ה־slots מלאים — target נוסף נזרק. זו הטיה שמרנית: site עשוי לא לעבור threshold, אך לא ייבנה guard על כתובת שהתנגשה.</li>
+          <li>עדכון הטבלה שומר RFLAGS, משום שתוכנית אמיתית יכולה לשאת תוצאת compare דרך indirect jump.</li>
+        </ul>
+      </section>
+
+      <section id="tc2"><h2>5. שלושת ה־passes המרכזיים בבניית TC2</h2>
+        <ol>
+          <li><strong>Profiling-stub stripping:</strong> entries שמסומנים כ־profiling וגם NOPs מוסרים מן ה־TC2. בניגוד לשלד המקורי, לא נשאר body מושבת שממשיך לתפוס I-cache ולבצע jumps.</li>
+          <li><strong>De-virtualization:</strong> sites חמים ודומיננטיים מקבלים guard, direct fast path ו־fallback עקיף.</li>
+          <li><strong>Code reordering:</strong> BBLs בכל routine חמה מסודרים בשרשראות לפי successor חם; תנאי מתהפך כשצריך כדי להפוך את הקשת החמה ל־fall-through.</li>
+        </ol>
+        <p>לאחר יצירת ה־IR החדש, אותו מנגנון מתרגיל 3 מחשב addresses, מקודד מחדש branches ו־RIP-relative operands, כותב bytes ל־TC2 ומבצע commit.</p>
+      </section>
+
+      <section id="devirt"><h2>6. De-virtualization — ה־optimization החובה</h2>
+        <h3>הרעיון הסמנטי</h3>
+        <pre><code>computed = evaluate the original indirect operand
+if (computed == hottest_profiled_target)
+    direct jump/call to that target's TC2 translation
+else
+    execute the original indirect jump/call using computed</code></pre>
+        <p>ה־guard שומר את ה־state הדרוש, מחשב פעם אחת את ה־target המקורי, משווה אותו ל־target החם ומשחזר registers ו־flags בשני הנתיבים. ה־fast path נשאר בתוך TC2; ה־fallback שומר correctness גם אם ה־profile לא חזה את ה־target הנוכחי.</p>
+        <h3>תנאי ההפעלה בפועל</h3>
+        <pre><code>recorded_hits &gt;= 1000        (-devirt_min, default 1000)
+top_target_share &gt;= 70%     (-devirt_pct, default 70)
+target has a TC2 translation and can be encoded safely</code></pre>
+        <p>ב־profile המתועד של <code>cc1</code>, 212 מתוך 371 sites בעלי target data עברו את סף ה־hits, 111 מהם עברו גם 70% dominance, ובזמן בניית TC2 בוצעה de-virtualization ל־103 מתוך 385 candidates שנראו.</p>
+        <div class="callout warning"><strong>CALL לעומת JMP:</strong> direct CALL חייב לחזור ל־continuation הנכון ולדלג מעל fallback לאחר החזרה. JMP אינו חוזר. זו הסיבה שה־emitter מטפל בשני הסוגים בנפרד אף שה־guard דומה.</div>
+      </section>
+
+      <section id="reorder"><h2>7. האופטימיזציה השנייה — Profile-guided Code Reordering</h2>
+        <p>לכל routine שקיבלה heat, הבונה מתחיל ב־BBL שלא שובץ, ממשיך שוב ושוב אל ה־successor החם ביותר שעדיין פנוי, וכך יוצר hot traces רציפים בזיכרון.</p>
+        <h3>מה קורה ל־conditional branch?</h3>
+        <ul>
+          <li>אם ה־fall-through המקורי הוא ה־successor החם והוא ממוקם מיד אחריו — אין צורך לשנות דבר.</li>
+          <li>אם ה־taken successor חם יותר — הופכים את condition של ה־Jcc ומחליפים בין שני ה־successors, כך שהנתיב החם נהיה fall-through.</li>
+          <li>אם ה־fall-through הלוגי אינו סמוך פיזית לאחר reorder — מוסיפים JMP מפורש כדי לשמור semantics.</li>
+        </ul>
+        <p>המטרה כפולה: פחות branches taken במסלול החם ו־locality טובה יותר ב־I-cache. ההיפוך אינו “משנה החלטה”; הוא משנה encoding ו־layout יחד כך שאותם שני נתיבים נשמרים.</p>
+      </section>
+
+      <section id="all-exercises"><h2>8. איך כל תרגיל משלים את הפרויקט?</h2>
+        <div class="table-wrap"><table><thead><tr><th>תרגיל</th><th>היכולת שנלמדה</th><th>השימוש המדויק בפרויקט</th></tr></thead><tbody>
+          <tr><td>1</td><td>Pin callbacks, dynamic counters, runtime values.</td><td>הבסיס להבנה שקוד סטטי מקבל החלטות לפי behavior דינמי.</td></tr>
+          <tr><td>2</td><td>BBL heat, edge bias ו־indirect target frequencies.</td><td>ה־profile שמחליט איזה site להתמחות ואיך לסדר blocks.</td></tr>
+          <tr><td>3</td><td>XED, <code>instr_map</code>, relocation, chaining ו־TC commit.</td><td>הפקת bytes חדשים ל־guards, branches ו־layout של TC2.</td></tr>
+          <tr><td>4</td><td>Profiling stubs בתוך TC, liveness, safe patching ו־robustness.</td><td>TC1 מודד בלי להשחית state; wide NOPs ו־signal patching מאפשרים החלפת gear בטוחה.</td></tr>
+          <tr><td>פרויקט</td><td>סגירת לולאת profile → decision → transformation.</td><td>TC2 שמשתמש בנתונים, במקום רק להדפיס אותם.</td></tr>
+        </tbody></table></div>
+        <div class="callout success"><strong>המשפט שכדאי לזכור:</strong> תרגיל 2 אומר <em>מה כדאי לשנות</em>; תרגיל 3 אומר <em>איך לבנות את הקוד החדש</em>; תרגיל 4 אומר <em>איך למדוד מתוך TC בלי לשבור state</em>; הפרויקט מחבר את שלושתם ל־optimizer.</div>
+      </section>
+
+      <section id="results"><h2>9. תוצאות — מה נטען ומה שוחזר</h2>
+        <h3>מדידות ההגשה המתועדות ב־README</h3>
+        <p>חמישה זוגות A/B בסדר מתחלף, median של המדד המודפס, <code>-prof_time 2</code>, ופלט שנבדק byte-for-byte מול native:</p>
+        <div class="table-wrap"><table><thead><tr><th>Binary</th><th>Baseline median</th><th><code>project.so</code> median</th><th>שיפור</th></tr></thead><tbody>
+          <tr><td><code>bzip2</code></td><td><bdi dir="ltr">5.999 s</bdi></td><td><bdi dir="ltr">4.847 s</bdi></td><td><bdi dir="ltr">19.21%</bdi></td></tr>
+          <tr><td><code>sgcc_peak</code></td><td><bdi dir="ltr">22.797 s</bdi></td><td><bdi dir="ltr">9.900 s</bdi></td><td><bdi dir="ltr">56.57%</bdi></td></tr>
+          <tr><td><code>cc1</code></td><td><bdi dir="ltr">34.435 s</bdi></td><td><bdi dir="ltr">17.842 s</bdi></td><td><bdi dir="ltr">48.19%</bdi></td></tr>
+        </tbody></table></div>
+        <h3>שחזור audit עדכני</h3>
+        <ul>
+          <li>Clean build של <code>project.so</code> ושל baseline עבר.</li>
+          <li>Native goldens של כל חמשת ה־binaries הסתיימו ב־exit 0 והתאימו ל־SHA-256 השמור.</li>
+          <li>חמישה זוגות חדשים: <code>bzip2</code> — <bdi dir="ltr">5.932 → 4.801 s</bdi>, שיפור <bdi dir="ltr">19.07%</bdi>.</li>
+          <li>חמישה זוגות חדשים: <code>cc1</code> — <bdi dir="ltr">35.192 → 18.740 s</bdi>, שיפור <bdi dir="ltr">46.75%</bdi>.</li>
+          <li>Smoke test שבוצע מול הקוד הבנוי הנוכחי: שני הכלים הריצו <code>bzip2</code> עם exit 0, הפנו 116 routine heads ל־TC2 והפיקו output זהה ל־golden.</li>
+        </ul>
+        <div class="callout warning"><strong>Audit עדיין פתוח:</strong> <code>docs/AUDIT.md</code> מתעד שלושה leads שטרם נסגרו: בדיקת גבולות TC/TC2 שעלולה להיות רחבה מדי, dump profile לאחר החלפת <code>instr_map</code>, והדפסת debug ב־stderr בתוך חלון המדידה. הם אינם מבטלים את תוצאות ברירת המחדל שכבר שוחזרו, אך אסור להציג את ה־audit כ“סגור ונקי” לפני verdict סופי.</div>
+      </section>
+
+      <section id="verification"><h2>10. איך ה־scripts מוכיחים נכונות ומדידה הוגנת?</h2>
+        <div class="grid">
+          <div class="card"><h3>Correctness gate</h3><ul><li>exit code חייב להיות 0.</li><li>הפלט מושווה ל־golden בעזרת <code>cmp</code>/hash.</li><li>נדרש <code>TC2 commit</code> חיובי; run שנפל בחזרה ל־native אינו datapoint.</li><li><code>-verify_tc</code> בודק branch ו־RIP-relative targets.</li></ul></div>
+          <div class="card"><h3>Measurement gate</h3><ul><li>warm-up נזרק.</li><li>סדר הזוגות מתחלף baseline/opt ואז opt/baseline.</li><li>אותו input ואותו <code>prof_time</code>.</li><li>median מחושב רק אם כל run עבר correctness.</li></ul></div>
+        </div>
+        <pre><code>improvement = 100 * (baseline_median - project_median)
+                    / baseline_median</code></pre>
+      </section>
+
+      <section id="invariants"><h2>11. Invariants שאסור לשבור</h2>
+        <ul>
+          <li>כל direct target ב־TC2 נוחת בתחילת instruction מוכרת.</li>
+          <li>ה־fallback מחשב ומשתמש בדיוק ב־target של ה־instruction המקורית.</li>
+          <li>RAX, RBX ו־RFLAGS מוחזרים לערך הנכון בשני נתיבי ה־guard.</li>
+          <li>Direct CALL וה־fallback חוזרים לאותו continuation.</li>
+          <li>Jcc inversion מחליף גם condition וגם successors; observable control flow נשאר זהה.</li>
+          <li>כל fall-through שכבר אינו adjacent מקבל jump מפורש.</li>
+          <li>TC2, maps ו־spill slots אינם חופפים ואינם חורגים מן האזור שהוקצה.</li>
+          <li>מהירות אינה evidence אם הפלט אינו זהה או אם אף routine לא הועברה ל־TC2.</li>
+        </ul>
+      </section>
+
+      <section class="quiz" id="quiz"><h2>בדיקת הבנה וחזרה להגנה</h2>
+        <details><summary>למה stripping של profiling stubs נחשב שיפור בפני עצמו?</summary><p>לאחר חלון ה־profile אין צורך להמשיך לשלם instructions, branches ו־I-cache footprint של גוף ה־stub. TC2 משאיר רק את קוד התוכנית ואת transformations החדשות.</p></details>
+        <details><summary>למה direct fast path לבדו אינו de-virtualization נכונה?</summary><p>Profile הוא observation ולא הבטחה. target נדיר או חדש עדיין אפשרי; ללא fallback התוכנית תבצע control flow שגוי.</p></details>
+        <details><summary>Site קיבל 900 hits ו־99% dominance. האם ברירת המחדל תבצע de-virtualization?</summary><p>לא. הוא נכשל בסף המינימלי של 1,000 hits, גם אם ההתפלגות מונומורפית מאוד. המטרה היא לא לשלם guard ו־code bloat על site קר.</p></details>
+        <details><summary>Site קיבל 100,000 hits אך target העליון מחזיק 45%. למה הוא נדחה?</summary><p>ה־guard ייכשל ברוב ההגעות ויוסיף עבודה לפני ה־indirect branch המקורי. זה site חם אבל polymorphic, ולכן de-virtualization ליעד יחיד אינה משתלמת.</p></details>
+        <details><summary>למה exact top-4 עם overflow drop בטוח יותר מ־<code>target &amp; 3</code>?</summary><p>כל count שנשמר שייך לכתובת המלאה המתאימה. זריקת target עשויה למנוע optimization, אך collision אינו יכול לגרום לבחירת כתובת שגויה.</p></details>
+        <details><summary>אם הופכים JNZ ל־JZ בלי לשנות layout או targets, האם זו reordering נכונה?</summary><p>לא. רק condition התהפך ולכן משמעות התוכנית השתנתה. צריך להחליף בין taken/fall-through successors ולהוסיף jump אם successor לוגי אינו adjacent.</p></details>
+        <details><summary>למה baseline צריך לכלול את תיקוני הנכונות של הפרויקט?</summary><p>כדי שהפרש הזמן ימדוד את האופטימיזציות בלבד. Baseline שקורס, נופל ל־native או משחית output אינו נקודת השוואה הוגנת.</p></details>
+        <details><summary>איך עונים אם שואלים האם ה־audit הושלם?</summary><p>אומרים במדויק: build, goldens ושחזורי bzip2/cc1 עברו; ledger האדברסרי עדיין מחזיק leads פתוחים. מבדילים בין evidence מאומת לבין עבודה שטרם קיבלה verdict.</p></details>
+      </section>
+
+      <section id="code-map"><h2>מפת קוד ומקורות</h2><ul class="source-list">
+        <li><code>final_project/project-2026.pdf</code> — דרישות הפרויקט.</li>
+        <li><code>final_project/src/project.cpp:89–126</code> — knobs של profiling, verification ושתי האופטימיזציות.</li>
+        <li><code>final_project/src/project.cpp:1987–2191</code> — stripping helpers ויצירת de-virtualization guard.</li>
+        <li><code>final_project/src/project.cpp:2191–2558</code> — Jcc inversion, greedy layout ובניית IR של TC2.</li>
+        <li><code>final_project/src/project.cpp:2566–2613</code> — encode, commit, timing ו־dump של TC2.</li>
+        <li><code>final_project/src/README.txt</code> — תיאור המימוש, thresholds ומדידות ההגשה.</li>
+        <li><code>final_project/docs/AUDIT.md</code> — ledger של הביקורת העדכנית.</li>
+        <li><code>final_project/docs/data/</code> — build, goldens, profiles, dumps ושחזורי timing.</li>
+        <li><code>final_project/scripts/measure2.sh</code> — זוגות interleaved עם correctness ו־TC2 gates.</li>
+      </ul></section>
+      <nav class="pager"><a class="button" href="0005-exercise-4.html">→ תרגיל 4</a><a class="button" href="0007-defense.html">תסריט הגנה ←</a></nav>
+    </main>
+    <aside class="toc"><strong>תוכן הפרק</strong><a href="#status">מצב המימוש</a><a href="#objective">הבעיה</a><a href="#gearing">Gearing</a><a href="#profiling">Profile</a><a href="#tc2">בניית TC2</a><a href="#devirt">De-virtualization</a><a href="#reorder">Reordering</a><a href="#all-exercises">חיבור התרגילים</a><a href="#results">תוצאות</a><a href="#verification">אימות</a><a href="#invariants">Invariants</a><a href="#quiz">חזרה</a></aside>
+  </div>
+</div></body></html>

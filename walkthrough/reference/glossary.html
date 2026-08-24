@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>מילון מונחים — תרגום בינארי</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="page">
+  <header class="hero"><span class="eyebrow">Reference • דף עזר</span><h1>מילון מונחים מהיר</h1><p>ההגדרה הקצרה שכדאי לדעת בעל פה לפני code walkthrough או הגנה.</p><div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a></div></header>
+  <main style="margin-top:30px">
+    <section><h2>Pin והיררכיית קוד</h2><div class="table-wrap"><table><thead><tr><th>מונח</th><th>הגדרה קצרה</th><th>שימוש בפרויקט</th></tr></thead><tbody>
+      <tr><td><code>Pintool</code></td><td>Plugin ב־C/C++ שמשתמש ב־Intel Pin כדי לנתח או לשנות ביצוע של binary.</td><td><code>project.so</code> הוא Pintool.</td></tr>
+      <tr><td><code>IMG</code></td><td>Executable או shared library שנטענו לזיכרון.</td><td>המתרגם בוחר את ה־main image.</td></tr>
+      <tr><td><code>SEC</code></td><td>Section ב־image, כגון <code>.text</code>, <code>.plt</code>, <code>.init</code>.</td><td>מסננים sections רגישים ולא־בטוחים.</td></tr>
+      <tr><td><code>RTN</code></td><td>Routine/function כפי ש־Pin זיהה.</td><td>יחידת probe replacement.</td></tr>
+      <tr><td><code>TRACE</code></td><td>רצף דינמי בעל כניסה אחת וכמה יציאות ב־JIT.</td><td>תרגילים 1–2 מכניסים instrumentation ברמת trace/BBL.</td></tr>
+      <tr><td><code>BBL</code></td><td>Basic block: כניסה אחת ויציאה אחת.</td><td>יחידת heat ו־layout.</td></tr>
+      <tr><td><code>INS</code></td><td>Instruction אחת של x86.</td><td>יחידת decode/encode ו־liveness.</td></tr>
+    </tbody></table></div></section>
+
+    <section><h2>תרגום וקוד</h2><div class="table-wrap"><table><thead><tr><th>מונח</th><th>הגדרה קצרה</th><th>משפט להגנה</th></tr></thead><tbody>
+      <tr><td><code>Translation Cache (TC)</code></td><td>אזור זיכרון executable שבו נשמר קוד מתורגם.</td><td>“אנחנו בונים עותק ב־TC ומפנים אליו execution.”</td></tr>
+      <tr><td><code>TC1</code></td><td>הגרסה הראשונה עם profiling.</td><td>“TC1 לומד את ההתנהגות בפועל.”</td></tr>
+      <tr><td><code>TC2</code></td><td>הגרסה השנייה שנבנית לפי profile.</td><td>“TC2 משלם על build פעם אחת ומרוויח בשאר הריצה.”</td></tr>
+      <tr><td><code>IR / instr_map</code></td><td>רשומת metadata לכל instruction: מקור, יעד, bytes, גודל וקישורים.</td><td>“זהו machine-level IR שמאפשר relocation ו־transformations.”</td></tr>
+      <tr><td><code>Chaining</code></td><td>חיבור branch/call אל העותק המתורגם של target.</td><td>“בלי chaining ה־TC היה חוזר שוב ושוב לקוד המקורי.”</td></tr>
+      <tr><td><code>Relocation</code></td><td>תיקון כתובות יחסיות לאחר הזזת instruction.</td><td>“אותו disp בכתובת חדשה אינו מצביע לאותו target.”</td></tr>
+      <tr><td><code>Probe</code></td><td>Jump שנכתב בתחילת routine ומפנה replacement.</td><td>“Probe mode מהיר אך מטיל עלינו אחריות ל־correctness.”</td></tr>
+      <tr><td><code>Wide NOP</code></td><td>NOP רחב ששומר מקום ל־patch עתידי.</td><td>“ה־NOP הוא patch site, לא padding מיותר.”</td></tr>
+    </tbody></table></div></section>
+
+    <section><h2>Profiling ואופטימיזציה</h2><div class="table-wrap"><table><thead><tr><th>מונח</th><th>הגדרה קצרה</th><th>נוסחה/בדיקה</th></tr></thead><tbody>
+      <tr><td><code>BBL heat</code></td><td>מספר הפעמים שה־BBL בוצע.</td><td><code>counter</code></td></tr>
+      <tr><td><code>Fall-through</code></td><td>המשך לכתובת הסמוכה כאשר branch אינו נלקח.</td><td><code>fallthru_counter</code></td></tr>
+      <tr><td><code>Taken heat</code></td><td>כמה פעמים branch תנאי נלקח.</td><td><code>counter - fallthru_counter</code></td></tr>
+      <tr><td><code>Indirect target</code></td><td>יעד שמחושב בזמן ריצה מ־register/memory.</td><td>נאסף לפי address מלא.</td></tr>
+      <tr><td><code>De-virtualization</code></td><td>guard שמפנה target חם ל־direct branch ומשאיר indirect fallback.</td><td><code>computed == hot ? direct : indirect</code></td></tr>
+      <tr><td><code>Liveness</code></td><td>האם value נוכחי ייקרא לפני overwrite.</td><td><code>in = use ∪ (out − kill)</code></td></tr>
+      <tr><td><code>Dead register</code></td><td>Register שהערך הנוכחי שלו כבר לא ייקרא.</td><td>אפשר clobber ללא save/restore.</td></tr>
+      <tr><td><code>Code reordering</code></td><td>סידור BBLs כדי שהנתיב החם יהיה רציף/fall-through.</td><td>לעיתים הופכים Jcc ומחליפים successors.</td></tr>
+      <tr><td><code>Gearing</code></td><td>מעבר runtime ממצב profiling למצב optimized.</td><td>TC1 → TC2 אחרי <code>-prof_time</code>.</td></tr>
+    </tbody></table></div></section>
+
+    <section><h2>נכונות ומדידה</h2><div class="grid three"><div class="card"><h3>Correctness</h3><p>exit 0 + פלט byte-identical ל־native בכל run.</p></div><div class="card"><h3>Verifier</h3><p>כל direct/RIP target מגיע לכתובת המיועדת ול־instruction boundary.</p></div><div class="card"><h3>Improvement</h3><p><code>100*(base_median-opt_median)/base_median</code>; היעד מעל 5%.</p></div></div></section>
+    <nav class="pager"><a class="button" href="../index.html">חזרה למסלול</a><a class="button" href="../lessons/0007-defense.html">תסריט הגנה ←</a></nav>
+  </main>
+</div></body></html>

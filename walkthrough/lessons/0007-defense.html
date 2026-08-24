@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>תסריט הגנה</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="page">
+  <header class="hero"><span class="eyebrow">פרק 06 • Defense Prep</span><h1>איך להסביר את הכול בשמונה דקות</h1><p>תסריט מעודכן למימוש הקיים: הבעיה, gearing, שתי האופטימיזציות, הוכחת הנכונות והתוצאות שנמדדו.</p><div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a><a class="button secondary" href="0006-final-project.html">חזרה לפרויקט</a></div></header>
+  <div class="layout">
+    <main>
+      <section id="script"><h2>1. תסריט מוצע</h2>
+        <div class="table-wrap"><table><thead><tr><th>זמן</th><th>מה אומרים</th><th>מה מראים</th></tr></thead><tbody>
+          <tr><td><bdi dir="ltr">0:00–0:45</bdi></td><td><strong>הבעיה:</strong> indirect control flow קשה לחיזוי, והקוד המקורי אינו מותאם להתנהגות runtime.</td><td>תרשים Original → TC1 → TC2.</td></tr>
+          <tr><td><bdi dir="ltr">0:45–1:30</bdi></td><td><strong>הבסיס:</strong> תרגיל 2 נתן edge profile; תרגיל 3 נתן translator; תרגיל 4 חיבר profiling ל־TC.</td><td>טבלת “מה נלקח מכל תרגיל”.</td></tr>
+          <tr><td><bdi dir="ltr">1:30–2:30</bdi></td><td><strong>Gearing:</strong> TC1 אוסף N שניות, thread בונה TC2 ומפנה routine heads אליו.</td><td>timeline עם <code>-prof_time</code>.</td></tr>
+          <tr><td><bdi dir="ltr">2:30–4:15</bdi></td><td><strong>De-virtualization:</strong> exact top-k, threshold, guard, direct hot path ו־indirect fallback.</td><td>profile של site אחד + disassembly לפני/אחרי.</td></tr>
+          <tr><td><bdi dir="ltr">4:15–5:15</bdi></td><td><strong>Optimization שנייה:</strong> greedy hot-path code reordering; היפוך Jcc כשה־taken edge חם והוספת JMP כש־fall-through כבר אינו סמוך.</td><td>BBL graph או Jcc לפני/אחרי.</td></tr>
+          <tr><td><bdi dir="ltr">5:15–6:15</bdi></td><td><strong>נכונות:</strong> registers, flags, call return semantics, fallback ו־target verifier.</td><td>invariants + hash/cmp מול native.</td></tr>
+          <tr><td><bdi dir="ltr">6:15–7:30</bdi></td><td><strong>מדידה:</strong> interleaved baseline/opt, median, אותו prof_time ופלט זהה בכל run. תוצאות README: <bdi dir="ltr">19.21%</bdi> ב־bzip2, <bdi dir="ltr">56.57%</bdi> ב־sgcc_peak ו־<bdi dir="ltr">48.19%</bdi> ב־cc1.</td><td>Raw rows, median ושחזור audit נפרד.</td></tr>
+          <tr><td><bdi dir="ltr">7:30–8:00</bdi></td><td><strong>סיכום:</strong> profile אמיתי הפך control flow עקיף לקוד ישיר ומהיר, בלי לוותר על correctness.</td><td>שלוש שורות takeaways.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="one-minute"><h2>2. ההסבר של דקה אחת</h2>
+        <div class="callout question"><strong>נוסח לתרגול:</strong><br>“הפרויקט שלנו הוא optimizer בינארי דו־שלבי. תחילה אנחנו מתרגמים routines אל TC1 ומוסיפים counters לכל basic block וליעדים של indirect jumps ו־calls. אחרי חלון profiling, thread בונה TC2 ומסיר ממנו את קוד המדידה. ב־TC2 אנחנו מתמחים sites חמים: אם target runtime שווה ל־target המדויק והדומיננטי מן ה־profile, עוברים ב־direct branch; אחרת נשאר fallback עקיף. בנוסף אנחנו מסדרים basic blocks לפי hot paths והופכים branch condition כשהדבר הופך את הקשת החמה ל־fall-through. לבסוף אנחנו מפנים את ה־routines ל־TC2 ומשווים elapsed time מול baseline בעל אותם תיקוני נכונות, כאשר כל timed run חייב להפיק פלט byte-identical ל־native ולהראות commit אמיתי ל־TC2.”</div>
+      </section>
+
+      <section id="questions"><h2>3. שאלות קשות שסביר שישאלו</h2>
+        <div class="quiz">
+          <details><summary>למה לא להחליף תמיד indirect branch ב־direct branch ל־target החם?</summary><p>כי profile הוא observation מוגבל. input או phase אחר יכולים להביא target אחר. ה־guard וה־fallback שומרים semantics לכל target.</p></details>
+          <details><summary>איך אתם יודעים שה־target החם מדויק?</summary><p>לא משתמשים ב־<code>target &amp; 3</code> lossy buckets. שומרים exact address/count pairs, מציגים dump וסכומי counts, ומפעילים transformation רק כאשר count ו־dominance עוברים threshold מתועד.</p></details>
+          <details><summary>מה ההבדל בין de-virtualization של CALL ושל JMP?</summary><p>CALL יוצרת return address וצריכה לחזור ל־continuation זהה בשני הנתיבים. בנוסף ABI ו־live state סביב call שונים. JMP אינו חוזר לנקודת ה־site.</p></details>
+          <details><summary>מה קורה אם ה־guard משנה flags?</summary><p>אם flags חיים, זו פגיעה ב־semantics. צריך analysis שמוכיח שהם מתים, רצף flag-transparent, או save/restore מדויק. הלקח הזה נבדק כבר בתרגיל 4.</p></details>
+          <details><summary>למה צריך TC2? אי אפשר patch ישירות את TC1?</summary><p>TC2 מאפשר לבנות layout חדש ו־instruction sequences באורך שונה הרחק מן הקוד שרץ, לבצע chaining/fixups ואימות, ואז לעבור אליו. patching in place מורכב ומסוכן יותר.</p></details>
+          <details><summary>מה נכלל במספר elapsed time?</summary><p>מהסיום של בניית TC1 ועד exit: חלון profiling, זמן בניית TC2 והריצה ב־TC2. לכן מדד השיפור אינו מסתיר את עלות האופטימיזציה.</p></details>
+          <details><summary>איך baseline נשאר הוגן?</summary><p>אותו codebase, אותם תיקוני נכונות, אותה תשתית gearing ואותו prof_time; רק transformations האופטימיזציה כבויות. אחרת משווים apples to oranges.</p></details>
+          <details><summary>למה median וריצות interleaved?</summary><p>זמן מערכת מושפע מרעש. alternating order מפחית bias של חימום או load משתנה; median עמיד יותר ל־outliers.</p></details>
+          <details><summary>למה profile counts של gcc עשויים להשתנות?</summary><p>ASLR, pointer-keyed structures והתנהגות runtime יכולים להזיז counts גם בין שתי ריצות של אותו tool. נכונות נמדדת בפלט התוכנית; optimization decision צריכה להיות robust לרעש.</p></details>
+          <details><summary>מהו הכשל הכי מסוכן שלא נראה כקריסה?</summary><p>clobber של live register או flags שמייצר פלט שגוי אך exit 0. לכן משווים bytes מול native בכל timed run.</p></details>
+          <details><summary>למה ספי ברירת המחדל הם 1,000 hits ו־70% dominance?</summary><p>ה־guard מוסיף בערך עשר instructions לכל execution. מתחת ל־1,000 hits החיסכון קטן ביחס ל־overhead ול־code bloat; מתחת ל־70% רוב גדול מדי מן ההגעות משלם guard ואז fallback. ב־cc1 המדוד הספים יושבים קרוב להפרדה הטבעית בין sites דומיננטיים ל־polymorphic.</p></details>
+          <details><summary>מה בדיוק עושה code reordering במימוש?</summary><p>הוא מסדר BBLs של routine לפי שרשרת successors חמה. אם taken edge של Jcc היא החמה, הופכים את ה־condition כך שהיא תהפוך ל־fall-through; אם successor לוגי אינו adjacent לאחר הסידור, מוסיפים jump מפורש.</p></details>
+          <details><summary>האם ה־audit האדברסרי הסתיים?</summary><p>לא. Clean build, כל native goldens ושחזורי bzip2/cc1 עברו, אך ledger עדיין מחזיק leads פתוחים לגבי גבולות TC/TC2, dump profile והדפסת debug. מציגים זאת בגלוי ולא מערבבים בין evidence שעבר לבין verdict שטרם ניתן.</p></details>
+        </div>
+      </section>
+
+      <section id="checklist"><h2>4. Checklist לפני ההגנה</h2>
+        <div class="grid"><div class="card"><h3>Code evidence</h3><ul><li>line map לפונקציות המרכזיות.</li><li>dump של TC1 ו־TC2.</li><li>site אחד מוסבר instruction-by-instruction.</li><li>invariant list.</li><li>fallback מוכח.</li></ul></div><div class="card"><h3>Measurement evidence</h3><ul><li>native golden hashes.</li><li>לפחות 5 alternating pairs.</li><li>raw rows זמינות.</li><li>median וחישוב אחוז.</li><li>גרף עם labels ויחידות.</li></ul></div></div>
+        <div class="callout warning"><strong>להציג את שכבות ה־evidence בנפרד.</strong> מספרי README הם מדידות ההגשה; שחזור audit חדש נתן <bdi dir="ltr">19.07%</bdi> ב־bzip2 ו־<bdi dir="ltr">46.75%</bdi> ב־cc1. אין להציג smoke run יחיד כאילו היה benchmark רב־ריצות, ואין לומר שה־audit סגור כל עוד קיימים leads פתוחים.</div>
+      </section>
+
+      <section id="flashcards"><h2>5. כרטיסיות בזק</h2>
+        <div class="grid three">
+          <div class="card"><h3>TC</h3><p>אזור executable שמכיל code מתורגם.</p></div><div class="card"><h3>BBL heat</h3><p>מספר executions של basic block.</p></div><div class="card"><h3>Edge bias</h3><p>התפלגות execution בין successors.</p></div>
+          <div class="card"><h3>Chaining</h3><p>חיבור branch ל־target המתורגם במקום למקור.</p></div><div class="card"><h3>Liveness</h3><p>האם value ישן ייקרא לפני overwrite.</p></div><div class="card"><h3>Gearing</h3><p>מעבר בין TC1 שמודד ל־TC2 שמותאם.</p></div>
+          <div class="card"><h3>De-virtualization</h3><p>guard + direct hot path + indirect fallback.</p></div><div class="card"><h3>Relocation</h3><p>תיקון address-dependent encoding לאחר הזזה.</p></div><div class="card"><h3>Correctness</h3><p>אותו observable behavior, לא רק “לא קרס”.</p></div>
+        </div>
+      </section>
+
+      <section id="next"><h2>6. מה להכין פיזית לפני ההגנה?</h2>
+        <ul><li>פתיחה מהירה של <code>src/project.cpp</code> באזור ה־knobs, ה־guard ובניית TC2.</li><li>דוגמת indirect site אחת: target counts, החלטת threshold ו־disassembly של fast path/fallback.</li><li>דוגמת routine אחת לפני ואחרי reordering, עם taken/fall-through counts.</li><li>טבלת README לצד שחזור audit, בלי לערבב בין סדרות המדידה.</li><li>שורת פקודה אחת שמריצה <code>-verify_tc</code> ומשווה output ל־golden.</li><li>תשובה שקופה למצב ה־audit ולשלושת ה־leads הפתוחים.</li></ul>
+        <p>החומר כבר קיים בתיקיית WSL; המטרה כעת היא לבחור evidence קטן וברור שאפשר להסביר בלי לחפש בזמן אמת בין לוגים גדולים.</p>
+      </section>
+      <nav class="pager"><a class="button" href="0006-final-project.html">→ הפרויקט</a><a class="button" href="../index.html">חזרה למסלול ←</a></nav>
+    </main>
+    <aside class="toc"><strong>תוכן הפרק</strong><a href="#script">תסריט 8 דקות</a><a href="#one-minute">הסבר של דקה</a><a href="#questions">שאלות קשות</a><a href="#checklist">Checklist</a><a href="#flashcards">כרטיסיות</a><a href="#next">מה להכין</a></aside>
+  </div>
+</div></body></html>

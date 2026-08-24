@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>03 — תרגיל 3</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="page">
+  <header class="hero"><span class="eyebrow">פרק 03 • Probe-mode Translation</span><h1>תרגיל 3 — עכשיו אנחנו המתרגם</h1><p>מתקנים Pintool שמפענח routines, מקודד אותן מחדש לתוך Translation Cache ומחליף את הכניסה המקורית. זהו המעבר מפרופיילר למערכת binary translation אמיתית.</p><div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a><a class="button secondary" href="0005-exercise-4.html">הבא: תרגיל 4</a></div></header>
+  <div class="layout">
+    <main>
+      <section id="problem">
+        <h2>1. הבעיה הרשמית</h2>
+        <p>ה־Pintool שסופק, <code>btranslate.cpp</code>, קורס ב־Segmentation Fault בעת תרגום <code>cpugcc_r_base.Oz-m64</code> ואינו מייצר <code>200.s</code>. צריך לאתר את התקלה, לתקן, ולהוכיח שהפלט נכון.</p>
+        <pre><code>&lt;PIN_ROOT&gt;/pin -t obj-intel64/btranslate.so -- \
+  ./cpugcc_r_base.Oz-m64 200.i -o 200.s</code></pre>
+        <div class="callout success"><strong>השינוי העקרוני:</strong> בתרגילים 1–2 Pin יצר את הקוד ב־JIT. כאן הקוד שלנו מנהל decode → map → encode → relocation → copy → commit.</div>
+      </section>
+
+      <section id="pipeline">
+        <h2>2. צינור התרגום המלא</h2>
+        <div class="flow" style="--steps:4"><div class="step"><b>1. Allocate</b>ממפים TC קרוב מספיק לקוד המקורי.</div><div class="step"><b>2. Decode to IR</b>כל instruction הופכת ל־<code>instr_map_t</code>.</div><div class="step"><b>3. Relocate</b>מקשרים targets ומתקנים branch/RIP displacements.</div><div class="step"><b>4. Commit</b>כותבים ל־TC ומחליפים routine heads ב־probes.</div></div>
+
+        <h3>שלב 1 — <code>allocate_and_init_memory</code></h3>
+        <p>הפונקציה סורקת executable sections, מעריכה מספר instructions וגודל code, ואז עושה <code>mmap</code> לאזור RWX. הקרבה לקוד המקורי חשובה משום ש־x86-64 branches ו־RIP-relative operands משתמשים לרוב ב־signed 32-bit displacement, כלומר בערך ±2GB.</p>
+
+        <h3>שלב 2 — <code>find_candidate_rtns_for_tc</code></h3>
+        <p>לכל section executable ולכל routine בטוחה:</p>
+        <ol><li><code>RTN_Open</code>.</li><li>מעבר על instructions.</li><li><code>xed_decode</code> מהבתים המקוריים.</li><li><code>add_new_instr_entry</code> שומר address מקורי, target, RIP target, bytes מקודדים וסוג instruction.</li><li><code>RTN_Close</code>.</li></ol>
+
+        <h3>שלב 3 — Chaining</h3>
+        <p><code>entry_map</code> ממפה כתובת instruction מקורית ל־index ב־<code>instr_map</code>. direct branch ש־target שלו תורגם מקבל <code>targ_map_entry</code> אל העותק החדש. כך branch בתוך TC יכול להגיע ל־TC ולא לקוד המקורי.</p>
+
+        <h3>שלבים 4–5 — כתובות ו־fixups</h3>
+        <p>תחילה מחשבים כתובת TC משוערת לכל entry. אחר כך מקודדים מחדש:</p>
+        <ul><li>RIP-relative memory operand לכיוון data המקורי.</li><li>direct branch/call לכיוון target המתורגם.</li><li>branch/call ל־target שלא תורגם — חזרה לקוד המקורי.</li></ul>
+        <p>מכיוון שקידוד חדש יכול לשנות instruction size, ה־fixup pass חוזר עד שהגדלים והכתובות מתייצבים.</p>
+
+        <h3>שלבים 6–7 — Copy ו־Commit</h3>
+        <p><code>copy_instrs_to_tc</code> מעתיק את <code>encoded_ins</code> לכתובות המחושבות. לאחר מכן <code>commit_translated_rtns_to_tc</code> קורא ל־<code>RTN_ReplaceProbed</code> בכל <code>RtnHeadIns</code>, ולכן כניסה ל־routine המקורית קופצת לעותק ב־TC.</p>
+      </section>
+
+      <section id="ir">
+        <h2>3. ה־IR הפשוט: <code>instr_map_t</code></h2>
+        <pre><code>typedef struct {
+    ADDRINT orig_ins_addr;   // מיקום מקורי
+    ADDRINT new_ins_addr;    // מיקום ב-TC
+    ADDRINT orig_targ_addr;  // branch/call target
+    ADDRINT orig_rip_addr;   // RIP-relative data target
+    ins_enum_t ins_type;     // Regular / routine head
+    char encoded_ins[15];    // bytes לקידוד החדש
+    unsigned size;
+    int targ_map_entry;      // target בתוך ה-IR
+} instr_map_t;</code></pre>
+        <p>זו אינה compiler IR עשירה כמו LLVM. היא “machine-level IR”: עדיין instruction x86, אבל עם metadata שמאפשר להזיז אותה בבטחה.</p>
+      </section>
+
+      <section id="bug">
+        <h2>4. התקלה שאותרה — תרגום <code>.plt</code></h2>
+        <p>הצוות הוסיף knob בשם <code>-max_rtns N</code> והפעיל binary search: אם תרגום N routines עובד ו־N+1 קורס, routine מספר N+1 חשודה. התקלה הצטמצמה ל־routine השנייה ש־Pin דיווח עליה: <code>.plt</code>.</p>
+        <div class="flow" style="--steps:4"><div class="step"><b>Call לסמל חיצוני</b>מגיע ל־PLT stub.</div><div class="step"><b>First call</b>ה־stub מכין מידע ל־dynamic linker.</div><div class="step"><b>Probe על PLT0</b>דורס את ההתחלה ומעביר את handshake לעותק לא מתאים.</div><div class="step"><b>ld.so מקבל state שגוי</b>lazy binding נשבר ונוצר SIGSEGV.</div></div>
+        <p><code>.plt</code> אינו function רגיל, אף ש־Pin עלול להציג אותו כ־RTN. הוא רצף stubs של lazy binding שמסתמך על layout ו־GOT מדויקים.</p>
+        <div class="callout danger"><strong>התיקון:</strong> לדלג על sections ממשפחת <code>.plt</code> ולא לבצע להן probe replacement. direct calls מן TC אל PLT חוזרים אל הכתובת המקורית דרך <code>jump_to_orig_addr_map</code>.</div>
+      </section>
+
+      <section id="other-fixes">
+        <h2>5. תיקוני robustness נוספים בהגשה</h2>
+        <div class="table-wrap"><table><thead><tr><th>בעיה</th><th>למה היא מסוכנת</th><th>תיקון</th></tr></thead><tbody>
+          <tr><td>Off-by-one ב־<code>jump_to_orig_addr_map</code></td><td>slot 0 מתבזבז ו־dedup מפספס את ה־entry האחרון.</td><td>בדיקת bounds, שימוש ב־index הנוכחי ורק אז increment.</td></tr>
+          <tr><td>1-byte displacement</td><td><code>LOOP/JRCXZ</code> מסוגלות רק ±128; truncation קופץ לזבל.</td><td>לזהות overflow ולבטל תרגום בצורה נקייה.</td></tr>
+          <tr><td>Routine לא בטוחה ל־probe</td><td>החלפה עלולה להיכשל או להשחית code.</td><td>סינון עם <code>RTN_IsSafeForProbedReplacement</code>.</td></tr>
+          <tr><td>Routine קטנה מ־5 bytes</td><td>אין מקום ל־probe jump.</td><td>להשאיר אותה בקוד המקורי.</td></tr>
+          <tr><td>Jcc ליעד שלא תורגם</td><td>אין ל־Jcc צורת memory-indirect כמו JMP/CALL.</td><td>לקודד rel32 ישירות חזרה ל־target המקורי.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="fixed-variant">
+        <h2>6. <code>src_fixed</code> — הרחבה ניסויית, לא ההגשה</h2>
+        <p>לאחר ההגשה נבנה variant נפרד שמטפל טוב יותר ב־binaries סטטיים גדולים כגון <code>sgcc_base</code>/<code>sgcc_peak</code>.</p>
+        <ul>
+          <li><strong>העברת <code>instr_map</code> אל heap:</strong> היא bookkeeping בלבד ואינה צריכה לשבת בתוך mmap executable. כך <code>jump_to_orig_addr_map</code> נשאר קרוב ל־TC ולא נדחף מעבר ל־2GB.</li>
+          <li><strong>דילוג על <code>.init/.fini</code>:</strong> אלה startup/teardown stubs, לא functions רגילות.</li>
+        </ul>
+        <p>ה־README של ההגשה מתאר גם התאמות נוספות שנבדקו לאורך הדרך: הצבת TC הרחק מ־<code>brk</code> של binary סטטי, דילוג על routines מוקדמות של TLS/brk, וצמצום sizing מופרז.</p>
+        <div class="callout warning"><strong>בהגנה יש לדייק:</strong> אל תייחסו אוטומטית כל שינוי ב־<code>src_fixed</code> להגשה המקורית. אמרו מה היה תיקון המטלה ומה נוסף מאוחר יותר לצורך הבינארים של תרגיל 4.</div>
+      </section>
+
+      <section id="project-link">
+        <h2>7. התרומה לפרויקט הסופי</h2>
+        <div class="grid three"><div class="card"><h3>Translation pipeline</h3><p>TC2 משתמש שוב באותם שלבי chain → address → fix → copy.</p></div><div class="card"><h3>Correct fallback</h3><p>de-virtualization חייבת להשאיר indirect path ל־target שלא התמחה.</p></div><div class="card"><h3>Probe discipline</h3><p>routine heads, patch width ו־bootstrap sections נשארים load-bearing.</p></div></div>
+        <p>בלי תרגיל 3 אפשר לדעת מה חם, אבל אי אפשר לייצר גרסה חדשה. הפרויקט מחבר את ה־profile של תרגיל 2 אל יכולת ה־code generation של תרגיל 3.</p>
+      </section>
+
+      <section class="quiz" id="quiz"><h2>בדיקת הבנה</h2>
+        <details><summary>למה צריך לחשב <code>new_disp</code> אחרי שיודעים את <code>new_ins_addr</code>?</summary><p>כי displacement יחסי תלוי גם במיקום instruction החדשה וגם באורכה. לפני שקובעים layout וקידוד, המרחק החדש אינו ידוע.</p></details>
+        <details><summary>למה דילוג על <code>.plt</code> אינו “ויתור על תרגום כל התוכנית”?</summary><p>זהו fallback מכוון: routines רגילות רצות ב־TC, אך stubs רגישים נשארים מקוריים. branches מה־TC יכולים לחזור אליהם ולשמור על lazy binding תקין.</p></details>
+        <details><summary>מה מלמדת שיטת <code>-max_rtns</code>?</summary><p>מינימיזציה לפני תיקון: מצמצמים את קבוצת routines עד שמבודדים את הראשונה שהוספתה הופכת run תקין לקריסה.</p></details>
+        <details><summary>למה decode והעתקה byte-for-byte אינם מספיקים לבניית TC?</summary><p>כי branches ו־RIP-relative operands מקודדים מרחק מן המיקום הישן. לאחר relocation אותם bytes מצביעים לכתובת אחרת, ולכן צריך encode מחדש ו־fixups.</p></details>
+        <details><summary>מה ההבדל בין chaining לבין commit?</summary><p>Chaining מחבר branches בתוך הקוד המתורגם ל־targets מתורגמים. Commit משנה את כניסת ה־routine המקורית בעזרת Pin כך שהביצוע יתחיל בעותק שב־TC.</p></details>
+        <details><summary>Branch קצר דורש מרחק בטווח <code>-128..127</code>, אך לאחר הוספת קוד המרחק הוא 240. מה אסור לעשות?</summary><p>אסור לחתוך את 240 ל־byte; הוא יעטוף וינחת במקום שגוי. צריך להרחיב ל־encoding מתאים אם אפשר, או להשאיר את ה־routine לא מתורגמת.</p></details>
+        <details><summary>למה verifier של targets חשוב גם כשהתוכנית מסיימת עם exit code 0?</summary><p>נתיב פגום יכול להיות קר ולא להתבצע ב־input הנוכחי. verifier סטטי של ה־TC מגלה branch שנוחת באמצע instruction עוד לפני שהנתיב נלקח.</p></details>
+      </section>
+      <section id="code-map"><h2>מפת קוד ומקורות</h2><ul class="source-list"><li><code>ex3/Exercise3.pdf</code> — הדרישה הרשמית.</li><li><code>ex3/src/btranslate.cpp:125–140</code> — <code>instr_map_t</code>.</li><li><code>ex3/src/btranslate.cpp:346–410</code> — יצירת entry.</li><li><code>ex3/src/btranslate.cpp:417–780</code> — chaining ו־fixups.</li><li><code>ex3/src/btranslate.cpp:844–980</code> — בחירת routines ו־decode.</li><li><code>ex3/src/btranslate.cpp:1238–1339</code> — pipeline של <code>create_tc</code>.</li><li><code>ex3/src/README.txt</code> — תיאור הבאגים והאימות.</li><li><code>ex3/src_fixed/fix.diff</code> — שני השינויים ב־variant הניסויי.</li><li><a href="https://intelxed.github.io/ref-manual/group__ENC.html">Intel XED Encoding API</a>.</li></ul></section>
+      <nav class="pager"><a class="button" href="0003-exercise-2.html">→ תרגיל 2</a><a class="button" href="0005-exercise-4.html">תרגיל 4 ←</a></nav>
+    </main>
+    <aside class="toc"><strong>תוכן הפרק</strong><a href="#problem">הבעיה</a><a href="#pipeline">Pipeline</a><a href="#ir">instr_map</a><a href="#bug">באג ה־PLT</a><a href="#other-fixes">תיקונים נוספים</a><a href="#fixed-variant">src_fixed</a><a href="#project-link">קשר לפרויקט</a><a href="#quiz">בדיקת הבנה</a></aside>
+  </div>
+</div></body></html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>01 — תרגיל 1</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="page">
+  <header class="hero">
+    <span class="eyebrow">פרק 01 • Pintool ראשון</span>
+    <h1>תרגיל 1 — מי עובד וכמה?</h1>
+    <p>Profiler ב־JIT mode שממפה routines, סופר כמה instructions בוצעו וכמה פעמים routine נקראה, ובנוסף דוגם values שנכתבו לשישה registers.</p>
+    <div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a><a class="button secondary" href="0003-exercise-2.html">הבא: תרגיל 2</a></div>
+  </header>
+  <div class="layout">
+    <main>
+      <section id="goal">
+        <h2>1. מה מטרת התרגיל?</h2>
+        <div class="callout warning"><strong>הערת מקור:</strong> אין בתיקייה PDF של תרגיל 1. ההסבר כאן נגזר מן הקוד <code>ex1/ex1.cpp</code>, מה־CSV שנשמרו, ומהאופן שבו תרגיל 2 מרחיב את אותו קוד.</div>
+        <p>התרגיל מלמד את “השלום עולם” של dynamic instrumentation: לא משנים את binary המקורי, אלא מבקשים מ־Pin להוסיף פעולות ספירה בזמן שהוא בונה את הקוד ב־JIT.</p>
+        <div class="grid three">
+          <div class="card"><h3>Routine identity</h3><p>שם image, כתובת בסיס, שם routine וכתובת routine.</p></div>
+          <div class="card"><h3>Dynamic heat</h3><p>מספר instructions שבוצעו בתוך routine ומספר הכניסות אליה.</p></div>
+          <div class="card"><h3>Register samples</h3><p>עד 20 values ראשונים לאחר writes ל־RAX/RBX/RCX/RDX/RSI/RDI.</p></div>
+        </div>
+      </section>
+
+      <section id="data">
+        <h2>2. מבני הנתונים</h2>
+        <pre><code>struct RoutineData {
+    string imageName;
+    ADDRINT imageAddress;
+    string routineName;
+    ADDRINT routineAddress;
+    UINT64 instructionCount;
+    UINT64 callCount;
+};
+
+static RoutineData routinesArray[1000];
+static map&lt;ADDRINT, RoutineData*&gt; rtnAddrToData;</code></pre>
+        <p>לכל routine נשמר record קבוע. המפה מחברת כתובת routine אל record, כדי ש־callback של trace יוכל למצוא במהירות לאיזה מונה להוסיף.</p>
+        <p>המערכים הם <code>static</code>, ולכן C++ מאתחל את המונים וה־sample counts לאפס לפני <code>main</code>.</p>
+        <div class="callout"><strong>למה כתובת היא key?</strong> שמות routines אינם בהכרח ייחודיים בין libraries. כתובת runtime היא הזהות שנוחה ל־Pin בזמן הביצוע.</div>
+      </section>
+
+      <section id="flow">
+        <h2>3. זרימת הביצוע</h2>
+        <div class="flow" style="--steps:5">
+          <div class="step"><b><code>main</code></b>מאתחל symbols ואת Pin ורושם callbacks.</div>
+          <div class="step"><b><code>Routine</code></b>נוצר record לכל RTN ונשתלת ספירת call בכניסה.</div>
+          <div class="step"><b><code>Trace</code></b>עובר על BBLs ונשתלת ספירת instructions.</div>
+          <div class="step"><b>Analysis callbacks</b>מגדילים מונים ודוגמים register values בזמן אמת.</div>
+          <div class="step"><b><code>FINI</code></b>ממיין וכותב <code>rtn-output.csv</code>.</div>
+        </div>
+
+        <h3><code>Routine(RTN rtn)</code> — בניית קטלוג routines</h3>
+        <ol>
+          <li>קוראת את <code>RTN_Address</code> ונמנעת מכפילויות.</li>
+          <li>שומרת שם וכתובת של ה־routine ושל ה־image שמכיל אותה.</li>
+          <li>פותחת את ה־routine בעזרת <code>RTN_Open</code>.</li>
+          <li>מכניסה <code>CountRoutineCall</code> ב־<code>IPOINT_BEFORE</code>.</li>
+          <li>סוגרת עם <code>RTN_Close</code>.</li>
+        </ol>
+        <pre><code>RTN_InsertCall(rtn, IPOINT_BEFORE,
+               (AFUNPTR)CountRoutineCall,
+               IARG_PTR, &amp;myData-&gt;callCount,
+               IARG_END);</code></pre>
+        <p>בכל כניסה ל־routine, פונקציית analysis מקבלת pointer ישיר למונה שלה ומבצעת <code>++</code>.</p>
+
+        <h3><code>Trace(TRACE trace)</code> — ספירת עבודה</h3>
+        <p>הקוד מזהה לאיזו routine שייך ה־trace. לכל BBL הוא שותל call שמוסיף <code>BBL_NumIns(bbl)</code> למונה. אם BBL בן 7 instructions רץ 100 פעמים — הוא תורם 700.</p>
+        <pre><code>BBL_InsertCall(bbl, IPOINT_ANYWHERE,
+               (AFUNPTR)CountBblInstructions,
+               IARG_PTR, &amp;data-&gt;instructionCount,
+               IARG_UINT32, BBL_NumIns(bbl),
+               IARG_END);</code></pre>
+        <p><code>IPOINT_ANYWHERE</code> נותן ל־Pin לבחור נקודה חוקית וזולה בתוך ה־BBL, כי מבחינת counter לא משנה באיזו instruction הוא גדל.</p>
+      </section>
+
+      <section id="registers">
+        <h2>4. דגימת registers</h2>
+        <p>עבור כל instruction שיש לה fall-through, הקוד בודק אם היא כותבת אחד מששת ה־registers. אם כן, הוא שותל callback <em>אחרי</em> ה־instruction ומעביר את value החדש:</p>
+        <pre><code>if (INS_RegWContain(ins, TRACKED_REGS[i])) {
+    INS_InsertCall(ins, IPOINT_AFTER, RecordRegValue,
+                   IARG_UINT32, i,
+                   IARG_REG_VALUE, TRACKED_REGS[i],
+                   IARG_END);
+}</code></pre>
+        <p>הדגימה נעצרת לאחר 20 writes לכל register. בסיום מחושב:</p>
+        <pre><code>average_delta = Σ |value[i] - value[i-1]| / (sample_count - 1)</code></pre>
+        <div class="callout warning"><strong>משמעות, לא נבואה:</strong> average delta הוא תיאור גס של השינויים בדגימות הראשונות. הוא אינו אומר שה־register תמיד מתקדם בקצב הזה, ואינו מזהה stride של load/store באופן אמין.</div>
+      </section>
+
+      <section id="output">
+        <h2>5. הפלט</h2>
+        <p>לפני הכתיבה, routines ממוינות לפי <code>instructionCount</code> מהחמה לקרה. שורת routine טיפוסית:</p>
+        <pre><code>/path/to/tst, 0x400000, bar, 0x4004d2, 6000, 1000</code></pre>
+        <div class="table-wrap"><table>
+          <thead><tr><th>שדה</th><th>פירוש</th></tr></thead>
+          <tbody>
+            <tr><td><code>/path/to/tst</code></td><td>ה־image שבו routine נמצאת.</td></tr>
+            <tr><td><code>0x400000</code></td><td>כתובת הבסיס של ה־image.</td></tr>
+            <tr><td><code>bar</code></td><td>שם ה־routine.</td></tr>
+            <tr><td><code>0x4004d2</code></td><td>כתובת הכניסה ל־routine.</td></tr>
+            <tr><td><code>6000</code></td><td>מספר instructions דינמי, לא גודל סטטי.</td></tr>
+            <tr><td><code>1000</code></td><td>מספר הפעמים שה־routine נקראה.</td></tr>
+          </tbody>
+        </table></div>
+        <p>לאחר שורות ה־routines מתווספות שש שורות register samples גלובליות.</p>
+      </section>
+
+      <section id="limits">
+        <h2>6. מה התרגיל עדיין לא פותר?</h2>
+        <ul>
+          <li><strong>ה־register samples גלובליים לתוכנית</strong>, לא נשמרים לכל routine. תרגיל 2 מתקן זאת.</li>
+          <li>המגבלה היא 1,000 routines; מעבר לכך המידע נחתך בשקט.</li>
+          <li>אין synchronization. המימוש מניח בפועל שאין תחרות בין threads על המונים.</li>
+          <li>instructions בלי fall-through אינן נדגמות ב־<code>IPOINT_AFTER</code>, ולכן writes שמתרחשים ב־control-flow instructions עלולים לא להיכלל.</li>
+          <li>הכלי יודע “כמה חמה function”, אך לא <em>איזה נתיב בתוכה</em> חם.</li>
+        </ul>
+        <div class="callout success"><strong>וזו בדיוק הקפיצה לתרגיל 2:</strong> עוברים מרמת routine לגרף של basic blocks וקשתות, ושומרים register samples בתוך ה־routine שאליה הם שייכים.</div>
+      </section>
+
+      <section id="project-link">
+        <h2>7. התרומה לפרויקט הסופי</h2>
+        <div class="grid">
+          <div class="card"><h3>מכניקת Pin</h3><p>רישום callbacks, העברת pointers כ־IARG ושימוש ב־runtime values הם הבסיס לכל איסוף profile.</p></div>
+          <div class="card"><h3>רעיון ה־heat</h3><p>מיון לפי עבודה דינמית מכניס את העיקרון שהאופטימיזציה צריכה להתמקד בקוד חם, לא בקוד גדול.</p></div>
+        </div>
+        <p>עם זאת, הפרויקט לא יכול לבחור de-virtualization על בסיס “routine חמה” בלבד. הוא צריך לדעת איזה indirect site חם ולאיזה target הוא מגיע — מידע שמתחיל בתרגיל 2.</p>
+      </section>
+
+      <section class="quiz" id="quiz"><h2>בדיקת הבנה</h2>
+        <details><summary>למה מוסיפים <code>BBL_NumIns</code> בכל execution ולא פשוט סופרים את מספר ה־instructions ב־routine?</summary><p>כי רוצים dynamic instruction count. BBL בתוך loop עשוי להתבצע מיליוני פעמים, בעוד BBL קר באותה routine מתבצע פעם אחת.</p></details>
+        <details><summary>למה ה־register callback מוכנס אחרי instruction?</summary><p>כדי לקבל את value שנכתב, לא את value שהיה לפני ה־write.</p></details>
+        <details><summary>מהו החיסרון המרכזי של דגימות register בתרגיל 1?</summary><p>הן גלובליות לתוכנית; אי אפשר לייחס רצף values ל־routine מסוימת. תרגיל 2 מעביר מערך samples לתוך <code>RoutineData</code>.</p></details>
+        <details><summary>Routine מכילה 10 instructions ונקראה 100 פעמים. האם <code>instructionCount</code> חייב להיות 1,000?</summary><p>לא. זה היה נכון רק אילו כל עשר ה־instructions בוצעו בכל קריאה. branches, early returns ו־loops גורמים ל־dynamic count להיות תלוי בנתיב בפועל.</p></details>
+        <details><summary>למה מעבירים ל־callback מצביע ישיר אל המונה ולא את כתובת ה־routine?</summary><p>כך analysis callback מבצע increment פשוט בלי לחפש שוב record במפה בכל execution. עבודת החיפוש נעשית בזמן instrumentation, וה־hot path נשאר קצר.</p></details>
+        <details><summary>מה יקרה אם התוכנית מרובת־threads ושני threads יגדילו יחד את אותו מונה?</summary><p><code>++</code> רגיל אינו atomic, ולכן updates עלולים ללכת לאיבוד. המימוש מתאים להנחת single-thread; לתוכנית מקבילית נדרשים counters לכל thread או synchronization.</p></details>
+        <details><summary>איך היית מסביר במשפט אחד את ההבדל בין code size לבין dynamic instruction count?</summary><p>Code size אומר כמה instructions קיימות סטטית; dynamic count אומר כמה instruction executions התרחשו בפועל, כולל חזרות של loops וקריאות חוזרות.</p></details>
+      </section>
+      <section id="code-map"><h2>מפת קוד</h2><ul class="source-list"><li><code>ex1/ex1.cpp:8–19</code> — מבני הנתונים.</li><li><code>ex1/ex1.cpp:55–81</code> — callback של routines.</li><li><code>ex1/ex1.cpp:83–112</code> — callback של traces ודגימות registers.</li><li><code>ex1/ex1.cpp:114–155</code> — מיון וכתיבת CSV.</li><li><code>ex1/rtn-output-tst.csv</code> — דוגמת פלט ממשית.</li></ul></section>
+      <nav class="pager"><a class="button" href="0001-foundations.html">→ יסודות</a><a class="button" href="0003-exercise-2.html">תרגיל 2 ←</a></nav>
+    </main>
+    <aside class="toc"><strong>תוכן הפרק</strong><a href="#goal">המטרה</a><a href="#data">מבני נתונים</a><a href="#flow">זרימת ביצוע</a><a href="#registers">Registers</a><a href="#output">פלט</a><a href="#limits">מגבלות</a><a href="#project-link">קשר לפרויקט</a><a href="#quiz">בדיקת הבנה</a></aside>
+  </div>
+</div></body></html>

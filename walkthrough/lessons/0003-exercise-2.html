@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>02 — תרגיל 2</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="page">
+  <header class="hero"><span class="eyebrow">פרק 02 • JIT Edge Profiling</span><h1>תרגיל 2 — איפה זורם הביצוע?</h1><p>הכלי עובר מחום של functions לחום של basic blocks וקשתות: כמה פעמים BBL רץ, לאיזה צד הלך branch תנאי, ולאילו targets הגיע indirect jump.</p><div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a><a class="button secondary" href="0004-exercise-3.html">הבא: תרגיל 3</a></div></header>
+  <div class="layout">
+    <main>
+      <section id="requirements">
+        <h2>1. הדרישות הרשמיות</h2>
+        <p>ליצור <code>ex2.so</code> ב־JIT mode שמייצר שני קבצים בתוך תקציב של חמש שניות על workload של <code>bzip2</code>.</p>
+        <div class="grid">
+          <div class="card"><h3><code>edge-profile.csv</code></h3><ul><li>שורה לכל BBL שבוצע.</li><li>מיון hottest → coldest.</li><li>taken/fall-through ל־conditional tail.</li><li>עד 10 targets ל־indirect tail, ממוינים לפי count.</li></ul></div>
+          <div class="card"><h3><code>rtn-output.csv</code></h3><ul><li>עד 20 values לכל register.</li><li>RAX/RBX/RCX/RDX/RSI/RDI.</li><li>average absolute delta.</li><li><strong>לכל routine בנפרד.</strong></li></ul></div>
+        </div>
+        <pre><code>&lt;bbl_addr&gt;, &lt;exec_count&gt;
+[, &lt;taken&gt;, &lt;fallthru&gt;]
+[, &lt;target_1&gt;, &lt;count_1&gt;, ... &lt;target_10&gt;, &lt;count_10&gt;]</code></pre>
+      </section>
+
+      <section id="bbl-data">
+        <h2>2. מה נשמר לכל BBL?</h2>
+        <pre><code>struct BblData {
+    ADDRINT address;
+    UINT64 execCount;
+    bool hasCondTail;
+    UINT64 takenCount, fallthruCount;
+    bool hasIndirectTail;
+    unordered_map&lt;ADDRINT, UINT64&gt; indirectTargets;
+};</code></pre>
+        <p>המפתח ב־<code>bblMap</code> הוא כתובת תחילת ה־BBL. ה־record משלב שני סוגי מידע:</p>
+        <ul><li><strong>Node heat:</strong> כמה פעמים ה־BBL כולו התבצע.</li><li><strong>Edge heat:</strong> לאיזה successor יצא הביצוע וכמה פעמים.</li></ul>
+        <div class="callout"><strong>למה edge profile שימושי יותר?</strong> optimization משנה control flow. כדי להפוך target עקיף ל־direct, או להפוך branch כדי שהנתיב החם יהיה fall-through, צריך לדעת את התפלגות הקשתות — לא רק את מספר הכניסות ל־function.</div>
+      </section>
+
+      <section id="trace">
+        <h2>3. <code>Trace</code> — לב הכלי</h2>
+        <div class="flow" style="--steps:4"><div class="step"><b>Find/create BBL record</b>כתובת ה־BBL מחברת אותו ל־<code>BblData</code>.</div><div class="step"><b>Count executions</b><code>BumpExec</code> נשתלת פעם אחת ל־BBL.</div><div class="step"><b>Classify tail</b>branch תנאי או indirect control flow.</div><div class="step"><b>Track routine state</b>instruction count ו־register writes בתוך ה־routine.</div></div>
+
+        <h3>Conditional branch</h3>
+        <pre><code>if (INS_IsBranch(tail) &amp;&amp; INS_HasFallThrough(tail)) {
+    INS_InsertCall(tail, IPOINT_BEFORE, CondBranchCb,
+                   IARG_PTR, bd,
+                   IARG_BRANCH_TAKEN,
+                   IARG_END);
+}</code></pre>
+        <p><code>IARG_BRANCH_TAKEN</code> הוא boolean runtime. callback אחד מגדיל <code>takenCount</code> או <code>fallthruCount</code>.</p>
+
+        <h3>Indirect branch</h3>
+        <pre><code>INS_InsertCall(tail, IPOINT_BEFORE, IndirectBranchCb,
+               IARG_PTR, bd,
+               IARG_BRANCH_TARGET_ADDR,
+               IARG_BRANCH_TAKEN,
+               IARG_END);</code></pre>
+        <p>ה־target אינו מקודד ב־instruction; הוא מחושב מ־register או memory בזמן ריצה. Pin מעביר את הכתובת האמיתית, והמפה מגדילה count מלא לפי הכתובת המלאה.</p>
+        <div class="callout success"><strong>זהו הזרע של de-virtualization:</strong> אם site הגיע 98% מהפעמים לאותה כתובת, TC2 יכול לבדוק את הכתובת ולנתב את המקרה החם ב־direct branch, עם fallback עקיף לשאר המקרים.</div>
+      </section>
+
+      <section id="routine-registers">
+        <h2>4. השדרוג מתרגיל 1 — samples לכל routine</h2>
+        <pre><code>struct RoutineData {
+    ...
+    RegSamples regs[NUM_TRACKED_REGS];
+};</code></pre>
+        <p>בתרגיל 1 היה מערך <code>regSamples</code> גלובלי. כאן כל <code>RoutineData</code> מחזיק שישה רצפים משלו. כאשר <code>Trace</code> מזהה את ה־routine, הוא מעביר pointer ל־<code>rtnData-&gt;regs[i]</code>.</p>
+        <p>הפלט מציג תחילה את שורת ה־routine ולאחריה שש שורות samples. לדוגמה, רצף RBX בעל delta קבוע <code>0x18</code> יכול לרמוז על מעבר במערך של records בגודל 24 bytes — אך זו פרשנות שצריך לאמת, לא עובדה שהפרופיל מוכיח לבדו.</p>
+      </section>
+
+      <section id="output">
+        <h2>5. כתיבת הפלט</h2>
+        <h3><code>WriteEdgeProfile</code></h3>
+        <ol><li>אוספת רק BBLs עם <code>execCount &gt; 0</code>.</li><li>ממיינת descending לפי heat.</li><li>כותבת address ו־count.</li><li>מוסיפה taken/fall-through כשקיים conditional tail.</li><li>ממיינת target pairs ומגבילה לעשרה.</li></ol>
+        <h3><code>WriteRtnOutput</code></h3>
+        <ol><li>ממיינת routines לפי dynamic instruction count.</li><li>מדלגת על routines שלא בוצעו.</li><li>כותבת metadata ומונים.</li><li>כותבת samples ומחשבת average absolute delta.</li></ol>
+        <p><code>Fini</code> מפעילה את שתיהן אחרי סיום התוכנית.</p>
+      </section>
+
+      <section id="jit-vs-static">
+        <h2>6. למה פלט תרגיל 2 שונה מפלט תרגיל 4?</h2>
+        <p>זו שאלה שהפכה במפורש לחלק מתרגיל 4:</p>
+        <div class="table-wrap"><table><thead><tr><th>תרגיל 2 — JIT</th><th>תרגיל 4 — Probe/TC</th></tr></thead><tbody>
+          <tr><td>Pin מגלה BBLs בזמן ריצה.</td><td>הכלי מחלק BBLs סטטית לפי routines ו־targets ידועים.</td></tr>
+          <tr><td>מכסה גם shared libraries.</td><td>מתרגם בעיקר routines ב־main executable.</td></tr>
+          <tr><td>target map מדויק ועד 10 פלטים.</td><td>שלד תרגיל 4 משתמש בארבעה buckets מקורבים.</td></tr>
+          <tr><td>profile לכל הריצה.</td><td>profile יכול להיפסק אחרי <code>-prof_time N</code>.</td></tr>
+        </tbody></table></div>
+        <p>במדידה הקיימת של תרגיל 4, 685 מתוך 870 BBLs משותפים קיבלו אותו count כאשר גבולות ה־BBL תאמו; ההבדלים הגדולים נבעו מכיסוי ו־segmentation, לא בהכרח מבאג במונים.</p>
+      </section>
+
+      <section id="limits">
+        <h2>7. הנחות ומגבלות</h2>
+        <ul>
+          <li>המפרט מניח application יחיד־thread; אין locks סביב המפות והמונים.</li>
+          <li><code>unordered_map</code> בתוך analysis callback של indirect branch עלול להיות יקר.</li>
+          <li>ה־register samples הם 20 writes ראשונים לכל register/routine, לא מדגם סטטיסטי לאורך כל הריצה.</li>
+          <li>ה־BBL identity הוא address. אם Pin יוצר חלוקות דינמיות שונות באותה כתובת, צריך להבין כיצד ה־API מאחד או מפריד אותן.</li>
+          <li>direct unconditional target ידוע סטטית ולכן הפורמט אינו מדפיס רשימת targets עבורו; ה־BBL count כבר נותן את חום הקשת.</li>
+        </ul>
+      </section>
+
+      <section id="project-link">
+        <h2>8. התרומה לפרויקט הסופי</h2>
+        <div class="grid three">
+          <div class="card"><h3>BBL heat</h3><p>קובע אילו sites שווים את מחיר האופטימיזציה.</p></div>
+          <div class="card"><h3>Edge bias</h3><p>מאפשר code reordering והיפוך Jcc כאשר taken חם מ־fall-through.</p></div>
+          <div class="card"><h3>Target frequency</h3><p>מאפשר לבחור target חם ל־de-virtualization.</p></div>
+        </div>
+        <div class="callout warning"><strong>אבל:</strong> הפרויקט לא יכול פשוט להעתיק את <code>unordered_map</code> של תרגיל 2 לתוך stub של קוד מכונה. הוא צריך מנגנון מדידה זול ומדויק בתוך TC — האתגר של תרגיל 4 ושל הרחבת ה־top-k בפרויקט.</div>
+      </section>
+
+      <section class="quiz" id="quiz"><h2>בדיקת הבנה</h2>
+        <details><summary>אם BBL בוצע 1,000 פעמים, taken=900 ו־fall-through=100, מה ניתן לעשות בפרויקט?</summary><p>אם ה־layout המקורי שם את taken כ־branch ואת fall-through כרצף, אפשר לשקול להפוך את התנאי ולהחליף יעדים כך שהקשת החמה תהפוך ל־fall-through. צריך לשמור semantics ולתקן targets.</p></details>
+        <details><summary>למה indirect target חייב להיאסף בזמן ריצה?</summary><p>כי הכתובת נקבעת מ־register/memory ולא מופיעה כ־immediate קבוע בתוך instruction. static decoder לבדו אינו יודע מה יהיה ה־target.</p></details>
+        <details><summary>מה נותן לנו מיון hottest → coldest?</summary><p>הוא מציב מיד בראש הפלט את הקוד שבו שינוי קטן יכול להשפיע על רוב זמן הריצה, וגם עוזר לבחור threshold לפרויקט.</p></details>
+        <details><summary>אם <code>execCount=500</code> ו־<code>fallthruCount=120</code> ב־BBL שמסתיים ב־Jcc, מהו <code>takenCount</code>?</summary><p>380. כל execution בוחר בדיוק אחת משתי הקשתות, ולכן <code>taken = exec - fall-through</code>.</p></details>
+        <details><summary>Site עקיף הגיע ליעד A 9,700 פעמים וליעד B 300 פעמים. מה profile מוכיח ומה הוא לא מוכיח?</summary><p>הוא מוכיח שבחלון שנמדד A קיבל 97% מן ההגעות. הוא אינו מוכיח ש־A יהיה היעד בכל input או phase עתידי, ולכן עדיין נדרש fallback ל־B וליעדים חדשים.</p></details>
+        <details><summary>למה מפת targets מדויקת ב־callback עלולה לפגוע בביצועי profiler?</summary><p>כל indirect execution עלול לבצע hash, חיפוש ולעיתים allocation. זו מדידה מדויקת אך יקרה; בפרויקט מחפשים מבנה bounded ופשוט יותר שנשאר מדויק ל־targets הנשמרים.</p></details>
+        <details><summary>למה שני profilers תקינים יכולים לדווח מספר שונה של BBLs?</summary><p>JIT ותרגום סטטי יכולים לחלק instructions לגבולות BBL שונים ולכסות images שונים. משווים counts רק לאחר שמוודאים שהכתובות והגבולות מייצגים אותו block.</p></details>
+      </section>
+      <section id="code-map"><h2>מפת קוד ומקורות</h2><ul class="source-list"><li><code>ex2/Exercise2.pdf</code> — נוסח הדרישות הרשמי.</li><li><code>ex2/ex2.cpp:13–43</code> — <code>BblData</code> ו־analysis callbacks.</li><li><code>ex2/ex2.cpp:45–94</code> — נתוני routines ו־register samples.</li><li><code>ex2/ex2.cpp:126–188</code> — instrumentation של BBLs, branches ו־registers.</li><li><code>ex2/ex2.cpp:207–285</code> — כתיבת שני קובצי הפלט.</li><li><a href="https://software.intel.com/sites/landingpage/pintool/docs/98650/Pin/doc/html/group__BBL.html">Intel Pin BBL API</a>.</li></ul></section>
+      <nav class="pager"><a class="button" href="0002-exercise-1.html">→ תרגיל 1</a><a class="button" href="0004-exercise-3.html">תרגיל 3 ←</a></nav>
+    </main>
+    <aside class="toc"><strong>תוכן הפרק</strong><a href="#requirements">דרישות</a><a href="#bbl-data">BblData</a><a href="#trace">Trace</a><a href="#routine-registers">Registers</a><a href="#output">פלט</a><a href="#jit-vs-static">השוואה לתרגיל 4</a><a href="#limits">מגבלות</a><a href="#project-link">קשר לפרויקט</a><a href="#quiz">בדיקת הבנה</a></aside>
+  </div>
+</div></body></html>

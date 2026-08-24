@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>04 — תרגיל 4</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="page">
+  <header class="hero"><span class="eyebrow">פרק 04 • Probe-mode Profiling</span><h1>תרגיל 4 — ה־TC מודד את עצמו</h1><p>לוקחים את המתרגם של תרגיל 3, מוסיפים profiling stubs בתוך הקוד המתורגם, מתקנים את תשתית התרגום, ואז מקטינים overhead בעזרת liveness ו־dead-register elimination.</p><div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a><a class="button secondary" href="0006-final-project.html">הבא: הפרויקט</a></div></header>
+  <div class="layout">
+    <main>
+      <section id="requirements"><h2>1. הדרישות</h2>
+        <ol><li>לרוץ בהצלחה על כל binaries של תרגיל 3.</li><li>לא לשמור/לשחזר registers מתים שבהם משתמש instrumentation code.</li><li>להפיק <code>edge-profile.csv</code>, hottest → coldest, עם taken/fall-through ועד 4 targets עקיפים.</li><li>להסביר הבדלים גדולים לעומת profiler קודם.</li><li>להציג שיפור של לפחות 5% במדד performance אחד לעומת הגרסה הלא־מותאמת.</li></ol>
+        <div class="callout"><strong>האתגר הכפול:</strong> ה־Pintool גם מתרגם code נכון וגם מזריק code נוסף שרץ בקצב של היישום. כל bug ב־stub הוא bug בתוכנית; כל instruction מיותרת ב־stub חם היא overhead.</div>
+      </section>
+
+      <section id="architecture"><h2>2. הארכיטקטורה</h2>
+        <div class="flow" style="--steps:5"><div class="step"><b>Static BBL discovery</b>חלוקת routines ל־basic blocks.</div><div class="step"><b>Profiling stub</b>לפני סוף BBL: counter ויעד עקיף.</div><div class="step"><b>Translate to TC</b>XED, chaining, fixups, copy.</div><div class="step"><b>Run for N sec</b>הקוד המתורגם אוסף profile.</div><div class="step"><b>Patch stub heads</b>jump של 5 bytes מדלג על profiling.</div></div>
+        <p>ל־<code>instr_map_t</code> נוספו:</p>
+        <ul><li><code>ins_type == ProfilingIns</code> כדי לזהות code שהכלי הוסיף.</li><li><code>bbl_num</code> לקישור instruction ל־record של BBL.</li><li><code>xed_category</code> לזיהוי WIDENOP, branch, ret ועוד.</li></ul>
+        <pre><code>typedef struct {
+  UINT64 counter;
+  UINT64 fallthru_counter;
+  ADDRINT targ_addr[4];
+  UINT64 targ_count[4];
+  unsigned starting_ins_entry;
+  unsigned terminating_ins_entry;
+} bbl_map_t;</code></pre>
+      </section>
+
+      <section id="stubs"><h2>3. איך profiling stub עובד?</h2>
+        <p>כל stub מתחיל ב־wide NOP של לפחות 5 bytes. בהתחלה הוא אינו עושה דבר, ולכן הביצוע ממשיך אל גוף ה־stub. לאחר <code>-prof_time</code>, ה־NOP נדרס ב־<code>JMP rel32</code> שמדלג מעל כל entries מסוג <code>ProfilingIns</code>.</p>
+        <pre><code>[wide NOP: reserved patch site]
+[save live scratch state]
+[optional: compute indirect target + update target table]
+[increment BBL/fall-through counter]
+[restore live scratch state]
+[original instruction continues]</code></pre>
+        <h3>ספירת BBL</h3>
+        <p>הגרסה השמרנית שומרת RAX, קוראת counter, מגדילה עם <code>LEA</code> שאינה משנה flags, כותבת ומחזירה RAX. אם ה־flags מתים, האופטימיזציה יכולה להשתמש ב־instruction יחידה:</p>
+        <pre><code>ADD qword ptr [RIP + counter_disp], 1</code></pre>
+        <p>ה־ADD משנה flags — ולכן היא חוקית רק כאשר liveness מוכיחה שהם מתים.</p>
+
+        <h3>יעד indirect jump</h3>
+        <p>ה־stub מחשב את target האמיתי אל RAX, שומר אותו, משתמש בשתי הסיביות הנמוכות כ־bucket index ‏0–3, שומר address ומגדיל count. המיסוך נעשה בגרסה המתוקנת עם <code>SHLX/SHRX</code> שאינן משנות RFLAGS.</p>
+        <div class="callout warning"><strong>המפה מקורבת:</strong> <code>target &amp; 3</code> גורם ל־targets שונים להתנגש. זה מספיק לדו״ח גס של תרגיל 4, אך לא בטוח לשריפת target בתוך de-virtualization בפרויקט.</div>
+      </section>
+
+      <section id="liveness"><h2>4. האופטימיזציה — Liveness של scratch state</h2>
+        <p>השאלה בכל נקודת stub היא: “אם אשמיד כרגע את RAX/RBX/RCX או flags, האם הקוד המקורי ישתמש בערך הישן לפני שייכתב ערך חדש?” אם לא — הערך מת, ואין צורך לשמור ולשחזר אותו.</p>
+        <h3>איסוף read/kill</h3>
+        <ul><li>read של alias כמו AL/EAX נספר כ־read של RAX המלא לצורך שמרנות.</li><li>רק write של 64-bit או 32-bit zero-extending הורג register מלא.</li><li>write של 8/16-bit אינו הורג את החלק העליון.</li><li>predicated write כגון CMOV אינו kill ודאי.</li><li>flags נעקבים כיחידה של CF/PF/AF/ZF/SF/OF בעזרת metadata של XED.</li></ul>
+        <h3>משוואת dataflow</h3>
+        <pre><code>live_in[i] = reads[i] ∪ (live_out[i] − kills[i])</code></pre>
+        <p>האלגוריתם רץ backwards עד fixpoint, משום ש־loops יוצרים תלות מעגלית. ב־branch תנאי, <code>live_out</code> הוא union של taken successor ו־fall-through successor.</p>
+        <h3>Boundary conditions שמרניים</h3>
+        <div class="table-wrap"><table><thead><tr><th>Control flow</th><th>מה נחשב live</th><th>למה</th></tr></thead><tbody>
+          <tr><td><code>RET</code></td><td>RAX ו־RBX</td><td>return value ו־callee-saved state.</td></tr>
+          <tr><td><code>CALL</code></td><td>מודל SysV: callee עשוי לקרוא RAX/RCX; RBX נשמר</td><td>argument/caller/callee conventions.</td></tr>
+          <tr><td>Indirect JMP</td><td>RAX/RBX/RCX ו־flags</td><td>ה־target אינו ידוע ועשוי להשתמש בכולם.</td></tr>
+          <tr><td>Target מחוץ ל־routine</td><td>הכול</td><td>אין visibility על successor.</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="fixes"><h2>5. תיקוני נכונות מרכזיים</h2>
+        <p>ה־README המקומי מתעד עשרה תיקונים. אלה החשובים ביותר להבנת הפרויקט:</p>
+        <div class="table-wrap"><table><thead><tr><th>כשל</th><th>שורש הבעיה</th><th>הפתרון</th></tr></thead><tbody>
+          <tr><td>Jcc ל־untranslated code</td><td>Jcc אינו תומך memory-indirect fallback.</td><td>rel32 חזרה לכתובת המקורית.</td></tr>
+          <tr><td>Startup corruption</td><td>תרגום <code>.plt/.init/.fini</code>.</td><td>להשאיר stubs אלה מקוריים.</td></tr>
+          <tr><td>קפיצה לכתובת זבל</td><td>overflow של LOOP/JRCXZ disp8.</td><td>לא לתרגם routines אלה ולאמת targets.</td></tr>
+          <tr><td>קריסה אקראית ב־static gcc</td><td>mmap של TC חסם את צמיחת <code>brk</code>.</td><td>מיקום region בערך 1GB מעל image.</td></tr>
+          <tr><td>קריסה בזמן כיבוי profile</td><td>כתיבת JMP בן 5 bytes בזמן app fetch.</td><td>הכנת patch ב־thread והחלתו ב־signal handler של app thread.</td></tr>
+          <tr><td>PIE indirect jump</td><td>absolute target לא נכנס ב־disp32.</td><td>טעינת address ב־64-bit immediate אל scratch register.</td></tr>
+          <tr><td>Wrong output ב־sgcc_peak</td><td><code>AND RAX,3</code> דרס flags חיים.</td><td>מיסוך flag-free באמצעות SHLX/SHRX ושימור flags.</td></tr>
+          <tr><td>Fall-through מעבר לסוף routine</td><td>ב־TC ה־bytes הבאים שייכים ל־routine אחרת.</td><td>הוספת JMP מפורש לכתובת ההמשך המקורית/מתורגמת.</td></tr>
+        </tbody></table></div>
+        <div class="callout danger"><strong>לקח לפרויקט:</strong> כל transformation חדשה חייבת להיבדק לא רק ברמת “ה־bytes ניתנים לפענוח”, אלא ברמת targets, live state, fallbacks ופלט האפליקציה.</div>
+      </section>
+
+      <section id="profile"><h2>6. בניית <code>edge-profile.csv</code></h2>
+        <p><code>dump_profile</code> עובר על <code>bbl_map</code>, מוצא את ה־instruction המקורית הראשונה שאינה stub, ומחשב:</p>
+        <ul><li>conditional: <code>taken = counter - fallthru_counter</code>.</li><li>unconditional/ret: כל execution נחשב taken.</li><li>call או סוף סטטי אחר: כל execution נחשב fall-through.</li></ul>
+        <p>target buckets לא ריקים ממוינים לפי count, וכל השורות ממוינות hottest → coldest.</p>
+      </section>
+
+      <section id="performance"><h2>7. תוצאות performance הקיימות</h2>
+        <p>המדידה השוותה baseline עם כל תיקוני הנכונות אך ללא dead-register optimization מול הגרסה המותאמת. הריצות היו interleaved והושוו medians.</p>
+        <div class="grid"><div class="card"><h3>bzip2</h3><div class="metric">10.5%</div><p>elapsed: ‏9.75s → 8.73s. מתוך 4,140 stubs, ‏2,822 הצטמצמו ל־NOP + ADD יחידה.</p></div><div class="card"><h3>sgcc_base</h3><div class="metric">11.6%</div><p>elapsed: ‏61.21s → 54.11s. גם user time השתפר ב־11.2%.</p></div></div>
+        <p class="small muted">המספרים לקוחים מ־<code>ex4/src/README.txt</code> העדכני ומגובים גם בדו״ח האימות המוקדם <code>EX4_VERDICT_REPORT.md</code>. הם שייכים לתרגיל 4, לא לפרויקט הסופי.</p>
+      </section>
+
+      <section id="project-link"><h2>8. התרומה לפרויקט הסופי</h2>
+        <div class="grid three"><div class="card"><h3>Profile in translated code</h3><p>הפרויקט צריך לאסוף data ב־TC1 לפני בניית TC2.</p></div><div class="card"><h3>Safe code emission</h3><p>כל guard או reorder חייב לשמור registers/flags ולתקן displacement.</p></div><div class="card"><h3>Runtime patching</h3><p>wide NOP ו־patching מאפשרים מעבר ממצב מדידה למצב optimized.</p></div></div>
+        <div class="callout success"><strong>תרגיל 4 הוא הבסיס הקרוב ביותר לפרויקט:</strong> הוא כבר משלב translator + profiler + timer + performance methodology. הפרויקט מוסיף “השתמש בפרופיל כדי לשנות את הקוד ב־TC2”, במקום רק להפסיק למדוד.</div>
+      </section>
+
+      <section class="quiz" id="quiz"><h2>בדיקת הבנה</h2>
+        <details><summary>למה <code>ADD [counter],1</code> אינה תמיד בטוחה?</summary><p>היא משנה status flags. אם successor קורא flags שנוצרו לפני ה־stub, ה־ADD משנה semantics. משתמשים בה רק כש־flags provably dead.</p></details>
+        <details><summary>למה wide NOP היא “load-bearing”?</summary><p>היא שומרת מקום ידוע של לפחות 5 bytes שאפשר לדרוס ב־JMP rel32 מבלי להזיז את יתר הקוד. גם כיבוי profiling וגם gearing ל־TC2 תלויים במקום השמור.</p></details>
+        <details><summary>למה profile של תרגיל 4 אינו זהה בהכרח לתרגיל 2?</summary><p>JIT ו־Probe בונים גבולות BBL וכיסוי שונים; תרגיל 4 מתרגם בעיקר main image ומודד חלון זמן, בעוד תרגיל 2 מגלה code דינמית ומכסה libraries.</p></details>
+        <details><summary>מתי liveness מאפשר למחוק save וגם restore של register?</summary><p>כאשר ה־value הישן מת בנקודת ה־stub: אין שום path שבו הוא ייקרא לפני overwrite. אז ה־stub רשאי להשתמש ב־register כ־scratch בלי לשמר אותו.</p></details>
+        <details><summary>למה patch של JMP בן חמישה bytes מתוך timer thread עלול לקרוס?</summary><p>Thread היישום יכול fetch את ה־opcode החדש יחד עם displacement שנכתב רק חלקית. המימוש מכין את ה־bytes מראש ומבצע את ה־patch ב־signal handler על application thread.</p></details>
+        <details><summary>למה indirect jump מחייב הנחת liveness שמרנית במיוחד?</summary><p>ה־target אינו ידוע סטטית ועלול לקרוא registers ו־flags שהיו חיים לפני הקפיצה. תרגיל 4 אף מצא מקרה אמיתי שבו <code>sgcc_peak</code> נשא flags דרך indirect jump.</p></details>
+        <details><summary>איך מוכיחים שהאופטימיזציה של stubs לא רק מהירה אלא גם נכונה?</summary><p>משאירים profiling פעיל לאורך כל הריצה, משווים את profile הכלי המותאם ל־baseline על workload דטרמיניסטי, ובמקביל דורשים פלט תוכנית byte-identical ו־TC verifier נקי.</p></details>
+      </section>
+      <section id="code-map"><h2>מפת קוד ומקורות</h2><ul class="source-list"><li><code>ex4/Exercise4.pdf</code> — דרישות.</li><li><code>ex4/src/bprofile.cpp:208–249</code> — metadata ו־<code>bbl_map_t</code>.</li><li><code>ex4/src/bprofile.cpp:434–499</code> — CSV.</li><li><code>ex4/src/bprofile.cpp:587–653</code> — כיבוי profiling.</li><li><code>ex4/src/bprofile.cpp:783–949</code> — liveness.</li><li><code>ex4/src/bprofile.cpp:964–1400</code> — יצירת stubs.</li><li><code>ex4/src/bprofile.cpp:2403–2588</code> — pipeline ואימות TC.</li><li><code>ex4/src/README.txt</code> — תיקונים, הבדלים ומדידות בגרסה העדכנית.</li><li><code>EX4_VERDICT_REPORT.md</code> — ביקורת אימות מוקדמת במראה של ה־vault.</li></ul></section>
+      <nav class="pager"><a class="button" href="0004-exercise-3.html">→ תרגיל 3</a><a class="button" href="0006-final-project.html">הפרויקט ←</a></nav>
+    </main>
+    <aside class="toc"><strong>תוכן הפרק</strong><a href="#requirements">דרישות</a><a href="#architecture">ארכיטקטורה</a><a href="#stubs">Stubs</a><a href="#liveness">Liveness</a><a href="#fixes">תיקוני נכונות</a><a href="#profile">CSV</a><a href="#performance">ביצועים</a><a href="#project-link">קשר לפרויקט</a><a href="#quiz">בדיקת הבנה</a></aside>
+  </div>
+</div></body></html>

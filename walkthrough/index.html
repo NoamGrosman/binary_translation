@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>מסלול הלימוד — תרגום בינארי דינמי</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">מ־0 להבנת הפרויקט • עברית • RTL</span>
+    <h1>ארבעה תרגילים.<br>מתרגם אחד שלם.</h1>
+    <p>מסלול לימוד שמפרק את הקוד שכבר נמצא בתיקייה: מה־Pintool הראשון שמודד routines, דרך תרגום ל־Translation Cache, ועד TC2 שמיועד להריץ קוד מותאם לפרופיל.</p>
+    <div class="toolbar">
+      <a class="button" href="lessons/0001-foundations.html">התחלה: יסודות ומפת הדרך</a>
+      <a class="button secondary" href="lessons/0006-final-project.html">ישר לפרויקט הסופי</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" style="margin-top:30px">
+      <h2>הסיפור במשפט אחד</h2>
+      <div class="flow" style="--steps:5">
+        <div class="step"><b>תרגיל 1</b>למדנו לצפות בתוכנית בזמן ריצה ולספור עבודה ברמת routine.</div>
+        <div class="step"><b>תרגיל 2</b>עברנו לגרף הבקרה: BBLs, קשתות, תנאים ויעדים עקיפים.</div>
+        <div class="step"><b>תרגיל 3</b>הפסקנו רק לצפות והתחלנו להעתיק ולקודד מחדש instructions אל TC.</div>
+        <div class="step"><b>תרגיל 4</b>שתלנו profiling בתוך הקוד המתורגם והקטנו את מחירו בעזרת liveness.</div>
+        <div class="step"><b>הפרויקט</b>משתמש בפרופיל כדי לבנות TC2 טוב יותר ולהעביר אליו את הביצוע.</div>
+      </div>
+      <div class="callout success"><strong>מטרת המסלול:</strong> בסוף אפשר להסביר לא רק “מה הקוד עושה”, אלא גם “למה כל שכבה הכרחית לפרויקט” ו“מה עלול לשבור נכונות”.</div>
+    </section>
+
+    <section class="panel">
+      <h2>איך ללמוד מהמסמך</h2>
+      <div class="grid three">
+        <div class="card"><span class="number">1</span><strong>קריאה ראשונה</strong><p>עברו לפי הסדר. כל פרק מניח רק את הפרקים שלפניו.</p></div>
+        <div class="card"><span class="number">2</span><strong>קריאה עם הקוד</strong><p>פתחו ליד כל פרק את הקובץ המצוין ב“מפת הקוד” ועקבו אחר הפונקציות.</p></div>
+        <div class="card"><span class="number">3</span><strong>תרגול הגנה</strong><p>פתחו את שאלות הבדיקה בתחתית כל פרק ונסו לענות לפני הצגת התשובה.</p></div>
+      </div>
+      <div class="toolbar"><a class="button" href="reference/glossary.html">מילון מונחים מהיר</a></div>
+    </section>
+
+    <section class="panel">
+      <h2>הפרקים</h2>
+      <div class="lesson-list">
+        <a class="lesson-link" href="lessons/0001-foundations.html"><span class="idx">00</span><span><strong>יסודות ומפת הדרך</strong><span class="muted">Pin, JIT, Probe, TC, BBL, instrumentation ו־analysis.</span></span><span class="arrow">←</span></a>
+        <a class="lesson-link" href="lessons/0002-exercise-1.html"><span class="idx">01</span><span><strong>תרגיל 1 — Routine profiler</strong><span class="muted">ספירת קריאות, instructions ודגימות registers.</span></span><span class="arrow">←</span></a>
+        <a class="lesson-link" href="lessons/0003-exercise-2.html"><span class="idx">02</span><span><strong>תרגיל 2 — Edge profiler ב־JIT</strong><span class="muted">BBL heat, taken/fall-through ויעדים עקיפים.</span></span><span class="arrow">←</span></a>
+        <a class="lesson-link" href="lessons/0004-exercise-3.html"><span class="idx">03</span><span><strong>תרגיל 3 — מתרגם Probe-mode</strong><span class="muted">decode, IR, relocation, TC, chaining ותיקון ה־PLT.</span></span><span class="arrow">←</span></a>
+        <a class="lesson-link" href="lessons/0005-exercise-4.html"><span class="idx">04</span><span><strong>תרגיל 4 — Profiling בתוך TC</strong><span class="muted">stubs, liveness, dead-register optimization והפסקת profiling.</span></span><span class="arrow">←</span></a>
+        <a class="lesson-link" href="lessons/0006-final-project.html"><span class="idx">P</span><span><strong>הפרויקט הסופי — Gearing אל TC2</strong><span class="muted">exact top-4, de-virtualization, hot-path reordering ותוצאות מאומתות.</span></span><span class="arrow">←</span></a>
+        <a class="lesson-link" href="lessons/0007-defense.html"><span class="idx">8m</span><span><strong>תסריט הגנה ושאלות קשות</strong><span class="muted">מבנה לסרטון בן שמונה דקות ו־Q&amp;A מוכן.</span></span><span class="arrow">←</span></a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>מצב התיקייה — חשוב לפני שמתחילים</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>רכיב</th><th>מה נמצא בפועל</th><th>משמעות</th></tr></thead>
+        <tbody>
+          <tr><td>תרגילים 1–2</td><td>קוד, binaries וקובצי profile</td><td>אפשר ללמוד את הזרימה ולראות פלט ממשי.</td></tr>
+          <tr><td>תרגיל 3</td><td>הגשה מתוקנת וגם <code>src_fixed</code> ניסויי</td><td>הפרק מבדיל במפורש בין תיקון המטלה לבין ההרחבות המאוחרות.</td></tr>
+          <tr><td>תרגיל 4</td><td>מימוש, <code>README.txt</code>, מדידות ודו״ח אימות</td><td>הקוד העדכני תואם לוגית למראה הקוד שעליה נכתב הפרק; השינויים הם ניסוח הערות בלבד.</td></tr>
+          <tr><td>הפרויקט</td><td><code>project.cpp</code>, baseline, שני קובצי <code>.so</code>, README, goldens, scripts, dumps, מדידות ו־audit</td><td>הפרק מסביר את המימוש הקיים ואת תוצאותיו, ומסמן בנפרד את ממצאי ה־audit שעדיין פתוחים.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><strong>מקור האמת לקוד:</strong> תיקיית WSL ב־<code>/home/noamgrosman/technionCourses/binary_translation</code>. קובצי תרגילים 1–3 זהים למראה שב־vault מלבד סיומות שורה.</div>
+    </section>
+  </main>
+  <footer>נבנה מתוך קוד המטלות והמפרטים שבתיקייה • מומלץ להדפיס דרך הדפדפן לקבלת PDF נקי</footer>
+</div>
+</body>
+</html>

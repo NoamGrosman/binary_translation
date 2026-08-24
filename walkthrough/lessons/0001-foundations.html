@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>00 — יסודות ומפת הדרך</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">פרק 00 • היסודות</span>
+    <h1>מה בכלל קורה כאן?</h1>
+    <p>לפני שנכנסים לקוד: מהו Pintool, מה ההבדל בין JIT ל־Probe, מהו Translation Cache, ואיך instruction הופכת לנתון שאפשר להזיז, למדוד ולשנות.</p>
+    <div class="toolbar"><a class="button" href="../index.html">חזרה למסלול</a><a class="button secondary" href="0002-exercise-1.html">הבא: תרגיל 1</a></div>
+  </header>
+
+  <div class="layout">
+    <main>
+      <section id="mental-model">
+        <h2>1. המודל המנטלי</h2>
+        <p class="lead">התוכנית המקורית היא אוסף בתים של מכונת x86-64. Pin יושב בין קובץ ההרצה לבין המעבד ונותן לנו לצפות בקוד, להוסיף לו פעולות, או להפנות את הביצוע לעותק חדש.</p>
+        <div class="flow" style="--steps:4">
+          <div class="step"><b>Original binary</b>בתים וקוד מכונה כפי שקימפל ה־compiler.</div>
+          <div class="step"><b>Decode</b>פענוח הבתים ל־instructions, operands, targets וקטגוריות.</div>
+          <div class="step"><b>Transform</b>הוספת counters, שינוי branch או סידור מחדש.</div>
+          <div class="step"><b>Translation Cache</b>אזור זיכרון executable שבו נשמר ומבוצע הקוד החדש.</div>
+        </div>
+        <div class="callout"><strong>העיקרון המאחד:</strong> “translate once, execute many”. עלות הבנייה משתלמת רק אם הקוד המתורגם ירוץ שוב ושוב.</div>
+      </section>
+
+      <section id="pin">
+        <h2>2. Pin בשתי צורות עבודה</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>JIT mode</h3>
+            <p>Pin מגלה code בזמן ריצה, בונה traces ו־BBLs בקוד cache פנימי, ומכניס calls לפונקציות analysis שב־Pintool.</p>
+            <ul><li>כיסוי דינמי רחב, כולל shared libraries.</li><li>Pin מטפל בשמירת state סביב analysis calls.</li><li>מתאים במיוחד ל־profiling — תרגילים 1–2.</li></ul>
+            <pre><code>TRACE_AddInstrumentFunction(Trace, 0);
+PIN_StartProgram();</code></pre>
+          </div>
+          <div class="card">
+            <h3>Probe mode</h3>
+            <p>התוכנית רצה כמעט native. Pin מחליף תחילת routine ב־jump קצר לכתובת חלופית; האחריות על תקינות הקוד החדש עוברת אלינו.</p>
+            <ul><li>פחות overhead.</li><li>Static discovery עלול לפספס גבולות.</li><li>relocations, flags ו־registers הם באחריות המתרגם — תרגילים 3–4 והפרויקט.</li></ul>
+            <pre><code>RTN_ReplaceProbed(rtn, translated_addr);
+PIN_StartProgramProbed();</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="hierarchy">
+        <h2>3. ההיררכיה שצריך להכיר</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>מושג</th><th>משמעות</th><th>איפה פוגשים אותו</th></tr></thead>
+          <tbody>
+            <tr><td><code>IMG</code></td><td>Image שנטען: executable או library.</td><td>בחירת ה־main executable בתרגילים 3–4.</td></tr>
+            <tr><td><code>SEC</code></td><td>Section בתוך image, למשל <code>.text</code> או <code>.plt</code>.</td><td>סינון קוד executable והחרגת bootstrap stubs.</td></tr>
+            <tr><td><code>RTN</code></td><td>Routine/function כפי ש־Pin זיהה.</td><td>ספירת calls בתרגיל 1 והחלפה ב־Probe.</td></tr>
+            <tr><td><code>TRACE</code></td><td>רצף בעל כניסה אחת וכמה יציאות ש־Pin בונה ב־JIT.</td><td>callback בשם <code>Trace</code> בתרגילים 1–2.</td></tr>
+            <tr><td><code>BBL</code></td><td>Basic block: כניסה אחת, יציאה אחת; נספר כיחידה.</td><td>ליבת ה־edge profile והאופטימיזציות.</td></tr>
+            <tr><td><code>INS</code></td><td>Instruction יחידה של x86.</td><td>בדיקת register writes, branches, operands ו־XED.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="instrumentation">
+        <h2>4. Instrumentation מול Analysis</h2>
+        <p>זו הבחנה שחוזרת כמעט בכל שורת Pin:</p>
+        <div class="grid">
+          <div class="card"><h3>Instrumentation time</h3><p>ה־Pintool מסתכל על מבנה הקוד ומחליט <em>איפה</em> לשתול עבודה. לדוגמה, <code>BBL_InsertCall</code> מוסיף callback לכל BBL.</p></div>
+          <div class="card"><h3>Analysis time</h3><p>הקוד שנשתל רץ בכל פעם שהיישום מגיע לנקודה. לדוגמה, <code>BumpExec</code> מגדיל counter בזמן ריצה.</p></div>
+        </div>
+        <pre><code>// instrumentation: runs when Pin builds a trace
+BBL_InsertCall(bbl, IPOINT_ANYWHERE, AFUNPTR(BumpExec),
+               IARG_PTR, &amp;data.execCount, IARG_END);
+
+// analysis: runs whenever that BBL executes
+VOID BumpExec(UINT64* p) { (*p)++; }</code></pre>
+        <div class="callout warning"><strong>למה זה חשוב לביצועים?</strong> instrumentation רצה מעט פעמים; analysis עלולה לרוץ מיליוני פעמים. לכן גם instruction אחת מיותרת בתוך stub חם יכולה להיות יקרה.</div>
+      </section>
+
+      <section id="relocation">
+        <h2>5. למה אי אפשר פשוט לעשות <code>memcpy</code> לקוד?</h2>
+        <p>כתובות יחסיות תלויות במקום שבו instruction נמצאת. אם מעבירים אותה מכתובת מקורית אל TC, אותו displacement עלול להצביע ליעד אחר.</p>
+        <div class="grid three">
+          <div class="card"><h3>Direct branch</h3><p><code>Jcc/JMP/CALL rel32</code> שומר מרחק יחסי אל target. צריך לחשב מרחק חדש.</p></div>
+          <div class="card"><h3>RIP-relative data</h3><p><code>MOV rax,[rip+disp]</code> מצביע לנתון לפי RIP החדש. צריך לקודד displacement חדש.</p></div>
+          <div class="card"><h3>Target שלא תורגם</h3><p>אם היעד נשאר בקוד המקורי, צריך branch חזרה למקור — לעיתים דרך טבלת כתובות.</p></div>
+        </div>
+        <pre><code>new_disp = target_address - new_instruction_address - new_instruction_size</code></pre>
+        <p>זו הסיבה שתרגיל 3 בונה <code>instr_map</code>, מבצע chaining, מעריך כתובות, מתקן displacements בכמה איטרציות ורק אז כותב את הבתים ל־TC.</p>
+      </section>
+
+      <section id="correctness">
+        <h2>6. חוזה הנכונות</h2>
+        <p>מתרגם נחשב נכון רק אם התוכנית אינה יכולה להבחין שהקוד הועבר או שונה.</p>
+        <ul>
+          <li>אותם values ב־registers החיים.</li>
+          <li>אותם status flags כשקוד המשך משתמש בהם.</li>
+          <li>אותו control flow, גם ל־target נדיר שלא הופיע בפרופיל.</li>
+          <li>אותו stack ו־return address, במיוחד סביב <code>CALL</code>/<code>RET</code>.</li>
+          <li>אותו פלט byte-for-byte ו־exit code תקין.</li>
+        </ul>
+        <div class="callout danger"><strong>“התוכנית לא קרסה” אינו מבחן מספיק.</strong> תרגיל 4 תיעד מקרה שבו clobber של RFLAGS יצר פלט שגוי למרות שהריצה הסתיימה. ההשוואה ל־native golden היא מקור האמת.</div>
+      </section>
+
+      <section id="map">
+        <h2>7. מפת הדרך</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>שלב</th><th>השאלה שעליה הוא עונה</th><th>היכולת שנלקחת לפרויקט</th></tr></thead>
+          <tbody>
+            <tr><td>תרגיל 1</td><td>איך מכניסים מדידה בלי לשנות ידנית את התוכנית?</td><td>Pin callbacks, counters, runtime state.</td></tr>
+            <tr><td>תרגיל 2</td><td>איך מתארים בפועל את זרימת הבקרה החמה?</td><td>BBL/edge profile ויעדים עקיפים.</td></tr>
+            <tr><td>תרגיל 3</td><td>איך מעתיקים קוד למקום חדש ושומרים על semantics?</td><td>IR, XED, relocation, TC ו־probe commit.</td></tr>
+            <tr><td>תרגיל 4</td><td>איך אוספים profile מתוך הקוד המתורגם במחיר נמוך?</td><td>profiling stubs, liveness, patching וביצועים.</td></tr>
+            <tr><td>פרויקט</td><td>איך משתמשים בנתונים כדי לייצר גרסה מהירה יותר?</td><td>TC2, de-virtualization, reordering ומדידה.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section class="quiz" id="quiz">
+        <h2>בדיקת הבנה</h2>
+        <details><summary>למה תרגילים 1–2 יכולים להסתפק ב־callbacks ואילו תרגיל 3 צריך XED?</summary><p>ב־JIT mode, Pin בונה וממקם את הקוד ומאפשר להכניס analysis calls. בתרגיל 3 אנחנו עצמנו מעתיקים instructions לכתובות חדשות; לכן חייבים לפענח, לקודד מחדש ולתקן address-dependent fields.</p></details>
+        <details><summary>מה ההבדל בין BBL ל־routine?</summary><p>routine היא פונקציה שלמה כפי שזוהתה בסמלים/ב־static discovery. BBL הוא רצף קטן עם כניסה אחת ויציאה אחת. routine כוללת בדרך כלל BBLs רבים.</p></details>
+        <details><summary>מהו מבחן הנכונות החשוב ביותר בפרויקט?</summary><p>exit code אפס ופלט תוכנית byte-identical ל־native golden בכל ריצה נמדדת. dumps ו־verifiers מסבירים את התקינות, אך אינם מחליפים את התוצאה החיצונית.</p></details>
+      </section>
+
+      <section id="sources">
+        <h2>מקורות לפרק</h2>
+        <ul class="source-list">
+          <li><a href="https://software.intel.com/sites/landingpage/pintool/docs/99633/Pin/doc/html/index.html">Intel Pin 4.0 User Guide</a> — מודל JIT, traces ו־instrumentation.</li>
+          <li><a href="https://software.intel.com/sites/landingpage/pintool/docs/98869/Pin/doc/html/group__RTN.html">Intel Pin RTN API</a> — החלפת routines ב־Probe mode.</li>
+          <li><a href="https://intelxed.github.io/ref-manual/">Intel XED User Guide</a> — decode/encode של x86.</li>
+          <li>קוד מקומי: <code>ex1/ex1.cpp</code>, <code>ex2/ex2.cpp</code>, <code>ex3/src/btranslate.cpp</code>, <code>ex4/src/bprofile.cpp</code>.</li>
+        </ul>
+      </section>
+
+      <nav class="pager"><a class="button" href="../index.html">→ חזרה למסלול</a><a class="button" href="0002-exercise-1.html">תרגיל 1 ←</a></nav>
+    </main>
+
+    <aside class="toc">
+      <strong>תוכן הפרק</strong>
+      <a href="#mental-model">המודל המנטלי</a><a href="#pin">JIT מול Probe</a><a href="#hierarchy">היררכיית Pin</a><a href="#instrumentation">Instrumentation/Analysis</a><a href="#relocation">Relocation</a><a href="#correctness">חוזה הנכונות</a><a href="#map">מפת הדרך</a><a href="#quiz">בדיקת הבנה</a>
+    </aside>
+  </div>
+</div>
+</body>
+</html>
